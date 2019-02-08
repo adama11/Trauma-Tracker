@@ -1,0 +1,632 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		55D215DC220D6B8500915A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D215DB220D6B8500915A20 /* AppDelegate.swift */; };
+		55D215DE220D6B8500915A20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D215DD220D6B8500915A20 /* ViewController.swift */; };
+		55D215E1220D6B8500915A20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D215DF220D6B8500915A20 /* Main.storyboard */; };
+		55D215E3220D6B8800915A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55D215E2220D6B8800915A20 /* Assets.xcassets */; };
+		55D215E6220D6B8800915A20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D215E4220D6B8800915A20 /* LaunchScreen.storyboard */; };
+		55D215EB220D6B8800915A20 /* Trauma Tracker WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 55D215EA220D6B8800915A20 /* Trauma Tracker WatchKit App.app */; };
+		55D215F1220D6B8800915A20 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D215EF220D6B8800915A20 /* Interface.storyboard */; };
+		55D215F3220D6B8900915A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55D215F2220D6B8900915A20 /* Assets.xcassets */; };
+		55D215FA220D6B8900915A20 /* Trauma Tracker WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 55D215F9220D6B8900915A20 /* Trauma Tracker WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		55D215FF220D6B8900915A20 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D215FE220D6B8900915A20 /* InterfaceController.swift */; };
+		55D21601220D6B8900915A20 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D21600220D6B8900915A20 /* ExtensionDelegate.swift */; };
+		55D21603220D6B8900915A20 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D21602220D6B8900915A20 /* NotificationController.swift */; };
+		55D21605220D6B8900915A20 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D21604220D6B8900915A20 /* ComplicationController.swift */; };
+		55D21607220D6B8A00915A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55D21606220D6B8A00915A20 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		55D215EC220D6B8800915A20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55D215D0220D6B8500915A20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55D215E9220D6B8800915A20;
+			remoteInfo = "Trauma Tracker WatchKit App";
+		};
+		55D215FB220D6B8900915A20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55D215D0220D6B8500915A20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55D215F8220D6B8900915A20;
+			remoteInfo = "Trauma Tracker WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		55D2160F220D6B8A00915A20 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				55D215FA220D6B8900915A20 /* Trauma Tracker WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55D21613220D6B8A00915A20 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				55D215EB220D6B8800915A20 /* Trauma Tracker WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		55D215D8220D6B8500915A20 /* Trauma Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trauma Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55D215DB220D6B8500915A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		55D215DD220D6B8500915A20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		55D215E0220D6B8500915A20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		55D215E2220D6B8800915A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		55D215E5220D6B8800915A20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		55D215E7220D6B8800915A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55D215EA220D6B8800915A20 /* Trauma Tracker WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trauma Tracker WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55D215F0220D6B8800915A20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		55D215F2220D6B8900915A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		55D215F4220D6B8900915A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55D215F9220D6B8900915A20 /* Trauma Tracker WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Trauma Tracker WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55D215FE220D6B8900915A20 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		55D21600220D6B8900915A20 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		55D21602220D6B8900915A20 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		55D21604220D6B8900915A20 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		55D21606220D6B8A00915A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		55D21608220D6B8A00915A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55D21609220D6B8A00915A20 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		55D215D5220D6B8500915A20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55D215F6220D6B8900915A20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		55D215CF220D6B8400915A20 = {
+			isa = PBXGroup;
+			children = (
+				55D215DA220D6B8500915A20 /* Trauma Tracker */,
+				55D215EE220D6B8800915A20 /* Trauma Tracker WatchKit App */,
+				55D215FD220D6B8900915A20 /* Trauma Tracker WatchKit Extension */,
+				55D215D9220D6B8500915A20 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		55D215D9220D6B8500915A20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				55D215D8220D6B8500915A20 /* Trauma Tracker.app */,
+				55D215EA220D6B8800915A20 /* Trauma Tracker WatchKit App.app */,
+				55D215F9220D6B8900915A20 /* Trauma Tracker WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		55D215DA220D6B8500915A20 /* Trauma Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				55D215DB220D6B8500915A20 /* AppDelegate.swift */,
+				55D215DD220D6B8500915A20 /* ViewController.swift */,
+				55D215DF220D6B8500915A20 /* Main.storyboard */,
+				55D215E2220D6B8800915A20 /* Assets.xcassets */,
+				55D215E4220D6B8800915A20 /* LaunchScreen.storyboard */,
+				55D215E7220D6B8800915A20 /* Info.plist */,
+			);
+			path = "Trauma Tracker";
+			sourceTree = "<group>";
+		};
+		55D215EE220D6B8800915A20 /* Trauma Tracker WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				55D215EF220D6B8800915A20 /* Interface.storyboard */,
+				55D215F2220D6B8900915A20 /* Assets.xcassets */,
+				55D215F4220D6B8900915A20 /* Info.plist */,
+			);
+			path = "Trauma Tracker WatchKit App";
+			sourceTree = "<group>";
+		};
+		55D215FD220D6B8900915A20 /* Trauma Tracker WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				55D215FE220D6B8900915A20 /* InterfaceController.swift */,
+				55D21600220D6B8900915A20 /* ExtensionDelegate.swift */,
+				55D21602220D6B8900915A20 /* NotificationController.swift */,
+				55D21604220D6B8900915A20 /* ComplicationController.swift */,
+				55D21606220D6B8A00915A20 /* Assets.xcassets */,
+				55D21608220D6B8A00915A20 /* Info.plist */,
+				55D21609220D6B8A00915A20 /* PushNotificationPayload.apns */,
+			);
+			path = "Trauma Tracker WatchKit Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		55D215D7220D6B8500915A20 /* Trauma Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55D21614220D6B8A00915A20 /* Build configuration list for PBXNativeTarget "Trauma Tracker" */;
+			buildPhases = (
+				55D215D4220D6B8500915A20 /* Sources */,
+				55D215D5220D6B8500915A20 /* Frameworks */,
+				55D215D6220D6B8500915A20 /* Resources */,
+				55D21613220D6B8A00915A20 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55D215ED220D6B8800915A20 /* PBXTargetDependency */,
+			);
+			name = "Trauma Tracker";
+			productName = "Trauma Tracker";
+			productReference = 55D215D8220D6B8500915A20 /* Trauma Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		55D215E9220D6B8800915A20 /* Trauma Tracker WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55D21610220D6B8A00915A20 /* Build configuration list for PBXNativeTarget "Trauma Tracker WatchKit App" */;
+			buildPhases = (
+				55D215E8220D6B8800915A20 /* Resources */,
+				55D2160F220D6B8A00915A20 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55D215FC220D6B8900915A20 /* PBXTargetDependency */,
+			);
+			name = "Trauma Tracker WatchKit App";
+			productName = "Trauma Tracker WatchKit App";
+			productReference = 55D215EA220D6B8800915A20 /* Trauma Tracker WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		55D215F8220D6B8900915A20 /* Trauma Tracker WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55D2160C220D6B8A00915A20 /* Build configuration list for PBXNativeTarget "Trauma Tracker WatchKit Extension" */;
+			buildPhases = (
+				55D215F5220D6B8900915A20 /* Sources */,
+				55D215F6220D6B8900915A20 /* Frameworks */,
+				55D215F7220D6B8900915A20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Trauma Tracker WatchKit Extension";
+			productName = "Trauma Tracker WatchKit Extension";
+			productReference = 55D215F9220D6B8900915A20 /* Trauma Tracker WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		55D215D0220D6B8500915A20 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Adam Dama";
+				TargetAttributes = {
+					55D215D7220D6B8500915A20 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					55D215E9220D6B8800915A20 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					55D215F8220D6B8900915A20 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 55D215D3220D6B8500915A20 /* Build configuration list for PBXProject "Trauma Tracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 55D215CF220D6B8400915A20;
+			productRefGroup = 55D215D9220D6B8500915A20 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				55D215D7220D6B8500915A20 /* Trauma Tracker */,
+				55D215E9220D6B8800915A20 /* Trauma Tracker WatchKit App */,
+				55D215F8220D6B8900915A20 /* Trauma Tracker WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		55D215D6220D6B8500915A20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55D215E6220D6B8800915A20 /* LaunchScreen.storyboard in Resources */,
+				55D215E3220D6B8800915A20 /* Assets.xcassets in Resources */,
+				55D215E1220D6B8500915A20 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55D215E8220D6B8800915A20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55D215F3220D6B8900915A20 /* Assets.xcassets in Resources */,
+				55D215F1220D6B8800915A20 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55D215F7220D6B8900915A20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55D21607220D6B8A00915A20 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		55D215D4220D6B8500915A20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55D215DE220D6B8500915A20 /* ViewController.swift in Sources */,
+				55D215DC220D6B8500915A20 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55D215F5220D6B8900915A20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55D21603220D6B8900915A20 /* NotificationController.swift in Sources */,
+				55D21605220D6B8900915A20 /* ComplicationController.swift in Sources */,
+				55D21601220D6B8900915A20 /* ExtensionDelegate.swift in Sources */,
+				55D215FF220D6B8900915A20 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		55D215ED220D6B8800915A20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55D215E9220D6B8800915A20 /* Trauma Tracker WatchKit App */;
+			targetProxy = 55D215EC220D6B8800915A20 /* PBXContainerItemProxy */;
+		};
+		55D215FC220D6B8900915A20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55D215F8220D6B8900915A20 /* Trauma Tracker WatchKit Extension */;
+			targetProxy = 55D215FB220D6B8900915A20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		55D215DF220D6B8500915A20 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55D215E0220D6B8500915A20 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		55D215E4220D6B8800915A20 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55D215E5220D6B8800915A20 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		55D215EF220D6B8800915A20 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55D215F0220D6B8800915A20 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		55D2160A220D6B8A00915A20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		55D2160B220D6B8A00915A20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		55D2160D220D6B8A00915A20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QKMVVMZJK4;
+				INFOPLIST_FILE = "Trauma Tracker WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adamdama.Trauma-Tracker.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		55D2160E220D6B8A00915A20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QKMVVMZJK4;
+				INFOPLIST_FILE = "Trauma Tracker WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adamdama.Trauma-Tracker.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		55D21611220D6B8A00915A20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QKMVVMZJK4;
+				IBSC_MODULE = Trauma_Tracker_WatchKit_Extension;
+				INFOPLIST_FILE = "Trauma Tracker WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adamdama.Trauma-Tracker.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		55D21612220D6B8A00915A20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QKMVVMZJK4;
+				IBSC_MODULE = Trauma_Tracker_WatchKit_Extension;
+				INFOPLIST_FILE = "Trauma Tracker WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adamdama.Trauma-Tracker.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		55D21615220D6B8A00915A20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QKMVVMZJK4;
+				INFOPLIST_FILE = "Trauma Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adamdama.Trauma-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		55D21616220D6B8A00915A20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QKMVVMZJK4;
+				INFOPLIST_FILE = "Trauma Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adamdama.Trauma-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		55D215D3220D6B8500915A20 /* Build configuration list for PBXProject "Trauma Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55D2160A220D6B8A00915A20 /* Debug */,
+				55D2160B220D6B8A00915A20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55D2160C220D6B8A00915A20 /* Build configuration list for PBXNativeTarget "Trauma Tracker WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55D2160D220D6B8A00915A20 /* Debug */,
+				55D2160E220D6B8A00915A20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55D21610220D6B8A00915A20 /* Build configuration list for PBXNativeTarget "Trauma Tracker WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55D21611220D6B8A00915A20 /* Debug */,
+				55D21612220D6B8A00915A20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55D21614220D6B8A00915A20 /* Build configuration list for PBXNativeTarget "Trauma Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55D21615220D6B8A00915A20 /* Debug */,
+				55D21616220D6B8A00915A20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 55D215D0220D6B8500915A20 /* Project object */;
+}
