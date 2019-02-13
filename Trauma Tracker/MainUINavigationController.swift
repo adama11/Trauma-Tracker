@@ -15,7 +15,6 @@ class MainUINavigationController: UINavigationController {
         super.viewDidLoad()
         self.navigationBar.prefersLargeTitles = true
         
-        
         }
     
     
