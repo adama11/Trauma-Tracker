@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55BA1DD4220E439B00092075 /* MainUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DD3220E439B00092075 /* MainUIViewController.swift */; };
 		55D215DC220D6B8500915A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D215DB220D6B8500915A20 /* AppDelegate.swift */; };
-		55D215DE220D6B8500915A20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D215DD220D6B8500915A20 /* ViewController.swift */; };
+		55D215DE220D6B8500915A20 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D215DD220D6B8500915A20 /* LoginViewController.swift */; };
 		55D215E1220D6B8500915A20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D215DF220D6B8500915A20 /* Main.storyboard */; };
 		55D215E3220D6B8800915A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55D215E2220D6B8800915A20 /* Assets.xcassets */; };
 		55D215E6220D6B8800915A20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D215E4220D6B8800915A20 /* LaunchScreen.storyboard */; };
@@ -21,6 +22,9 @@
 		55D21603220D6B8900915A20 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D21602220D6B8900915A20 /* NotificationController.swift */; };
 		55D21605220D6B8900915A20 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D21604220D6B8900915A20 /* ComplicationController.swift */; };
 		55D21607220D6B8A00915A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55D21606220D6B8A00915A20 /* Assets.xcassets */; };
+		55D21618220D7A5F00915A20 /* MainUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D21617220D7A5F00915A20 /* MainUINavigationController.swift */; };
+		55D2161A220D7FD300915A20 /* PatientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D21619220D7FD300915A20 /* PatientCell.swift */; };
+		55D2161C220D822B00915A20 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2161B220D822B00915A20 /* PatientTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +70,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		55BA1DD3220E439B00092075 /* MainUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIViewController.swift; sourceTree = "<group>"; };
 		55D215D8220D6B8500915A20 /* Trauma Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trauma Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D215DB220D6B8500915A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		55D215DD220D6B8500915A20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		55D215DD220D6B8500915A20 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		55D215E0220D6B8500915A20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55D215E2220D6B8800915A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55D215E5220D6B8800915A20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,6 +90,9 @@
 		55D21606220D6B8A00915A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55D21608220D6B8A00915A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D21609220D6B8A00915A20 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		55D21617220D7A5F00915A20 /* MainUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUINavigationController.swift; sourceTree = "<group>"; };
+		55D21619220D7FD300915A20 /* PatientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCell.swift; sourceTree = "<group>"; };
+		55D2161B220D822B00915A20 /* PatientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,11 +137,15 @@
 			isa = PBXGroup;
 			children = (
 				55D215DB220D6B8500915A20 /* AppDelegate.swift */,
-				55D215DD220D6B8500915A20 /* ViewController.swift */,
+				55D215DD220D6B8500915A20 /* LoginViewController.swift */,
 				55D215DF220D6B8500915A20 /* Main.storyboard */,
 				55D215E2220D6B8800915A20 /* Assets.xcassets */,
 				55D215E4220D6B8800915A20 /* LaunchScreen.storyboard */,
 				55D215E7220D6B8800915A20 /* Info.plist */,
+				55D21617220D7A5F00915A20 /* MainUINavigationController.swift */,
+				55BA1DD3220E439B00092075 /* MainUIViewController.swift */,
+				55D21619220D7FD300915A20 /* PatientCell.swift */,
+				55D2161B220D822B00915A20 /* PatientTableViewController.swift */,
 			);
 			path = "Trauma Tracker";
 			sourceTree = "<group>";
@@ -294,7 +306,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D215DE220D6B8500915A20 /* ViewController.swift in Sources */,
+				55D21618220D7A5F00915A20 /* MainUINavigationController.swift in Sources */,
+				55D2161C220D822B00915A20 /* PatientTableViewController.swift in Sources */,
+				55D2161A220D7FD300915A20 /* PatientCell.swift in Sources */,
+				55BA1DD4220E439B00092075 /* MainUIViewController.swift in Sources */,
+				55D215DE220D6B8500915A20 /* LoginViewController.swift in Sources */,
 				55D215DC220D6B8500915A20 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,7 +503,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+				WATCHOS_DEPLOYMENT_TARGET = 4.1;
 			};
 			name = Debug;
 		};
@@ -509,7 +525,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+				WATCHOS_DEPLOYMENT_TARGET = 4.1;
 			};
 			name = Release;
 		};
@@ -528,7 +544,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+				WATCHOS_DEPLOYMENT_TARGET = 4.1;
 			};
 			name = Debug;
 		};
@@ -547,7 +563,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+				WATCHOS_DEPLOYMENT_TARGET = 4.1;
 			};
 			name = Release;
 		};
@@ -558,6 +574,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QKMVVMZJK4;
 				INFOPLIST_FILE = "Trauma Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -565,7 +582,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.adamdama.Trauma-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -576,6 +593,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QKMVVMZJK4;
 				INFOPLIST_FILE = "Trauma Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -583,7 +601,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.adamdama.Trauma-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
