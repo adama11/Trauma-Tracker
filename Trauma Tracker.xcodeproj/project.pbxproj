@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		55BA1DD4220E439B00092075 /* MainUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DD3220E439B00092075 /* MainUIViewController.swift */; };
+		55BA1DD622232AB100092075 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 55BA1DD522232AB000092075 /* awsconfiguration.json */; };
+		55BA1DD82223329700092075 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DD72223329700092075 /* API.swift */; };
 		55D215DC220D6B8500915A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D215DB220D6B8500915A20 /* AppDelegate.swift */; };
 		55D215DE220D6B8500915A20 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D215DD220D6B8500915A20 /* LoginViewController.swift */; };
 		55D215E1220D6B8500915A20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D215DF220D6B8500915A20 /* Main.storyboard */; };
@@ -25,6 +27,7 @@
 		55D21618220D7A5F00915A20 /* MainUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D21617220D7A5F00915A20 /* MainUINavigationController.swift */; };
 		55D2161A220D7FD300915A20 /* PatientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D21619220D7FD300915A20 /* PatientCell.swift */; };
 		55D2161C220D822B00915A20 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2161B220D822B00915A20 /* PatientTableViewController.swift */; };
+		A52BEB9B629A4EAEA9EE2764 /* Pods_Trauma_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1408FFED3976BEFF89B70C /* Pods_Trauma_Tracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +73,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E90AD49372F7414BB944622 /* Pods-Trauma Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trauma Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trauma Tracker/Pods-Trauma Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		55BA1DD3220E439B00092075 /* MainUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIViewController.swift; sourceTree = "<group>"; };
+		55BA1DD522232AB000092075 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		55BA1DD72223329700092075 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		55D215D8220D6B8500915A20 /* Trauma Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trauma Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D215DB220D6B8500915A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D215DD220D6B8500915A20 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -93,13 +99,23 @@
 		55D21617220D7A5F00915A20 /* MainUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUINavigationController.swift; sourceTree = "<group>"; };
 		55D21619220D7FD300915A20 /* PatientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCell.swift; sourceTree = "<group>"; };
 		55D2161B220D822B00915A20 /* PatientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewController.swift; sourceTree = "<group>"; };
+		8D1408FFED3976BEFF89B70C /* Pods_Trauma_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trauma_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7049A56D1949C5277F69EB1 /* Pods-Trauma Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trauma Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trauma Tracker/Pods-Trauma Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		21643926954BDF6DCAFE1BF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		55D215D5220D6B8500915A20 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52BEB9B629A4EAEA9EE2764 /* Pods_Trauma_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43D554BED4077B1205D52C9E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D1408FFED3976BEFF89B70C /* Pods_Trauma_Tracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		55D215CF220D6B8400915A20 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +144,8 @@
 				55D215EE220D6B8800915A20 /* Trauma Tracker WatchKit App */,
 				55D215FD220D6B8900915A20 /* Trauma Tracker WatchKit Extension */,
 				55D215D9220D6B8500915A20 /* Products */,
+				E23C32F1C3D45BC4559231C1 /* Pods */,
+				43D554BED4077B1205D52C9E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +162,8 @@
 		55D215DA220D6B8500915A20 /* Trauma Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				55BA1DD72223329700092075 /* API.swift */,
+				55BA1DD522232AB000092075 /* awsconfiguration.json */,
 				55D215DB220D6B8500915A20 /* AppDelegate.swift */,
 				55D215DD220D6B8500915A20 /* LoginViewController.swift */,
 				55D215DF220D6B8500915A20 /* Main.storyboard */,
@@ -174,6 +202,15 @@
 			path = "Trauma Tracker WatchKit Extension";
 			sourceTree = "<group>";
 		};
+		E23C32F1C3D45BC4559231C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E7049A56D1949C5277F69EB1 /* Pods-Trauma Tracker.debug.xcconfig */,
+				0E90AD49372F7414BB944622 /* Pods-Trauma Tracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -181,10 +218,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55D21614220D6B8A00915A20 /* Build configuration list for PBXNativeTarget "Trauma Tracker" */;
 			buildPhases = (
+				80D48D13C0249C43DE3F81A6 /* [CP] Check Pods Manifest.lock */,
 				55D215D4220D6B8500915A20 /* Sources */,
 				55D215D5220D6B8500915A20 /* Frameworks */,
 				55D215D6220D6B8500915A20 /* Resources */,
 				55D21613220D6B8A00915A20 /* Embed Watch Content */,
+				C6D08813C3E945841F563D69 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,6 +241,7 @@
 			buildPhases = (
 				55D215E8220D6B8800915A20 /* Resources */,
 				55D2160F220D6B8A00915A20 /* Embed App Extensions */,
+				21643926954BDF6DCAFE1BF4 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55BA1DD622232AB100092075 /* awsconfiguration.json in Resources */,
 				55D215E6220D6B8800915A20 /* LaunchScreen.storyboard in Resources */,
 				55D215E3220D6B8800915A20 /* Assets.xcassets in Resources */,
 				55D215E1220D6B8500915A20 /* Main.storyboard in Resources */,
@@ -301,6 +342,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		80D48D13C0249C43DE3F81A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Trauma Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6D08813C3E945841F563D69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Trauma Tracker/Pods-Trauma Tracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSAppSync/AWSAppSync.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAppSync.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Trauma Tracker/Pods-Trauma Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		55D215D4220D6B8500915A20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -312,6 +406,7 @@
 				55BA1DD4220E439B00092075 /* MainUIViewController.swift in Sources */,
 				55D215DE220D6B8500915A20 /* LoginViewController.swift in Sources */,
 				55D215DC220D6B8500915A20 /* AppDelegate.swift in Sources */,
+				55BA1DD82223329700092075 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +664,7 @@
 		};
 		55D21615220D6B8A00915A20 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7049A56D1949C5277F69EB1 /* Pods-Trauma Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -588,6 +684,7 @@
 		};
 		55D21616220D6B8A00915A20 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E90AD49372F7414BB944622 /* Pods-Trauma Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

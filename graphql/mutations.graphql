@@ -1,0 +1,43 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateTraumaTrackerPatient($input: CreateTraumaTrackerPatientInput!) {
+  createTraumaTrackerPatient(input: $input) {
+    id
+    title
+    firstName
+    lastName
+    pulseRate
+    spo2
+    ecg
+    bloodPressure
+    restingPulseRate
+    bodyTemperature
+  }
+}
+mutation UpdateTraumaTrackerPatient($input: UpdateTraumaTrackerPatientInput!) {
+  updateTraumaTrackerPatient(input: $input) {
+    id
+    title
+    firstName
+    lastName
+    pulseRate
+    spo2
+    ecg
+    bloodPressure
+    restingPulseRate
+    bodyTemperature
+  }
+}
+mutation DeleteTraumaTrackerPatient($input: DeleteTraumaTrackerPatientInput!) {
+  deleteTraumaTrackerPatient(input: $input) {
+    id
+    title
+    firstName
+    lastName
+    pulseRate
+    spo2
+    ecg
+    bloodPressure
+    restingPulseRate
+    bodyTemperature
+  }
+}

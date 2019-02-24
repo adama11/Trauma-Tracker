@@ -1,0 +1,6 @@
+framework module Pods_Trauma_Tracker {
+  umbrella header "Pods-Trauma Tracker-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,40 @@
+# this is an auto generated file. This will be overwritten
+query GetTraumaTrackerPatient($id: ID!) {
+  getTraumaTrackerPatient(id: $id) {
+    id
+    title
+    firstName
+    lastName
+    pulseRate
+    spo2
+    ecg
+    bloodPressure
+    restingPulseRate
+    bodyTemperature
+  }
+}
+query ListTraumaTrackerPatients(
+  $filter: TableTraumaTrackerPatientFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTraumaTrackerPatients(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      title
+      firstName
+      lastName
+      pulseRate
+      spo2
+      ecg
+      bloodPressure
+      restingPulseRate
+      bodyTemperature
+    }
+    nextToken
+  }
+}

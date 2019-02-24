@@ -1,0 +1,79 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateTraumaTrackerPatient(
+  $id: ID
+  $title: String
+  $firstName: String
+  $lastName: String
+  $pulseRate: Int
+) {
+  onCreateTraumaTrackerPatient(
+    id: $id
+    title: $title
+    firstName: $firstName
+    lastName: $lastName
+    pulseRate: $pulseRate
+  ) {
+    id
+    title
+    firstName
+    lastName
+    pulseRate
+    spo2
+    ecg
+    bloodPressure
+    restingPulseRate
+    bodyTemperature
+  }
+}
+subscription OnUpdateTraumaTrackerPatient(
+  $id: ID
+  $title: String
+  $firstName: String
+  $lastName: String
+  $pulseRate: Int
+) {
+  onUpdateTraumaTrackerPatient(
+    id: $id
+    title: $title
+    firstName: $firstName
+    lastName: $lastName
+    pulseRate: $pulseRate
+  ) {
+    id
+    title
+    firstName
+    lastName
+    pulseRate
+    spo2
+    ecg
+    bloodPressure
+    restingPulseRate
+    bodyTemperature
+  }
+}
+subscription OnDeleteTraumaTrackerPatient(
+  $id: ID
+  $title: String
+  $firstName: String
+  $lastName: String
+  $pulseRate: Int
+) {
+  onDeleteTraumaTrackerPatient(
+    id: $id
+    title: $title
+    firstName: $firstName
+    lastName: $lastName
+    pulseRate: $pulseRate
+  ) {
+    id
+    title
+    firstName
+    lastName
+    pulseRate
+    spo2
+    ecg
+    bloodPressure
+    restingPulseRate
+    bodyTemperature
+  }
+}
