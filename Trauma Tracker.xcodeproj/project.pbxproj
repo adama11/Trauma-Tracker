@@ -11,6 +11,7 @@
 		55BA1DD622232AB100092075 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 55BA1DD522232AB000092075 /* awsconfiguration.json */; };
 		55BA1DD82223329700092075 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DD72223329700092075 /* API.swift */; };
 		55BA1DDA2223493B00092075 /* AddPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DD92223493B00092075 /* AddPatientViewController.swift */; };
+		55BA1DDC22235CAC00092075 /* DetailedPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DDB22235CAC00092075 /* DetailedPatientViewController.swift */; };
 		55D215DC220D6B8500915A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D215DB220D6B8500915A20 /* AppDelegate.swift */; };
 		55D215DE220D6B8500915A20 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D215DD220D6B8500915A20 /* LoginViewController.swift */; };
 		55D215E1220D6B8500915A20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D215DF220D6B8500915A20 /* Main.storyboard */; };
@@ -83,6 +84,7 @@
 		55BA1DD522232AB000092075 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		55BA1DD72223329700092075 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		55BA1DD92223493B00092075 /* AddPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatientViewController.swift; sourceTree = "<group>"; };
+		55BA1DDB22235CAC00092075 /* DetailedPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPatientViewController.swift; sourceTree = "<group>"; };
 		55D215D8220D6B8500915A20 /* Trauma Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trauma Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D215DB220D6B8500915A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D215DD220D6B8500915A20 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				55D21619220D7FD300915A20 /* PatientCell.swift */,
 				55D2161B220D822B00915A20 /* PatientTableViewController.swift */,
 				55BA1DD92223493B00092075 /* AddPatientViewController.swift */,
+				55BA1DDB22235CAC00092075 /* DetailedPatientViewController.swift */,
 			);
 			path = "Trauma Tracker";
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55BA1DDC22235CAC00092075 /* DetailedPatientViewController.swift in Sources */,
 				55D21618220D7A5F00915A20 /* MainUINavigationController.swift in Sources */,
 				55D2161C220D822B00915A20 /* PatientTableViewController.swift in Sources */,
 				55D2161A220D7FD300915A20 /* PatientCell.swift in Sources */,
