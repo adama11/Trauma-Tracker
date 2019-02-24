@@ -31,6 +31,7 @@ class MainUIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appSyncClient = appDelegate.appSyncClient
         
