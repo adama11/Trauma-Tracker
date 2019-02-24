@@ -17,8 +17,21 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addPatientButton(_ sender: Any) {
         let firstName = firstNameField.text
-        let lastName = firstNameField.text
-        let roomNumber = firstNameField.text
+        let lastName = lastNameField.text
+        let roomNumber = roomNumberField.text
+        
+        let missingInfoAlert = UIAlertController(title: "Couldn't Add Patient", message: "Some or all patient information is missing.", preferredStyle: .alert)
+        missingInfoAlert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+        
+        if firstName == "" || lastName == "" || roomNumber == "" {
+            self.present(missingInfoAlert, animated: true, completion: nil)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+        
+        //Pop back to main view
+        
+        
     }
     
     
@@ -41,7 +54,6 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate {
             roomNumberField.becomeFirstResponder()
         } else if textField == roomNumberField {
             roomNumberField.resignFirstResponder()
-            
         }
         return true
     }
