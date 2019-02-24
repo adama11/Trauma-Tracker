@@ -1,26 +1,14 @@
 {
-  "providers": {
-    "awscloudformation": {
-      "AuthRoleName": "traumatracker-20190224133704-authRole",
-      "UnauthRoleArn": "arn:aws:iam::411259667601:role/traumatracker-20190224133704-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::411259667601:role/traumatracker-20190224133704-authRole",
-      "Region": "us-east-2",
-      "DeploymentBucketName": "traumatracker-20190224133704-deployment",
-      "UnauthRoleName": "traumatracker-20190224133704-unauthRole",
-      "StackName": "traumatracker-20190224133704",
-      "StackId": "arn:aws:cloudformation:us-east-2:411259667601:stack/traumatracker-20190224133704/90616970-386b-11e9-b3d8-06ba3123ae48"
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "traumatracker-20190224133704-authRole",
+            "UnauthRoleArn": "arn:aws:iam::411259667601:role/traumatracker-20190224133704-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::411259667601:role/traumatracker-20190224133704-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "traumatracker-20190224133704-deployment",
+            "UnauthRoleName": "traumatracker-20190224133704-unauthRole",
+            "StackName": "traumatracker-20190224133704",
+            "StackId": "arn:aws:cloudformation:us-east-2:411259667601:stack/traumatracker-20190224133704/90616970-386b-11e9-b3d8-06ba3123ae48"
+        }
     }
-  },
-  "api": {
-    "TraumaTrackerSync": {
-      "service": "AppSync",
-      "output": {
-        "securityType": "API_KEY",
-        "GraphQLAPIIdOutput": "3wlaitsz7zhoriul6bchnfvrwm",
-        "GraphQLAPIEndpointOutput": "https://yvited6yi5glzj52x3obd6or5y.appsync-api.us-east-2.amazonaws.com/graphql",
-        "GraphQLAPIKeyOutput": "da2-u4qgsv6amrezdoierge35cr3u4"
-      },
-      "lastPushTimeStamp": "2019-02-24T19:38:11.289Z"
-    }
-  }
 }
