@@ -12,21 +12,12 @@ import AWSAppSync
 class MainUIViewController: UIViewController {
 
     @IBOutlet weak var navBar: UINavigationItem!
-    @IBOutlet weak var settingsButton: UINavigationItem!
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
+    
     var myimage:UIImage!
     
     var appSyncClient: AWSAppSyncClient?
-    let q = """
-            query getAllEvents {
-                listEvents{
-                    items{
-                        id
-                        name
-                        when
-                    }
-                }
-            }
-            """
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,18 +27,54 @@ class MainUIViewController: UIViewController {
         appSyncClient = appDelegate.appSyncClient
         
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(lookupTapped))
         
-        appSyncClient?.fetch(query: ListTraumaTrackerPatientsQuery())  { (result, error) in
-            if error != nil {
-                print(error?.localizedDescription ?? "")
-                return
+        
+    }
+    @objc func lookupTapped(sender: AnyObject) {
+        print("Changing one user")
+        
+        let mutationInput = UpdateTraumaTrackerPatientInput(id: "03260b83-03d5-4900-b29f-3d597d97020c", bloodPressure: 100.1)
+    
+//        03260b83-03d5-4900-b29f-3d597d97020c
+    
+        appSyncClient?.perform(mutation: UpdateTraumaTrackerPatientMutation(input: mutationInput)) { (result, error) in
+            if let error = error as? AWSAppSyncClientError {
+                print("Error occurred: \(error.localizedDescription )")
             }
-            result?.data?.listTraumaTrackerPatients?.items!.forEach { print(($0?.firstName)! + "--" + ($0?.id)!) }
+            if let resultError = result?.errors {
+                print("Error saving the item on server: \(resultError)")
+            return
+            }
         }
+    
+    
+//        appSyncClient?.fetch(query: ListTraumaTrackerPatientsQuery())  { (result, error) in
+//            if error != nil {
+//                print(error?.localizedDescription ?? "")
+//                return
+//            }
+//            result?.data?.listTraumaTrackerPatients?.items!.forEach { print(($0?.id)! + "--" + ($0?.firstName)!) }
+//        }
     }
     
+    
     @objc func addTapped(sender: AnyObject) {
+        print("Adding Patient")
         
+        let mutationInput = CreateTraumaTrackerPatientInput(title: "Patient", firstName: "Thomas", lastName: "Keats", pulseRate: 75, spo2: 99.1, ecg: "{}", bloodPressure: 99.2, restingPulseRate: 87.1, bodyTemperature: 98.6)
+//        let mutationInput = CreateTodoInput(name: "Use AppSync", description:"Realtime and Offline")
+//
+        appSyncClient?.perform(mutation: CreateTraumaTrackerPatientMutation(input: mutationInput)) { (result, error) in
+            if let error = error as? AWSAppSyncClientError {
+                print("Error occurred: \(error.localizedDescription )")
+            }
+            if let resultError = result?.errors {
+                print("Error saving the item on server: \(resultError)")
+                return
+            }
+        }
     }
 
 }

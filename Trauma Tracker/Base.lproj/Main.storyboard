@@ -126,15 +126,11 @@
                         <viewLayoutGuide key="safeArea" id="TPJ-fh-WtR"/>
                     </view>
                     <navigationItem key="navigationItem" title="All Patients" id="Tfx-qf-GKU">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Tug-TM-Me9">
-                            <connections>
-                                <segue destination="zb1-Ck-1zx" kind="show" id="2bg-eY-ymd"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Tug-TM-Me9"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="Tug-TM-Me9" id="Cex-Xb-FKf"/>
                         <outlet property="navBar" destination="Tfx-qf-GKU" id="haf-yz-VSo"/>
-                        <outlet property="settingsButton" destination="Tfx-qf-GKU" id="c4h-Ql-rHb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdU-tB-0u7" userLabel="First Responder" sceneMemberID="firstResponder"/>
