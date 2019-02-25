@@ -594,6 +594,24 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2j4-G7-wLp" customClass="Chart" customModule="Trauma_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="381" width="343" height="180"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="180" id="CFD-uR-eX4"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="labelColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="axesColor">
+                                                        <color key="value" red="0.33150276540000001" green="0.66775184870000004" blue="0.99998193980000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Respiratory Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7N-Rj-KSX">
                                                 <rect key="frame" x="56" y="136" width="130" height="20"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
@@ -617,6 +635,7 @@
                                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="0aC-zS-Dpm" secondAttribute="trailing" constant="291" id="DL6-f7-yAA"/>
                                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="Yh9-0S-HDG" secondAttribute="trailing" constant="201" id="DcA-Rk-pmS"/>
                                             <constraint firstItem="cLQ-IP-jSB" firstAttribute="leading" secondItem="x9B-Ia-OkH" secondAttribute="trailing" constant="8" id="EjZ-1z-jU3"/>
+                                            <constraint firstAttribute="trailing" secondItem="2j4-G7-wLp" secondAttribute="trailing" constant="16" id="FHb-6q-G3z"/>
                                             <constraint firstItem="x9B-Ia-OkH" firstAttribute="top" secondItem="sgN-rr-npq" secondAttribute="bottom" constant="16" id="ICP-Og-jPp"/>
                                             <constraint firstItem="UAl-D1-1Lc" firstAttribute="top" secondItem="u7W-mf-nOS" secondAttribute="top" constant="16" id="LGW-Y0-GMd"/>
                                             <constraint firstItem="QhJ-cT-mJI" firstAttribute="top" secondItem="0aC-zS-Dpm" secondAttribute="bottom" constant="12" id="LVV-5Z-E6x"/>
@@ -627,6 +646,7 @@
                                             <constraint firstItem="3YR-xB-o5u" firstAttribute="leading" secondItem="Cbg-PV-lz7" secondAttribute="trailing" constant="8" id="Pk2-2p-mcA"/>
                                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="cLQ-IP-jSB" secondAttribute="trailing" constant="279" id="PvO-1J-o1A"/>
                                             <constraint firstItem="cLQ-IP-jSB" firstAttribute="top" secondItem="Yh9-0S-HDG" secondAttribute="bottom" id="R7E-4h-eSi"/>
+                                            <constraint firstItem="2j4-G7-wLp" firstAttribute="top" secondItem="ykl-U2-D8P" secondAttribute="bottom" constant="16" id="RBX-gD-eSi"/>
                                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="VmG-0B-gfb" secondAttribute="trailing" constant="242" id="Rhr-At-XK8"/>
                                             <constraint firstItem="I1V-ns-jgV" firstAttribute="leading" secondItem="u7W-mf-nOS" secondAttribute="leading" constant="16" id="Tbj-ne-ga4"/>
                                             <constraint firstAttribute="trailing" secondItem="q6n-7Q-LtN" secondAttribute="trailing" constant="16" id="WGs-P1-MGW"/>
@@ -643,6 +663,7 @@
                                             <constraint firstItem="x9B-Ia-OkH" firstAttribute="leading" secondItem="u7W-mf-nOS" secondAttribute="leading" constant="16" id="nih-hm-C0a"/>
                                             <constraint firstItem="apE-Hm-3b3" firstAttribute="top" secondItem="QhJ-cT-mJI" secondAttribute="bottom" id="oWh-e0-RZH"/>
                                             <constraint firstItem="apE-Hm-3b3" firstAttribute="leading" secondItem="UYV-tw-wkk" secondAttribute="trailing" constant="8" id="pPD-gS-SLm"/>
+                                            <constraint firstItem="2j4-G7-wLp" firstAttribute="leading" secondItem="u7W-mf-nOS" secondAttribute="leading" constant="16" id="rbR-0u-I4r"/>
                                             <constraint firstItem="rjc-dV-bJH" firstAttribute="top" secondItem="UAl-D1-1Lc" secondAttribute="bottom" constant="8" id="uC1-EM-eGY"/>
                                             <constraint firstItem="UYV-tw-wkk" firstAttribute="top" secondItem="I1V-ns-jgV" secondAttribute="bottom" constant="16" id="vL4-kj-s6w"/>
                                             <constraint firstItem="ykl-U2-D8P" firstAttribute="top" secondItem="cLQ-IP-jSB" secondAttribute="bottom" constant="20" id="vUn-kQ-w2p"/>
@@ -682,6 +703,7 @@
                         <outlet property="ESILabel" destination="q6n-7Q-LtN" id="OcP-vk-rGa"/>
                         <outlet property="bloodPressureIcon" destination="x9B-Ia-OkH" id="ZkD-v6-5oA"/>
                         <outlet property="bodyTempIcon" destination="UYV-tw-wkk" id="Y9H-HT-aSK"/>
+                        <outlet property="ecgGraph" destination="2j4-G7-wLp" id="YOG-FB-IjE"/>
                         <outlet property="pulseRateIcon" destination="Cbg-PV-lz7" id="7Xv-F9-qYS"/>
                         <outlet property="respRateIcon" destination="I1V-ns-jgV" id="d89-2t-ncv"/>
                         <outlet property="spo2Icon" destination="sgN-rr-npq" id="STu-5t-cZS"/>
