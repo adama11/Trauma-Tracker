@@ -12,6 +12,9 @@
 		55BA1DD82223329700092075 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DD72223329700092075 /* API.swift */; };
 		55BA1DDA2223493B00092075 /* AddPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DD92223493B00092075 /* AddPatientViewController.swift */; };
 		55BA1DDC22235CAC00092075 /* DetailedPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DDB22235CAC00092075 /* DetailedPatientViewController.swift */; };
+		55BA1DE82224589C00092075 /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DE52224589B00092075 /* ChartColors.swift */; };
+		55BA1DE92224589C00092075 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DE62224589B00092075 /* Chart.swift */; };
+		55BA1DEA2224589C00092075 /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DE72224589C00092075 /* ChartSeries.swift */; };
 		55D215DC220D6B8500915A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D215DB220D6B8500915A20 /* AppDelegate.swift */; };
 		55D215DE220D6B8500915A20 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D215DD220D6B8500915A20 /* LoginViewController.swift */; };
 		55D215E1220D6B8500915A20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D215DF220D6B8500915A20 /* Main.storyboard */; };
@@ -86,6 +89,9 @@
 		55BA1DD72223329700092075 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		55BA1DD92223493B00092075 /* AddPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatientViewController.swift; sourceTree = "<group>"; };
 		55BA1DDB22235CAC00092075 /* DetailedPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPatientViewController.swift; sourceTree = "<group>"; };
+		55BA1DE52224589B00092075 /* ChartColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartColors.swift; path = SwiftChart/ChartColors.swift; sourceTree = "<group>"; };
+		55BA1DE62224589B00092075 /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chart.swift; path = SwiftChart/Chart.swift; sourceTree = "<group>"; };
+		55BA1DE72224589C00092075 /* ChartSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartSeries.swift; path = SwiftChart/ChartSeries.swift; sourceTree = "<group>"; };
 		55D215D8220D6B8500915A20 /* Trauma Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trauma Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D215DB220D6B8500915A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D215DD220D6B8500915A20 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +190,9 @@
 		55D215DA220D6B8500915A20 /* Trauma Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				55BA1DE62224589B00092075 /* Chart.swift */,
+				55BA1DE52224589B00092075 /* ChartColors.swift */,
+				55BA1DE72224589C00092075 /* ChartSeries.swift */,
 				55BA1DD72223329700092075 /* API.swift */,
 				55BA1DD522232AB000092075 /* awsconfiguration.json */,
 				55D215DB220D6B8500915A20 /* AppDelegate.swift */,
@@ -433,7 +442,10 @@
 				55BA1DD4220E439B00092075 /* MainUIViewController.swift in Sources */,
 				55D215DE220D6B8500915A20 /* LoginViewController.swift in Sources */,
 				55D215DC220D6B8500915A20 /* AppDelegate.swift in Sources */,
+				55BA1DE92224589C00092075 /* Chart.swift in Sources */,
 				55BA1DDA2223493B00092075 /* AddPatientViewController.swift in Sources */,
+				55BA1DEA2224589C00092075 /* ChartSeries.swift in Sources */,
+				55BA1DE82224589C00092075 /* ChartColors.swift in Sources */,
 				55BA1DD82223329700092075 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
