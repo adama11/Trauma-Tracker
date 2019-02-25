@@ -464,14 +464,14 @@
             <objects>
                 <viewController title="General Patient View" id="DgV-RO-0n2" customClass="DetailedPatientViewController" customModule="Trauma_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kqX-Wb-dHM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="997"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yz1-g9-cNe">
-                                <rect key="frame" x="0.0" y="20" width="375" height="980"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="977"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7W-mf-nOS">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="980"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="977"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstInitial LastName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAl-D1-1Lc">
                                                 <rect key="frame" x="8" y="0.0" width="194" height="27"/>
@@ -531,7 +531,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QMv-qU-oMB"/>
                     </view>
-                    <size key="freeformSize" width="375" height="1000"/>
+                    <size key="freeformSize" width="375" height="997"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fG2-Kb-XcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
