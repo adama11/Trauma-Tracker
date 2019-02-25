@@ -29,6 +29,7 @@
 		55D21618220D7A5F00915A20 /* MainUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D21617220D7A5F00915A20 /* MainUINavigationController.swift */; };
 		55D2161A220D7FD300915A20 /* PatientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D21619220D7FD300915A20 /* PatientCell.swift */; };
 		55D2161C220D822B00915A20 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2161B220D822B00915A20 /* PatientTableViewController.swift */; };
+		605C18B52223676A0095997D /* BackEndFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C18B42223676A0095997D /* BackEndFunctions.swift */; };
 		6083D605222350FA001D6439 /* AWSAppSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6083D604222350FA001D6439 /* AWSAppSync.framework */; };
 		6083D60722235108001D6439 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6083D60622235108001D6439 /* AWSCore.framework */; };
 		6083D6092223510D001D6439 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6083D6082223510D001D6439 /* Reachability.framework */; };
@@ -107,6 +108,7 @@
 		55D21617220D7A5F00915A20 /* MainUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUINavigationController.swift; sourceTree = "<group>"; };
 		55D21619220D7FD300915A20 /* PatientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCell.swift; sourceTree = "<group>"; };
 		55D2161B220D822B00915A20 /* PatientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewController.swift; sourceTree = "<group>"; };
+		605C18B42223676A0095997D /* BackEndFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEndFunctions.swift; sourceTree = "<group>"; };
 		6083D604222350FA001D6439 /* AWSAppSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSAppSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6083D60622235108001D6439 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6083D6082223510D001D6439 /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +198,7 @@
 				55D2161B220D822B00915A20 /* PatientTableViewController.swift */,
 				55BA1DD92223493B00092075 /* AddPatientViewController.swift */,
 				55BA1DDB22235CAC00092075 /* DetailedPatientViewController.swift */,
+				605C18B42223676A0095997D /* BackEndFunctions.swift */,
 			);
 			path = "Trauma Tracker";
 			sourceTree = "<group>";
@@ -230,7 +233,6 @@
 				E3E348CC2E0E562293DB0908 /* Pods-Trauma Tracker.debug.xcconfig */,
 				C4EF735DBCB812567020FA00 /* Pods-Trauma Tracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -425,6 +427,7 @@
 			files = (
 				55BA1DDC22235CAC00092075 /* DetailedPatientViewController.swift in Sources */,
 				55D21618220D7A5F00915A20 /* MainUINavigationController.swift in Sources */,
+				605C18B52223676A0095997D /* BackEndFunctions.swift in Sources */,
 				55D2161C220D822B00915A20 /* PatientTableViewController.swift in Sources */,
 				55D2161A220D7FD300915A20 /* PatientCell.swift in Sources */,
 				55BA1DD4220E439B00092075 /* MainUIViewController.swift in Sources */,
