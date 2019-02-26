@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import AWSAppSync
 
 class PatientTableViewController: UITableViewController {
+    
+    var appSyncClient: AWSAppSyncClient?
 
     //Patient Id, FirstName, LastName, Room #, ESI #
     let patients:[[Any]] = [[0, "Adam", "Dama", 3, 5],
@@ -22,6 +25,19 @@ class PatientTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
+        //Testing pulls from the DB
+        //Not working real-time ATM
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appSyncClient = appDelegate.appSyncClient
+        
+        appSyncClient?.fetch(query: ListTraumaTrackerPatientsQuery (filter: nil, limit: nil, nextToken: nil))  { (result, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+            }
+            
+            result?.data?.listTraumaTrackerPatients?.items!.forEach { print(($0?.firstName)!) }
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -50,6 +66,8 @@ class PatientTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath) as! PatientCell
         
         cell.updatePatientData(patients[indexPath.row])
+        
+        //Testing how to unpack all this data and shit
         
         return cell
     }
