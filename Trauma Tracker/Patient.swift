@@ -87,26 +87,37 @@ class Patient: NSObject {
         self.updateVitalsData(spo2: newData["spo2"] as! Double, pulseRate: newData["pulseRate"] as! Int, respiratoryRate: newData["respiratoryRate"] as! Int, bloodPressure: newData["bloodPressure"] as! Double, bodyTemperature: newData["bodyTemperature"] as! Double, ecgData: newData["ecgData"] as! String)
     }
     
-    func spo2InRange(val: Double) -> Bool {
-        
+    func getSeverityRank() -> Int {
+        var rank = 0
+        if !self.spo2InRange() { rank += 1 }
+        if !self.pulseRateInRange() { rank += 1 }
+        if !self.respiratoryRateInRange() { rank += 1 }
+        if !self.bloodPressureInRange() { rank += 1 }
+        if !self.bodyTemperatureInRange() { rank += 1 }
+        return rank
+    }
+    
+    func spo2InRange() -> Bool {
+        //Get normal ranges based on gender and age
         return true
     }
     
-    func pulseRateInRange(val: Double) -> Bool {
-        
+    func pulseRateInRange() -> Bool {
+        //Get normal ranges based on gender and age
         return true
     }
-    func respiratoryRateInRange(val: Double) -> Bool {
-        
+    func respiratoryRateInRange() -> Bool {
+        //Get normal ranges based on gender and age
         return true
     }
-    func bloodPressureInRange(val: Double) -> Bool {
-        
+    func bloodPressureInRange() -> Bool {
+        //Get normal ranges based on gender and age
         return true
     }
-    func bodyTemperatureInRange(val: Double) -> Bool {
-        
+    func bodyTemperatureInRange() -> Bool {
+        //Get normal ranges based on gender and age
         return true
     }
+    
     
 }

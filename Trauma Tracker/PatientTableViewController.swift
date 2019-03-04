@@ -79,7 +79,7 @@ class PatientTableViewController: UITableViewController {
         
         cell.updatePatientData(patients[indexPath.row])
         
-        //Testing how to unpack all this data and shit
+        //Testing how to unpack all this data
         
         return cell
     }
