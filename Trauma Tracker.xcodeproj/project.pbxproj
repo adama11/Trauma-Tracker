@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55778D9A222CAFBA00F25768 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55778D99222CAFBA00F25768 /* Patient.swift */; };
 		55BA1DD4220E439B00092075 /* MainUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DD3220E439B00092075 /* MainUIViewController.swift */; };
 		55BA1DD622232AB100092075 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 55BA1DD522232AB000092075 /* awsconfiguration.json */; };
 		55BA1DD82223329700092075 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DD72223329700092075 /* API.swift */; };
@@ -85,6 +86,7 @@
 /* Begin PBXFileReference section */
 		04C75598F057C6F4019CFBEF /* Pods-Trauma Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trauma Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Trauma Tracker/Pods-Trauma Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		387C04445BA65EE7E2BFEB37 /* Pods_Trauma_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trauma_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55778D99222CAFBA00F25768 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		55BA1DD3220E439B00092075 /* MainUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIViewController.swift; sourceTree = "<group>"; };
 		55BA1DD522232AB000092075 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		55BA1DD72223329700092075 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
@@ -208,6 +210,7 @@
 				55BA1DD92223493B00092075 /* AddPatientViewController.swift */,
 				55BA1DDB22235CAC00092075 /* DetailedPatientViewController.swift */,
 				605C18B42223676A0095997D /* BackEndFunctions.swift */,
+				55778D99222CAFBA00F25768 /* Patient.swift */,
 			);
 			path = "Trauma Tracker";
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				55BA1DE92224589C00092075 /* Chart.swift in Sources */,
 				55BA1DDA2223493B00092075 /* AddPatientViewController.swift in Sources */,
 				55BA1DEA2224589C00092075 /* ChartSeries.swift in Sources */,
+				55778D9A222CAFBA00F25768 /* Patient.swift in Sources */,
 				55BA1DE82224589C00092075 /* ChartColors.swift in Sources */,
 				55BA1DD82223329700092075 /* API.swift in Sources */,
 			);

@@ -14,11 +14,12 @@ class PatientTableViewController: UITableViewController {
     var appSyncClient: AWSAppSyncClient?
 
     //Patient Id, FirstName, LastName, Room #, ESI #
-    let patients:[[Any]] = [[0, "Adam", "Dama", 3, 5],
+    var patients:[[Any]] = [[0, "Adam", "Dama", 3, 5],
                             [1, "Xiaowei", "Lyu", 1, 4],
                             [2, "Jeff", "Varghese", 10, 2],
                             [3, "Tom", "Keaty", 6, 1],
                             [4, "Thisisareallylongname", "Thisisareallylongname", 2, 2]]
+    
     
     
     override func viewDidLoad() {
@@ -36,7 +37,18 @@ class PatientTableViewController: UITableViewController {
                 print(error?.localizedDescription ?? "")
             }
             
-            result?.data?.listTraumaTrackerPatients?.items!.forEach { print(($0?.firstName)!) }
+//            result?.data?.listTraumaTrackerPatients?.items!.forEach { print(($0?.firstName)!) }
+            
+            if let cloudPatients = result?.data?.listTraumaTrackerPatients?.items! {
+                self.patients = []
+                for p in cloudPatients {
+                    let item = [p?.id as Any, p?.firstName as Any, p?.lastName as Any, p?.bodyTemperature as Any, p?.pulseRate as Any]
+                    self.patients.append(item)
+                }
+            } else {
+                print("Failed to pull items.")
+            }
+            
         }
         
         // Uncomment the following line to preserve selection between presentations
