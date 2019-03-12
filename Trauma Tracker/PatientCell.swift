@@ -11,15 +11,17 @@ import UIKit
 class PatientCell: UITableViewCell {
 
     @IBOutlet weak var roomNumLabel: UILabel!
-    @IBOutlet weak var firstNameLabel: UILabel!
-    @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var ESIratingLabel: UILabel!
-//    var patientData: [Any]?
-    var patientId: Int!
+    @IBOutlet weak var primaryDetailIcon: UIView!
+    @IBOutlet weak var primaryDetailText: UILabel!
+    @IBOutlet weak var secondaryDetailIcon: UIView!
+    @IBOutlet weak var secondaryDetailText: UILabel!
+    //    var patientData: [Any]?
+//    var patientId: Int!
     var ESIrating: Int!
-    var roomNum: Int!
-    var firstName: String!
-    var lastName: String!
+    var roomNum: String!
+//    var firstName: String!
+//    var lastName: String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,18 +53,43 @@ class PatientCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updatePatientData(_ data: [Any]) {
-        patientId = (data[0] as! Int)
-        firstNameLabel?.text = "\(data[1])"
-        firstName = (data[1] as! String)
-        lastNameLabel?.text = "\(data[2])"
-        lastName = (data[2] as! String)
-        roomNumLabel?.text = "\(data[3])"
-        roomNum = (data[3] as! Int)
-        ESIratingLabel?.text = "\(data[4])"
-        ESIrating = (data[4] as! Int)
+//    func updatePatientData(_ data: [Any]) {
+//        if data.count > 0 {
+////            patientId = (data[0] as! Int)
+////            firstNameLabel?.text = "\(data[1])"
+////            firstName = (data[1] as! String)
+////            lastNameLabel?.text = "\(data[2])"
+////            lastName = (data[2] as! String)
+//            roomNumLabel?.text = "\(data[0])"
+//            roomNum = (data[0] as! Int)
+//            ESIratingLabel?.text = "\(data[1])"
+//            ESIrating = (data[1] as! Int)
+//
+//            setBackgroundColor(ESIrating)
+//        }
+//    }
+    
+    func updatePatientData(_ data: Patient) {
+//        if data.count > 0 {
+//            //            patientId = (data[0] as! Int)
+//            //            firstNameLabel?.text = "\(data[1])"
+//            //            firstName = (data[1] as! String)
+//            //            lastNameLabel?.text = "\(data[2])"
+//            //            lastName = (data[2] as! String)
+//            roomNumLabel?.text = "\(data[0])"
+//            roomNum = (data[0] as! Int)
+//            ESIratingLabel?.text = "\(data[1])"
+//            ESIrating = (data[1] as! Int)
+//
+//            setBackgroundColor(ESIrating)
+//        }
         
-        setBackgroundColor(ESIrating)
+        roomNumLabel?.text = data.roomNumber
+        roomNum = data.roomNumber
+        ESIratingLabel?.text = String(data.getSeverityRank())
+
+        drawIcon(square: primaryDetailIcon, color: UIColor.red.cgColor)
+        drawIcon(square: secondaryDetailIcon, color: UIColor.red.cgColor)
     }
     
     func setBackgroundColor(_ ESI: Int) {
@@ -75,6 +102,17 @@ class PatientCell: UITableViewCell {
         } else {
             backgroundColor = UIColor(red: 214/255, green: 230/255, blue: 235/255, alpha: 1.0)
         }
+    }
+    
+    func drawIcon(square: UIView, color: CGColor) {
+        let inset: CGFloat = 2.0
+        let circlePath = UIBezierPath(ovalIn: square.bounds.insetBy(dx: inset, dy: inset))
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        shapeLayer.fillColor = color
+        //    shapeLayer.strokeColor = UIColor.redColor().CGColor
+        //    shapeLayer.lineWidth = desiredLineWidth
+        square.layer.addSublayer(shapeLayer)
     }
 
 }

@@ -1,39 +1,35 @@
 # this is an auto generated file. This will be overwritten
-query GetTraumaTrackerPatient($id: ID!) {
-  getTraumaTrackerPatient(id: $id) {
-    id
-    title
-    firstName
-    lastName
+query GetTraumaTracker2($roomNumber: String!) {
+  getTraumaTracker2(roomNumber: $roomNumber) {
+    roomNumber
     pulseRate
     spo2
     ecg
-    bloodPressure
+    bloodPressureSystolic
+    bloodPressureDiastolic
     restingPulseRate
     bodyTemperature
+    age
+    gender
   }
 }
-query ListTraumaTrackerPatients(
-  $filter: TableTraumaTrackerPatientFilterInput
+query ListTraumaTracker2S(
+  $filter: TableTraumaTracker2FilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listTraumaTrackerPatients(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-  ) {
+  listTraumaTracker2S(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id
-      title
-      firstName
-      lastName
+      roomNumber
       pulseRate
       spo2
       ecg
-      bloodPressure
+      bloodPressureSystolic
+      bloodPressureDiastolic
       restingPulseRate
       bodyTemperature
+      age
+      gender
     }
     nextToken
   }

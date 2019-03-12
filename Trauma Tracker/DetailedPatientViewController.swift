@@ -18,7 +18,13 @@ class DetailedPatientViewController: UIViewController {
     @IBOutlet weak var ESILabel: UILabel!
     @IBOutlet weak var ecgGraph: Chart!
     
-
+    @IBOutlet weak var bodyTemperature: UILabel!
+    @IBOutlet weak var bloodPressure: UILabel!
+    @IBOutlet weak var spo2: UILabel!
+    @IBOutlet weak var pulseRate: UILabel!
+    @IBOutlet weak var respiratoryRate: UILabel!
+    var roomNumber : String! = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,9 +54,23 @@ class DetailedPatientViewController: UIViewController {
         for v in vitalsItems {
             drawIcon(square: v, color: UIColor.green.cgColor)
         }
-        
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        if self.roomNumber != "" {
+            self.title = roomNumber
+            if UserDefaults.standard.object(forKey: "Patients") != nil {
+                //            print("Retrieving count of patients from UserDefaults.")
+                let decoded  = UserDefaults.standard.object(forKey: "Patients") as! Data
+                let decodedData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [String : Patient]
+                //            print("count: \(decodedData.count)")
+                let patient = decodedData[self.roomNumber] as! Patient
+                bodyTemperature.text = String(patient.bodyTemperature)
+                spo2.text = String(patient.spo2)
+                pulseRate.text = String(patient.pulseRate)
+                
+            }
+        }
+    }
     
     func drawIcon(square: UIView, color: CGColor) {
         let inset: CGFloat = 4.0

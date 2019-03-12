@@ -1,79 +1,79 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateTraumaTrackerPatient(
-  $id: ID
-  $title: String
-  $firstName: String
-  $lastName: String
-  $pulseRate: Int
+subscription OnCreateTraumaTracker2(
+  $roomNumber: String
+  $pulseRate: Float
+  $spo2: Float
+  $ecg: AWSJSON
+  $bloodPressureSystolic: Float
 ) {
-  onCreateTraumaTrackerPatient(
-    id: $id
-    title: $title
-    firstName: $firstName
-    lastName: $lastName
+  onCreateTraumaTracker2(
+    roomNumber: $roomNumber
     pulseRate: $pulseRate
+    spo2: $spo2
+    ecg: $ecg
+    bloodPressureSystolic: $bloodPressureSystolic
   ) {
-    id
-    title
-    firstName
-    lastName
+    roomNumber
     pulseRate
     spo2
     ecg
-    bloodPressure
+    bloodPressureSystolic
+    bloodPressureDiastolic
     restingPulseRate
     bodyTemperature
+    age
+    gender
   }
 }
-subscription OnUpdateTraumaTrackerPatient(
-  $id: ID
-  $title: String
-  $firstName: String
-  $lastName: String
-  $pulseRate: Int
+subscription OnUpdateTraumaTracker2(
+  $roomNumber: String
+  $pulseRate: Float
+  $spo2: Float
+  $ecg: AWSJSON
+  $bloodPressureSystolic: Float
 ) {
-  onUpdateTraumaTrackerPatient(
-    id: $id
-    title: $title
-    firstName: $firstName
-    lastName: $lastName
+  onUpdateTraumaTracker2(
+    roomNumber: $roomNumber
     pulseRate: $pulseRate
+    spo2: $spo2
+    ecg: $ecg
+    bloodPressureSystolic: $bloodPressureSystolic
   ) {
-    id
-    title
-    firstName
-    lastName
+    roomNumber
     pulseRate
     spo2
     ecg
-    bloodPressure
+    bloodPressureSystolic
+    bloodPressureDiastolic
     restingPulseRate
     bodyTemperature
+    age
+    gender
   }
 }
-subscription OnDeleteTraumaTrackerPatient(
-  $id: ID
-  $title: String
-  $firstName: String
-  $lastName: String
-  $pulseRate: Int
+subscription OnDeleteTraumaTracker2(
+  $roomNumber: String
+  $pulseRate: Float
+  $spo2: Float
+  $ecg: AWSJSON
+  $bloodPressureSystolic: Float
 ) {
-  onDeleteTraumaTrackerPatient(
-    id: $id
-    title: $title
-    firstName: $firstName
-    lastName: $lastName
+  onDeleteTraumaTracker2(
+    roomNumber: $roomNumber
     pulseRate: $pulseRate
+    spo2: $spo2
+    ecg: $ecg
+    bloodPressureSystolic: $bloodPressureSystolic
   ) {
-    id
-    title
-    firstName
-    lastName
+    roomNumber
     pulseRate
     spo2
     ecg
-    bloodPressure
+    bloodPressureSystolic
+    bloodPressureDiastolic
     restingPulseRate
     bodyTemperature
+    age
+    gender
   }
 }

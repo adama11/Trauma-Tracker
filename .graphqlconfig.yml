@@ -1,5 +1,5 @@
 projects:
-  TraumaTrackerSync:
+  TraumaTracker2:
     schemaPath: graphql/schema.json
     includes:
       - graphql/**/*.graphql
@@ -7,7 +7,7 @@ projects:
       - ./amplify/**
     extensions:
       amplify:
-        graphQLApiId: 3wlaitsz7zhoriul6bchnfvrwm
+        graphQLApiId: pqigyusqzvblhfvctiv4mmp3je
         codeGenTarget: swift
         generatedFileName: API.swift
         docsFilePath: graphql
@@ -15,4 +15,4 @@ projects:
         maxDepth: 2
       endpoints:
         prod: >-
-          https://yvited6yi5glzj52x3obd6or5y.appsync-api.us-east-2.amazonaws.com/graphql
+          https://kvd7oke7affldfnntsyg2g3ckm.appsync-api.us-east-2.amazonaws.com/graphql

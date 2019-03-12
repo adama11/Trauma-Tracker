@@ -14,13 +14,13 @@ class PatientTableViewController: UITableViewController {
     var appSyncClient: AWSAppSyncClient?
 
     //Patient Id, FirstName, LastName, Room #, ESI #
-    var patients:[[Any]] = [[0, "Adam", "Dama", 3, 5],
-                            [1, "Xiaowei", "Lyu", 1, 4],
-                            [2, "Jeff", "Varghese", 10, 2],
-                            [3, "Tom", "Keaty", 6, 1],
-                            [4, "Thisisareallylongname", "Thisisareallylongname", 2, 2]]
+//    var patients:[[Any]] = [[0, "Adam", "Dama", 3, 5],
+//                            [1, "Xiaowei", "Lyu", 1, 4],
+//                            [2, "Jeff", "Varghese", 10, 2],
+//                            [3, "Tom", "Keaty", 6, 1],
+//                            [4, "Thisisareallylongname", "Thisisareallylongname", 2, 2]]
     
-    
+    var defaultPatient : Patient = Patient(roomNumber: "Default", gender: "Male", age: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,25 +32,8 @@ class PatientTableViewController: UITableViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appSyncClient = appDelegate.appSyncClient
         
-        appSyncClient?.fetch(query: ListTraumaTrackerPatientsQuery (filter: nil, limit: nil, nextToken: nil))  { (result, error) in
-            if error != nil {
-                print(error?.localizedDescription ?? "")
-            }
-            
-//            result?.data?.listTraumaTrackerPatients?.items!.forEach { print(($0?.firstName)!) }
-            
-            if let cloudPatients = result?.data?.listTraumaTrackerPatients?.items! {
-                self.patients = []
-                for p in cloudPatients {
-                    let item = [p?.id as Any, p?.firstName as Any, p?.lastName as Any, p?.bodyTemperature as Any, p?.pulseRate as Any]
-                    self.patients.append(item)
-                }
-            } else {
-                print("Failed to pull items.")
-            }
-            
-        }
-        
+//        initializeAWSSubscriptions()
+//        printAllAWSPatients()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -59,14 +42,62 @@ class PatientTableViewController: UITableViewController {
     }
     
     
+//    var discard: Cancellable?
+//    func initializeAWSSubscriptions() {
+//        do {
+//            discard = try appSyncClient?.subscribe(subscription: OnCreateTraumaTracker2Subscription(), resultHandler: { (result, transaction, error) in
+//                if let result = result {
+//                    print("Added new patient: " + result.data!.onCreateTraumaTracker2!.roomNumber)
+//                } else if let error = error {
+//                    print(error.localizedDescription)
+//                }
+//            })
+//        } catch {
+//            print("Error starting subscription.")
+//        }
+//    }
+    
+//    func getAllAWSPatients() {
+//        appSyncClient?.fetch(query: ListTraumaTracker2SQuery(filter: nil, limit: nil, nextToken: nil))  { (result, error) in
+//            if error != nil {
+//                print(error?.localizedDescription ?? "")
+//            }
+//            
+////            result?.data?.listTraumaTracker2S?.items!.forEach { print(($0?.roomNumber)!) }
+//            
+//            if let cloudPatients = result?.data?.listTraumaTracker2S?.items! {
+//                self.patients = []
+//                for p in cloudPatients {
+//                    let item = [p?.roomNumber as Any, p?.spo2 as Any, p?.pulseRate as Any, p?.bodyTemperature as Any, p?.bloodPressureSystolic as Any]
+//                    self.patients.append(item)
+//                }
+//            } else {
+//                print("Failed to pull items.")
+//            }
+//            
+//            print(self.patients)
+//            
+//        }
+//    }
+    
+    
     // MARK: - Table view data source
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return patients.count
+        if UserDefaults.standard.object(forKey: "Patients") != nil {
+//            print("Retrieving count of patients from UserDefaults.")
+            let decoded  = UserDefaults.standard.object(forKey: "Patients") as! Data
+            let decodedData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [String : Patient]
+//            print("count: \(decodedData.count)")
+            return decodedData.count
+        }
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -75,20 +106,37 @@ class PatientTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if UserDefaults.standard.object(forKey: "Patients") != nil {
+//            print("Retrieving patients from UserDefaults.")
+            let decoded  = UserDefaults.standard.object(forKey: "Patients") as! Data
+            var decodedData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [String : Patient]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath) as! PatientCell
+            cell.updatePatientData(Array(decodedData.values)[indexPath.row])
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath) as! PatientCell
-        
-        cell.updatePatientData(patients[indexPath.row])
-        
+        cell.updatePatientData(defaultPatient)
         //Testing how to unpack all this data
-        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let selectedCell = tableView.cellForRow(at: indexPath)
+        self.performSegue(withIdentifier: "GoToPatientDetailView", sender: selectedCell)
         
-//        self.performSegue(withIdentifier: "GoToPatientDetailView", sender: self)
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToPatientDetailView" {
+            let selectedCell = sender as! PatientCell
+            let destinationController = segue.destination as! DetailedPatientViewController
+            if let roomNumber = selectedCell.roomNum {
+                destinationController.roomNumber = roomNumber
+            }
+        }
+
     }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -1,26 +1,26 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "traumatracker-20190224133704-authRole",
-      "UnauthRoleArn": "arn:aws:iam::411259667601:role/traumatracker-20190224133704-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::411259667601:role/traumatracker-20190224133704-authRole",
+      "AuthRoleName": "traumatracker-20190310175501-authRole",
+      "UnauthRoleArn": "arn:aws:iam::411259667601:role/traumatracker-20190310175501-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::411259667601:role/traumatracker-20190310175501-authRole",
       "Region": "us-east-2",
-      "DeploymentBucketName": "traumatracker-20190224133704-deployment",
-      "UnauthRoleName": "traumatracker-20190224133704-unauthRole",
-      "StackName": "traumatracker-20190224133704",
-      "StackId": "arn:aws:cloudformation:us-east-2:411259667601:stack/traumatracker-20190224133704/90616970-386b-11e9-b3d8-06ba3123ae48"
+      "DeploymentBucketName": "traumatracker-20190310175501-deployment",
+      "UnauthRoleName": "traumatracker-20190310175501-unauthRole",
+      "StackName": "traumatracker-20190310175501",
+      "StackId": "arn:aws:cloudformation:us-east-2:411259667601:stack/traumatracker-20190310175501/893e2cb0-4387-11e9-a1da-0a768148c3d2"
     }
   },
   "api": {
-    "TraumaTrackerSync": {
+    "TraumaTracker2": {
       "service": "AppSync",
       "output": {
         "securityType": "API_KEY",
-        "GraphQLAPIIdOutput": "3wlaitsz7zhoriul6bchnfvrwm",
-        "GraphQLAPIEndpointOutput": "https://yvited6yi5glzj52x3obd6or5y.appsync-api.us-east-2.amazonaws.com/graphql",
-        "GraphQLAPIKeyOutput": "da2-u4qgsv6amrezdoierge35cr3u4"
+        "GraphQLAPIIdOutput": "pqigyusqzvblhfvctiv4mmp3je",
+        "GraphQLAPIEndpointOutput": "https://kvd7oke7affldfnntsyg2g3ckm.appsync-api.us-east-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-qzi4bxob4zdt3ktqo4n23ybvue"
       },
-      "lastPushTimeStamp": "2019-02-24T19:38:11.289Z"
+      "lastPushTimeStamp": "2019-03-10T23:13:59.046Z"
     }
   }
 }

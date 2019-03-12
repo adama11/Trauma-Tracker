@@ -17,18 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        
         do {
             // You can choose the directory in which AppSync stores its persistent cache databases
-            let cacheConfiguration = try AWSAppSyncCacheConfiguration()
+//            let cacheConfiguration = try AWSAppSyncCacheConfiguration()
             
             // AppSync configuration & client initialization
             let appSyncServiceConfig = try AWSAppSyncServiceConfig()
-            let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncServiceConfig: appSyncServiceConfig,
-                                                                  cacheConfiguration: cacheConfiguration)
+//            let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncServiceConfig: appSyncServiceConfig,
+//                                                                  cacheConfiguration: cacheConfiguration)
+            let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncServiceConfig: appSyncServiceConfig)
             appSyncClient = try AWSAppSyncClient(appSyncConfig: appSyncConfig)
             // Set id as the cache key for objects. See architecture section for details
-            appSyncClient?.apolloClient?.cacheKeyForObject = { $0["id"] }
+            appSyncClient?.apolloClient?.cacheKeyForObject = { $0["roomNumber"] }
+            print("Initialized appsync client.")
         } catch {
             print("Error initializing appsync client. \(error)")
         }

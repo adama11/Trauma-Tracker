@@ -7,35 +7,74 @@
 //
 
 import UIKit
+import AWSAppSync
 
 class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     
     let genderPickerData : [String] = ["Male", "Female"]
     let agePickerData = Array(0...120)
+    var currentGenderPickerData : String = ""
+    var currentAgePickerData : Int = 0
 
     @IBOutlet weak var agePicker: UIPickerView!
     @IBOutlet weak var roomNumberField: UITextField!
     @IBOutlet weak var addPatientButton: UIButton!
     @IBOutlet weak var genderPicker: UIPickerView!
     
+    var appSyncClient: AWSAppSyncClient?
+
     @IBAction func addPatientButton(_ sender: Any) {
+        print("Adding Patient")
 //        let age = agePicker.value
         let roomNumber = roomNumberField.text
         
-        let missingInfoAlert = UIAlertController(title: "Couldn't Add Patient", message: "Some or all patient information is missing.", preferredStyle: .alert)
-        missingInfoAlert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+        let newPatient = Patient(roomNumber: roomNumber, gender: self.currentGenderPickerData, age: self.currentAgePickerData)
         
-//        if age == "" || roomNumber == "" {
-//            self.present(missingInfoAlert, animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+        
+        
+    //        if age == "" || roomNumber == "" {
+    //            self.present(missingInfoAlert, animated: true, completion: nil)
+    //        } else {
+    //            navigationController?.popViewController(animated: true)
+    //        }
+            
+            //Pop back to main view
+        
+        
+        
+        //Adding patient to db for testing:
+//        if let roomNumber = roomNumberField.text {
+//
+//            // Doesn't support addition when user already exists... FIX
+//
+//
+//            let mutationInput = CreateTraumaTracker2Input(roomNumber: roomNumber, pulseRate: 75.0, spo2: 99.1, ecg: "{}", bloodPressureSystolic: 120.0, bloodPressureDiastolic: 80.0, restingPulseRate: 87.1, bodyTemperature: 98.6)
+//
+//            let connectionError = UIAlertController(title: "Couldn't Add Patient", message: "There was a connection error, please try again.", preferredStyle: .alert)
+//            connectionError.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+//
+//            appSyncClient?.perform(mutation: CreateTraumaTracker2Mutation(input: mutationInput)) { (result, error) in
+//                if let error = error as? AWSAppSyncClientError {
+//                    print("Error occurred: \(error.localizedDescription )")
+//                    self.present(connectionError, animated: true, completion: nil)
+//                } else if let resultError = result?.errors {
+//                    print("Error saving the item on server: \(resultError)")
+//                    self.present(connectionError, animated: true, completion: nil)
+//                    return
+//                } else {
+//                    self.navigationController?.popViewController(animated: true)
+//                }
+//            }
 //        } else {
-//            navigationController?.popViewController(animated: true)
+//            let missingInfoAlert = UIAlertController(title: "Couldn't Add Patient", message: "Some or all patient information is missing.", preferredStyle: .alert)
+//            missingInfoAlert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+//            self.present(missingInfoAlert, animated: true, completion: nil)
 //        }
-        
-        //Pop back to main view
-        
-        
     }
+    
+
     
     
     override func viewDidLoad() {
@@ -49,7 +88,15 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerV
         agePicker.delegate = self
         agePicker.dataSource = self
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appSyncClient = appDelegate.appSyncClient
+        
+        currentGenderPickerData = genderPickerData[0]
+        currentAgePickerData = Int(agePickerData[0])
+        
     }
+    
+    //Start pickers set up
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == agePicker {
             return agePickerData.count
@@ -72,6 +119,15 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerV
         }
         return genderPickerData[row]
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == agePicker {
+            currentAgePickerData = Int(agePickerData[row])
+        } else if pickerView == genderPicker {
+            currentGenderPickerData = genderPickerData[row]
+        }
+    }
+    //End pickers set up
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         

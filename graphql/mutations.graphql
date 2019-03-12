@@ -1,43 +1,43 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateTraumaTrackerPatient($input: CreateTraumaTrackerPatientInput!) {
-  createTraumaTrackerPatient(input: $input) {
-    id
-    title
-    firstName
-    lastName
+mutation CreateTraumaTracker2($input: CreateTraumaTracker2Input!) {
+  createTraumaTracker2(input: $input) {
+    roomNumber
     pulseRate
     spo2
     ecg
-    bloodPressure
+    bloodPressureSystolic
+    bloodPressureDiastolic
     restingPulseRate
     bodyTemperature
+    age
+    gender
   }
 }
-mutation UpdateTraumaTrackerPatient($input: UpdateTraumaTrackerPatientInput!) {
-  updateTraumaTrackerPatient(input: $input) {
-    id
-    title
-    firstName
-    lastName
+mutation UpdateTraumaTracker2($input: UpdateTraumaTracker2Input!) {
+  updateTraumaTracker2(input: $input) {
+    roomNumber
     pulseRate
     spo2
     ecg
-    bloodPressure
+    bloodPressureSystolic
+    bloodPressureDiastolic
     restingPulseRate
     bodyTemperature
+    age
+    gender
   }
 }
-mutation DeleteTraumaTrackerPatient($input: DeleteTraumaTrackerPatientInput!) {
-  deleteTraumaTrackerPatient(input: $input) {
-    id
-    title
-    firstName
-    lastName
+mutation DeleteTraumaTracker2($input: DeleteTraumaTracker2Input!) {
+  deleteTraumaTracker2(input: $input) {
+    roomNumber
     pulseRate
     spo2
     ecg
-    bloodPressure
+    bloodPressureSystolic
+    bloodPressureDiastolic
     restingPulseRate
     bodyTemperature
+    age
+    gender
   }
 }

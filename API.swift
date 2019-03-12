@@ -2,43 +2,25 @@
 
 import AWSAppSync
 
-public struct CreateTraumaTrackerPatientInput: GraphQLMapConvertible {
+public struct CreateTraumaTracker2Input: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(title: String, firstName: String, lastName: String, pulseRate: Int, spo2: Double, ecg: String, bloodPressure: Double, restingPulseRate: Double, bodyTemperature: Double) {
-    graphQLMap = ["title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressure": bloodPressure, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature]
+  public init(roomNumber: String, pulseRate: Double, spo2: Double, ecg: String, bloodPressureSystolic: Double, bloodPressureDiastolic: Double, restingPulseRate: Double, bodyTemperature: Double, age: Int? = nil, gender: String? = nil) {
+    graphQLMap = ["roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic, "bloodPressureDiastolic": bloodPressureDiastolic, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature, "age": age, "gender": gender]
   }
 
-  public var title: String {
+  public var roomNumber: String {
     get {
-      return graphQLMap["title"] as! String
+      return graphQLMap["roomNumber"] as! String
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "title")
+      graphQLMap.updateValue(newValue, forKey: "roomNumber")
     }
   }
 
-  public var firstName: String {
+  public var pulseRate: Double {
     get {
-      return graphQLMap["firstName"] as! String
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "firstName")
-    }
-  }
-
-  public var lastName: String {
-    get {
-      return graphQLMap["lastName"] as! String
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "lastName")
-    }
-  }
-
-  public var pulseRate: Int {
-    get {
-      return graphQLMap["pulseRate"] as! Int
+      return graphQLMap["pulseRate"] as! Double
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "pulseRate")
@@ -63,12 +45,21 @@ public struct CreateTraumaTrackerPatientInput: GraphQLMapConvertible {
     }
   }
 
-  public var bloodPressure: Double {
+  public var bloodPressureSystolic: Double {
     get {
-      return graphQLMap["bloodPressure"] as! Double
+      return graphQLMap["bloodPressureSystolic"] as! Double
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "bloodPressure")
+      graphQLMap.updateValue(newValue, forKey: "bloodPressureSystolic")
+    }
+  }
+
+  public var bloodPressureDiastolic: Double {
+    get {
+      return graphQLMap["bloodPressureDiastolic"] as! Double
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "bloodPressureDiastolic")
     }
   }
 
@@ -89,54 +80,45 @@ public struct CreateTraumaTrackerPatientInput: GraphQLMapConvertible {
       graphQLMap.updateValue(newValue, forKey: "bodyTemperature")
     }
   }
+
+  public var age: Int? {
+    get {
+      return graphQLMap["age"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "age")
+    }
+  }
+
+  public var gender: String? {
+    get {
+      return graphQLMap["gender"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "gender")
+    }
+  }
 }
 
-public struct UpdateTraumaTrackerPatientInput: GraphQLMapConvertible {
+public struct UpdateTraumaTracker2Input: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: GraphQLID, title: String? = nil, firstName: String? = nil, lastName: String? = nil, pulseRate: Int? = nil, spo2: Double? = nil, ecg: String? = nil, bloodPressure: Double? = nil, restingPulseRate: Double? = nil, bodyTemperature: Double? = nil) {
-    graphQLMap = ["id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressure": bloodPressure, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature]
+  public init(roomNumber: String, pulseRate: Double? = nil, spo2: Double? = nil, ecg: String? = nil, bloodPressureSystolic: Double? = nil, bloodPressureDiastolic: Double? = nil, restingPulseRate: Double? = nil, bodyTemperature: Double? = nil, age: Int? = nil, gender: String? = nil) {
+    graphQLMap = ["roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic, "bloodPressureDiastolic": bloodPressureDiastolic, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature, "age": age, "gender": gender]
   }
 
-  public var id: GraphQLID {
+  public var roomNumber: String {
     get {
-      return graphQLMap["id"] as! GraphQLID
+      return graphQLMap["roomNumber"] as! String
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "id")
+      graphQLMap.updateValue(newValue, forKey: "roomNumber")
     }
   }
 
-  public var title: String? {
+  public var pulseRate: Double? {
     get {
-      return graphQLMap["title"] as! String?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "title")
-    }
-  }
-
-  public var firstName: String? {
-    get {
-      return graphQLMap["firstName"] as! String?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "firstName")
-    }
-  }
-
-  public var lastName: String? {
-    get {
-      return graphQLMap["lastName"] as! String?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "lastName")
-    }
-  }
-
-  public var pulseRate: Int? {
-    get {
-      return graphQLMap["pulseRate"] as! Int?
+      return graphQLMap["pulseRate"] as! Double?
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "pulseRate")
@@ -161,12 +143,21 @@ public struct UpdateTraumaTrackerPatientInput: GraphQLMapConvertible {
     }
   }
 
-  public var bloodPressure: Double? {
+  public var bloodPressureSystolic: Double? {
     get {
-      return graphQLMap["bloodPressure"] as! Double?
+      return graphQLMap["bloodPressureSystolic"] as! Double?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "bloodPressure")
+      graphQLMap.updateValue(newValue, forKey: "bloodPressureSystolic")
+    }
+  }
+
+  public var bloodPressureDiastolic: Double? {
+    get {
+      return graphQLMap["bloodPressureDiastolic"] as! Double?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "bloodPressureDiastolic")
     }
   }
 
@@ -187,71 +178,62 @@ public struct UpdateTraumaTrackerPatientInput: GraphQLMapConvertible {
       graphQLMap.updateValue(newValue, forKey: "bodyTemperature")
     }
   }
+
+  public var age: Int? {
+    get {
+      return graphQLMap["age"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "age")
+    }
+  }
+
+  public var gender: String? {
+    get {
+      return graphQLMap["gender"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "gender")
+    }
+  }
 }
 
-public struct DeleteTraumaTrackerPatientInput: GraphQLMapConvertible {
+public struct DeleteTraumaTracker2Input: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: GraphQLID) {
-    graphQLMap = ["id": id]
+  public init(roomNumber: String) {
+    graphQLMap = ["roomNumber": roomNumber]
   }
 
-  public var id: GraphQLID {
+  public var roomNumber: String {
     get {
-      return graphQLMap["id"] as! GraphQLID
+      return graphQLMap["roomNumber"] as! String
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "id")
+      graphQLMap.updateValue(newValue, forKey: "roomNumber")
     }
   }
 }
 
-public struct TableTraumaTrackerPatientFilterInput: GraphQLMapConvertible {
+public struct TableTraumaTracker2FilterInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: TableIDFilterInput? = nil, title: TableStringFilterInput? = nil, firstName: TableStringFilterInput? = nil, lastName: TableStringFilterInput? = nil, pulseRate: TableIntFilterInput? = nil, spo2: TableFloatFilterInput? = nil, bloodPressure: TableFloatFilterInput? = nil, restingPulseRate: TableFloatFilterInput? = nil, bodyTemperature: TableFloatFilterInput? = nil) {
-    graphQLMap = ["id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate, "spo2": spo2, "bloodPressure": bloodPressure, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature]
+  public init(roomNumber: TableStringFilterInput? = nil, pulseRate: TableFloatFilterInput? = nil, spo2: TableFloatFilterInput? = nil, bloodPressureSystolic: TableFloatFilterInput? = nil, bloodPressureDiastolic: TableFloatFilterInput? = nil, restingPulseRate: TableFloatFilterInput? = nil, bodyTemperature: TableFloatFilterInput? = nil, age: TableIntFilterInput? = nil, gender: TableStringFilterInput? = nil) {
+    graphQLMap = ["roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "bloodPressureSystolic": bloodPressureSystolic, "bloodPressureDiastolic": bloodPressureDiastolic, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature, "age": age, "gender": gender]
   }
 
-  public var id: TableIDFilterInput? {
+  public var roomNumber: TableStringFilterInput? {
     get {
-      return graphQLMap["id"] as! TableIDFilterInput?
+      return graphQLMap["roomNumber"] as! TableStringFilterInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "id")
+      graphQLMap.updateValue(newValue, forKey: "roomNumber")
     }
   }
 
-  public var title: TableStringFilterInput? {
+  public var pulseRate: TableFloatFilterInput? {
     get {
-      return graphQLMap["title"] as! TableStringFilterInput?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "title")
-    }
-  }
-
-  public var firstName: TableStringFilterInput? {
-    get {
-      return graphQLMap["firstName"] as! TableStringFilterInput?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "firstName")
-    }
-  }
-
-  public var lastName: TableStringFilterInput? {
-    get {
-      return graphQLMap["lastName"] as! TableStringFilterInput?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "lastName")
-    }
-  }
-
-  public var pulseRate: TableIntFilterInput? {
-    get {
-      return graphQLMap["pulseRate"] as! TableIntFilterInput?
+      return graphQLMap["pulseRate"] as! TableFloatFilterInput?
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "pulseRate")
@@ -267,12 +249,21 @@ public struct TableTraumaTrackerPatientFilterInput: GraphQLMapConvertible {
     }
   }
 
-  public var bloodPressure: TableFloatFilterInput? {
+  public var bloodPressureSystolic: TableFloatFilterInput? {
     get {
-      return graphQLMap["bloodPressure"] as! TableFloatFilterInput?
+      return graphQLMap["bloodPressureSystolic"] as! TableFloatFilterInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "bloodPressure")
+      graphQLMap.updateValue(newValue, forKey: "bloodPressureSystolic")
+    }
+  }
+
+  public var bloodPressureDiastolic: TableFloatFilterInput? {
+    get {
+      return graphQLMap["bloodPressureDiastolic"] as! TableFloatFilterInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "bloodPressureDiastolic")
     }
   }
 
@@ -293,102 +284,22 @@ public struct TableTraumaTrackerPatientFilterInput: GraphQLMapConvertible {
       graphQLMap.updateValue(newValue, forKey: "bodyTemperature")
     }
   }
-}
 
-public struct TableIDFilterInput: GraphQLMapConvertible {
-  public var graphQLMap: GraphQLMap
-
-  public init(ne: GraphQLID? = nil, eq: GraphQLID? = nil, le: GraphQLID? = nil, lt: GraphQLID? = nil, ge: GraphQLID? = nil, gt: GraphQLID? = nil, contains: GraphQLID? = nil, notContains: GraphQLID? = nil, between: [GraphQLID?]? = nil, beginsWith: GraphQLID? = nil) {
-    graphQLMap = ["ne": ne, "eq": eq, "le": le, "lt": lt, "ge": ge, "gt": gt, "contains": contains, "notContains": notContains, "between": between, "beginsWith": beginsWith]
-  }
-
-  public var ne: GraphQLID? {
+  public var age: TableIntFilterInput? {
     get {
-      return graphQLMap["ne"] as! GraphQLID?
+      return graphQLMap["age"] as! TableIntFilterInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "ne")
+      graphQLMap.updateValue(newValue, forKey: "age")
     }
   }
 
-  public var eq: GraphQLID? {
+  public var gender: TableStringFilterInput? {
     get {
-      return graphQLMap["eq"] as! GraphQLID?
+      return graphQLMap["gender"] as! TableStringFilterInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "eq")
-    }
-  }
-
-  public var le: GraphQLID? {
-    get {
-      return graphQLMap["le"] as! GraphQLID?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "le")
-    }
-  }
-
-  public var lt: GraphQLID? {
-    get {
-      return graphQLMap["lt"] as! GraphQLID?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "lt")
-    }
-  }
-
-  public var ge: GraphQLID? {
-    get {
-      return graphQLMap["ge"] as! GraphQLID?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "ge")
-    }
-  }
-
-  public var gt: GraphQLID? {
-    get {
-      return graphQLMap["gt"] as! GraphQLID?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "gt")
-    }
-  }
-
-  public var contains: GraphQLID? {
-    get {
-      return graphQLMap["contains"] as! GraphQLID?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "contains")
-    }
-  }
-
-  public var notContains: GraphQLID? {
-    get {
-      return graphQLMap["notContains"] as! GraphQLID?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "notContains")
-    }
-  }
-
-  public var between: [GraphQLID?]? {
-    get {
-      return graphQLMap["between"] as! [GraphQLID?]?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "between")
-    }
-  }
-
-  public var beginsWith: GraphQLID? {
-    get {
-      return graphQLMap["beginsWith"] as! GraphQLID?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "beginsWith")
+      graphQLMap.updateValue(newValue, forKey: "gender")
     }
   }
 }
@@ -491,95 +402,6 @@ public struct TableStringFilterInput: GraphQLMapConvertible {
   }
 }
 
-public struct TableIntFilterInput: GraphQLMapConvertible {
-  public var graphQLMap: GraphQLMap
-
-  public init(ne: Int? = nil, eq: Int? = nil, le: Int? = nil, lt: Int? = nil, ge: Int? = nil, gt: Int? = nil, contains: Int? = nil, notContains: Int? = nil, between: [Int?]? = nil) {
-    graphQLMap = ["ne": ne, "eq": eq, "le": le, "lt": lt, "ge": ge, "gt": gt, "contains": contains, "notContains": notContains, "between": between]
-  }
-
-  public var ne: Int? {
-    get {
-      return graphQLMap["ne"] as! Int?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "ne")
-    }
-  }
-
-  public var eq: Int? {
-    get {
-      return graphQLMap["eq"] as! Int?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "eq")
-    }
-  }
-
-  public var le: Int? {
-    get {
-      return graphQLMap["le"] as! Int?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "le")
-    }
-  }
-
-  public var lt: Int? {
-    get {
-      return graphQLMap["lt"] as! Int?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "lt")
-    }
-  }
-
-  public var ge: Int? {
-    get {
-      return graphQLMap["ge"] as! Int?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "ge")
-    }
-  }
-
-  public var gt: Int? {
-    get {
-      return graphQLMap["gt"] as! Int?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "gt")
-    }
-  }
-
-  public var contains: Int? {
-    get {
-      return graphQLMap["contains"] as! Int?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "contains")
-    }
-  }
-
-  public var notContains: Int? {
-    get {
-      return graphQLMap["notContains"] as! Int?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "notContains")
-    }
-  }
-
-  public var between: [Int?]? {
-    get {
-      return graphQLMap["between"] as! [Int?]?
-    }
-    set {
-      graphQLMap.updateValue(newValue, forKey: "between")
-    }
-  }
-}
-
 public struct TableFloatFilterInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
@@ -669,13 +491,102 @@ public struct TableFloatFilterInput: GraphQLMapConvertible {
   }
 }
 
-public final class CreateTraumaTrackerPatientMutation: GraphQLMutation {
+public struct TableIntFilterInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(ne: Int? = nil, eq: Int? = nil, le: Int? = nil, lt: Int? = nil, ge: Int? = nil, gt: Int? = nil, contains: Int? = nil, notContains: Int? = nil, between: [Int?]? = nil) {
+    graphQLMap = ["ne": ne, "eq": eq, "le": le, "lt": lt, "ge": ge, "gt": gt, "contains": contains, "notContains": notContains, "between": between]
+  }
+
+  public var ne: Int? {
+    get {
+      return graphQLMap["ne"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "ne")
+    }
+  }
+
+  public var eq: Int? {
+    get {
+      return graphQLMap["eq"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "eq")
+    }
+  }
+
+  public var le: Int? {
+    get {
+      return graphQLMap["le"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "le")
+    }
+  }
+
+  public var lt: Int? {
+    get {
+      return graphQLMap["lt"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "lt")
+    }
+  }
+
+  public var ge: Int? {
+    get {
+      return graphQLMap["ge"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "ge")
+    }
+  }
+
+  public var gt: Int? {
+    get {
+      return graphQLMap["gt"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "gt")
+    }
+  }
+
+  public var contains: Int? {
+    get {
+      return graphQLMap["contains"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "contains")
+    }
+  }
+
+  public var notContains: Int? {
+    get {
+      return graphQLMap["notContains"] as! Int?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "notContains")
+    }
+  }
+
+  public var between: [Int?]? {
+    get {
+      return graphQLMap["between"] as! [Int?]?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "between")
+    }
+  }
+}
+
+public final class CreateTraumaTracker2Mutation: GraphQLMutation {
   public static let operationString =
-    "mutation CreateTraumaTrackerPatient($input: CreateTraumaTrackerPatientInput!) {\n  createTraumaTrackerPatient(input: $input) {\n    __typename\n    id\n    title\n    firstName\n    lastName\n    pulseRate\n    spo2\n    ecg\n    bloodPressure\n    restingPulseRate\n    bodyTemperature\n  }\n}"
+    "mutation CreateTraumaTracker2($input: CreateTraumaTracker2Input!) {\n  createTraumaTracker2(input: $input) {\n    __typename\n    roomNumber\n    pulseRate\n    spo2\n    ecg\n    bloodPressureSystolic\n    bloodPressureDiastolic\n    restingPulseRate\n    bodyTemperature\n    age\n    gender\n  }\n}"
 
-  public var input: CreateTraumaTrackerPatientInput
+  public var input: CreateTraumaTracker2Input
 
-  public init(input: CreateTraumaTrackerPatientInput) {
+  public init(input: CreateTraumaTracker2Input) {
     self.input = input
   }
 
@@ -687,7 +598,7 @@ public final class CreateTraumaTrackerPatientMutation: GraphQLMutation {
     public static let possibleTypes = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("createTraumaTrackerPatient", arguments: ["input": GraphQLVariable("input")], type: .object(CreateTraumaTrackerPatient.selections)),
+      GraphQLField("createTraumaTracker2", arguments: ["input": GraphQLVariable("input")], type: .object(CreateTraumaTracker2.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -696,34 +607,34 @@ public final class CreateTraumaTrackerPatientMutation: GraphQLMutation {
       self.snapshot = snapshot
     }
 
-    public init(createTraumaTrackerPatient: CreateTraumaTrackerPatient? = nil) {
-      self.init(snapshot: ["__typename": "Mutation", "createTraumaTrackerPatient": createTraumaTrackerPatient.flatMap { $0.snapshot }])
+    public init(createTraumaTracker2: CreateTraumaTracker2? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "createTraumaTracker2": createTraumaTracker2.flatMap { $0.snapshot }])
     }
 
-    public var createTraumaTrackerPatient: CreateTraumaTrackerPatient? {
+    public var createTraumaTracker2: CreateTraumaTracker2? {
       get {
-        return (snapshot["createTraumaTrackerPatient"] as? Snapshot).flatMap { CreateTraumaTrackerPatient(snapshot: $0) }
+        return (snapshot["createTraumaTracker2"] as? Snapshot).flatMap { CreateTraumaTracker2(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "createTraumaTrackerPatient")
+        snapshot.updateValue(newValue?.snapshot, forKey: "createTraumaTracker2")
       }
     }
 
-    public struct CreateTraumaTrackerPatient: GraphQLSelectionSet {
-      public static let possibleTypes = ["TraumaTrackerPatient"]
+    public struct CreateTraumaTracker2: GraphQLSelectionSet {
+      public static let possibleTypes = ["TraumaTracker2"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("title", type: .nonNull(.scalar(String.self))),
-        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("pulseRate", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("roomNumber", type: .nonNull(.scalar(String.self))),
+        GraphQLField("pulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("spo2", type: .nonNull(.scalar(Double.self))),
         GraphQLField("ecg", type: .nonNull(.scalar(String.self))),
-        GraphQLField("bloodPressure", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureSystolic", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureDiastolic", type: .nonNull(.scalar(Double.self))),
         GraphQLField("restingPulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("bodyTemperature", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("age", type: .scalar(Int.self)),
+        GraphQLField("gender", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -732,8 +643,8 @@ public final class CreateTraumaTrackerPatientMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, title: String, firstName: String, lastName: String, pulseRate: Int, spo2: Double, ecg: String, bloodPressure: Double, restingPulseRate: Double, bodyTemperature: Double) {
-        self.init(snapshot: ["__typename": "TraumaTrackerPatient", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressure": bloodPressure, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature])
+      public init(roomNumber: String, pulseRate: Double, spo2: Double, ecg: String, bloodPressureSystolic: Double, bloodPressureDiastolic: Double, restingPulseRate: Double, bodyTemperature: Double, age: Int? = nil, gender: String? = nil) {
+        self.init(snapshot: ["__typename": "TraumaTracker2", "roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic, "bloodPressureDiastolic": bloodPressureDiastolic, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature, "age": age, "gender": gender])
       }
 
       public var __typename: String {
@@ -745,45 +656,18 @@ public final class CreateTraumaTrackerPatientMutation: GraphQLMutation {
         }
       }
 
-      public var id: GraphQLID {
+      public var roomNumber: String {
         get {
-          return snapshot["id"]! as! GraphQLID
+          return snapshot["roomNumber"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "id")
+          snapshot.updateValue(newValue, forKey: "roomNumber")
         }
       }
 
-      public var title: String {
+      public var pulseRate: Double {
         get {
-          return snapshot["title"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "title")
-        }
-      }
-
-      public var firstName: String {
-        get {
-          return snapshot["firstName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "firstName")
-        }
-      }
-
-      public var lastName: String {
-        get {
-          return snapshot["lastName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "lastName")
-        }
-      }
-
-      public var pulseRate: Int {
-        get {
-          return snapshot["pulseRate"]! as! Int
+          return snapshot["pulseRate"]! as! Double
         }
         set {
           snapshot.updateValue(newValue, forKey: "pulseRate")
@@ -808,12 +692,21 @@ public final class CreateTraumaTrackerPatientMutation: GraphQLMutation {
         }
       }
 
-      public var bloodPressure: Double {
+      public var bloodPressureSystolic: Double {
         get {
-          return snapshot["bloodPressure"]! as! Double
+          return snapshot["bloodPressureSystolic"]! as! Double
         }
         set {
-          snapshot.updateValue(newValue, forKey: "bloodPressure")
+          snapshot.updateValue(newValue, forKey: "bloodPressureSystolic")
+        }
+      }
+
+      public var bloodPressureDiastolic: Double {
+        get {
+          return snapshot["bloodPressureDiastolic"]! as! Double
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "bloodPressureDiastolic")
         }
       }
 
@@ -834,17 +727,35 @@ public final class CreateTraumaTrackerPatientMutation: GraphQLMutation {
           snapshot.updateValue(newValue, forKey: "bodyTemperature")
         }
       }
+
+      public var age: Int? {
+        get {
+          return snapshot["age"] as? Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "age")
+        }
+      }
+
+      public var gender: String? {
+        get {
+          return snapshot["gender"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "gender")
+        }
+      }
     }
   }
 }
 
-public final class UpdateTraumaTrackerPatientMutation: GraphQLMutation {
+public final class UpdateTraumaTracker2Mutation: GraphQLMutation {
   public static let operationString =
-    "mutation UpdateTraumaTrackerPatient($input: UpdateTraumaTrackerPatientInput!) {\n  updateTraumaTrackerPatient(input: $input) {\n    __typename\n    id\n    title\n    firstName\n    lastName\n    pulseRate\n    spo2\n    ecg\n    bloodPressure\n    restingPulseRate\n    bodyTemperature\n  }\n}"
+    "mutation UpdateTraumaTracker2($input: UpdateTraumaTracker2Input!) {\n  updateTraumaTracker2(input: $input) {\n    __typename\n    roomNumber\n    pulseRate\n    spo2\n    ecg\n    bloodPressureSystolic\n    bloodPressureDiastolic\n    restingPulseRate\n    bodyTemperature\n    age\n    gender\n  }\n}"
 
-  public var input: UpdateTraumaTrackerPatientInput
+  public var input: UpdateTraumaTracker2Input
 
-  public init(input: UpdateTraumaTrackerPatientInput) {
+  public init(input: UpdateTraumaTracker2Input) {
     self.input = input
   }
 
@@ -856,7 +767,7 @@ public final class UpdateTraumaTrackerPatientMutation: GraphQLMutation {
     public static let possibleTypes = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("updateTraumaTrackerPatient", arguments: ["input": GraphQLVariable("input")], type: .object(UpdateTraumaTrackerPatient.selections)),
+      GraphQLField("updateTraumaTracker2", arguments: ["input": GraphQLVariable("input")], type: .object(UpdateTraumaTracker2.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -865,34 +776,34 @@ public final class UpdateTraumaTrackerPatientMutation: GraphQLMutation {
       self.snapshot = snapshot
     }
 
-    public init(updateTraumaTrackerPatient: UpdateTraumaTrackerPatient? = nil) {
-      self.init(snapshot: ["__typename": "Mutation", "updateTraumaTrackerPatient": updateTraumaTrackerPatient.flatMap { $0.snapshot }])
+    public init(updateTraumaTracker2: UpdateTraumaTracker2? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "updateTraumaTracker2": updateTraumaTracker2.flatMap { $0.snapshot }])
     }
 
-    public var updateTraumaTrackerPatient: UpdateTraumaTrackerPatient? {
+    public var updateTraumaTracker2: UpdateTraumaTracker2? {
       get {
-        return (snapshot["updateTraumaTrackerPatient"] as? Snapshot).flatMap { UpdateTraumaTrackerPatient(snapshot: $0) }
+        return (snapshot["updateTraumaTracker2"] as? Snapshot).flatMap { UpdateTraumaTracker2(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "updateTraumaTrackerPatient")
+        snapshot.updateValue(newValue?.snapshot, forKey: "updateTraumaTracker2")
       }
     }
 
-    public struct UpdateTraumaTrackerPatient: GraphQLSelectionSet {
-      public static let possibleTypes = ["TraumaTrackerPatient"]
+    public struct UpdateTraumaTracker2: GraphQLSelectionSet {
+      public static let possibleTypes = ["TraumaTracker2"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("title", type: .nonNull(.scalar(String.self))),
-        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("pulseRate", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("roomNumber", type: .nonNull(.scalar(String.self))),
+        GraphQLField("pulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("spo2", type: .nonNull(.scalar(Double.self))),
         GraphQLField("ecg", type: .nonNull(.scalar(String.self))),
-        GraphQLField("bloodPressure", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureSystolic", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureDiastolic", type: .nonNull(.scalar(Double.self))),
         GraphQLField("restingPulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("bodyTemperature", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("age", type: .scalar(Int.self)),
+        GraphQLField("gender", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -901,8 +812,8 @@ public final class UpdateTraumaTrackerPatientMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, title: String, firstName: String, lastName: String, pulseRate: Int, spo2: Double, ecg: String, bloodPressure: Double, restingPulseRate: Double, bodyTemperature: Double) {
-        self.init(snapshot: ["__typename": "TraumaTrackerPatient", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressure": bloodPressure, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature])
+      public init(roomNumber: String, pulseRate: Double, spo2: Double, ecg: String, bloodPressureSystolic: Double, bloodPressureDiastolic: Double, restingPulseRate: Double, bodyTemperature: Double, age: Int? = nil, gender: String? = nil) {
+        self.init(snapshot: ["__typename": "TraumaTracker2", "roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic, "bloodPressureDiastolic": bloodPressureDiastolic, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature, "age": age, "gender": gender])
       }
 
       public var __typename: String {
@@ -914,45 +825,18 @@ public final class UpdateTraumaTrackerPatientMutation: GraphQLMutation {
         }
       }
 
-      public var id: GraphQLID {
+      public var roomNumber: String {
         get {
-          return snapshot["id"]! as! GraphQLID
+          return snapshot["roomNumber"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "id")
+          snapshot.updateValue(newValue, forKey: "roomNumber")
         }
       }
 
-      public var title: String {
+      public var pulseRate: Double {
         get {
-          return snapshot["title"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "title")
-        }
-      }
-
-      public var firstName: String {
-        get {
-          return snapshot["firstName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "firstName")
-        }
-      }
-
-      public var lastName: String {
-        get {
-          return snapshot["lastName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "lastName")
-        }
-      }
-
-      public var pulseRate: Int {
-        get {
-          return snapshot["pulseRate"]! as! Int
+          return snapshot["pulseRate"]! as! Double
         }
         set {
           snapshot.updateValue(newValue, forKey: "pulseRate")
@@ -977,12 +861,21 @@ public final class UpdateTraumaTrackerPatientMutation: GraphQLMutation {
         }
       }
 
-      public var bloodPressure: Double {
+      public var bloodPressureSystolic: Double {
         get {
-          return snapshot["bloodPressure"]! as! Double
+          return snapshot["bloodPressureSystolic"]! as! Double
         }
         set {
-          snapshot.updateValue(newValue, forKey: "bloodPressure")
+          snapshot.updateValue(newValue, forKey: "bloodPressureSystolic")
+        }
+      }
+
+      public var bloodPressureDiastolic: Double {
+        get {
+          return snapshot["bloodPressureDiastolic"]! as! Double
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "bloodPressureDiastolic")
         }
       }
 
@@ -1003,17 +896,35 @@ public final class UpdateTraumaTrackerPatientMutation: GraphQLMutation {
           snapshot.updateValue(newValue, forKey: "bodyTemperature")
         }
       }
+
+      public var age: Int? {
+        get {
+          return snapshot["age"] as? Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "age")
+        }
+      }
+
+      public var gender: String? {
+        get {
+          return snapshot["gender"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "gender")
+        }
+      }
     }
   }
 }
 
-public final class DeleteTraumaTrackerPatientMutation: GraphQLMutation {
+public final class DeleteTraumaTracker2Mutation: GraphQLMutation {
   public static let operationString =
-    "mutation DeleteTraumaTrackerPatient($input: DeleteTraumaTrackerPatientInput!) {\n  deleteTraumaTrackerPatient(input: $input) {\n    __typename\n    id\n    title\n    firstName\n    lastName\n    pulseRate\n    spo2\n    ecg\n    bloodPressure\n    restingPulseRate\n    bodyTemperature\n  }\n}"
+    "mutation DeleteTraumaTracker2($input: DeleteTraumaTracker2Input!) {\n  deleteTraumaTracker2(input: $input) {\n    __typename\n    roomNumber\n    pulseRate\n    spo2\n    ecg\n    bloodPressureSystolic\n    bloodPressureDiastolic\n    restingPulseRate\n    bodyTemperature\n    age\n    gender\n  }\n}"
 
-  public var input: DeleteTraumaTrackerPatientInput
+  public var input: DeleteTraumaTracker2Input
 
-  public init(input: DeleteTraumaTrackerPatientInput) {
+  public init(input: DeleteTraumaTracker2Input) {
     self.input = input
   }
 
@@ -1025,7 +936,7 @@ public final class DeleteTraumaTrackerPatientMutation: GraphQLMutation {
     public static let possibleTypes = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("deleteTraumaTrackerPatient", arguments: ["input": GraphQLVariable("input")], type: .object(DeleteTraumaTrackerPatient.selections)),
+      GraphQLField("deleteTraumaTracker2", arguments: ["input": GraphQLVariable("input")], type: .object(DeleteTraumaTracker2.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -1034,34 +945,34 @@ public final class DeleteTraumaTrackerPatientMutation: GraphQLMutation {
       self.snapshot = snapshot
     }
 
-    public init(deleteTraumaTrackerPatient: DeleteTraumaTrackerPatient? = nil) {
-      self.init(snapshot: ["__typename": "Mutation", "deleteTraumaTrackerPatient": deleteTraumaTrackerPatient.flatMap { $0.snapshot }])
+    public init(deleteTraumaTracker2: DeleteTraumaTracker2? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "deleteTraumaTracker2": deleteTraumaTracker2.flatMap { $0.snapshot }])
     }
 
-    public var deleteTraumaTrackerPatient: DeleteTraumaTrackerPatient? {
+    public var deleteTraumaTracker2: DeleteTraumaTracker2? {
       get {
-        return (snapshot["deleteTraumaTrackerPatient"] as? Snapshot).flatMap { DeleteTraumaTrackerPatient(snapshot: $0) }
+        return (snapshot["deleteTraumaTracker2"] as? Snapshot).flatMap { DeleteTraumaTracker2(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "deleteTraumaTrackerPatient")
+        snapshot.updateValue(newValue?.snapshot, forKey: "deleteTraumaTracker2")
       }
     }
 
-    public struct DeleteTraumaTrackerPatient: GraphQLSelectionSet {
-      public static let possibleTypes = ["TraumaTrackerPatient"]
+    public struct DeleteTraumaTracker2: GraphQLSelectionSet {
+      public static let possibleTypes = ["TraumaTracker2"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("title", type: .nonNull(.scalar(String.self))),
-        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("pulseRate", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("roomNumber", type: .nonNull(.scalar(String.self))),
+        GraphQLField("pulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("spo2", type: .nonNull(.scalar(Double.self))),
         GraphQLField("ecg", type: .nonNull(.scalar(String.self))),
-        GraphQLField("bloodPressure", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureSystolic", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureDiastolic", type: .nonNull(.scalar(Double.self))),
         GraphQLField("restingPulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("bodyTemperature", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("age", type: .scalar(Int.self)),
+        GraphQLField("gender", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -1070,8 +981,8 @@ public final class DeleteTraumaTrackerPatientMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, title: String, firstName: String, lastName: String, pulseRate: Int, spo2: Double, ecg: String, bloodPressure: Double, restingPulseRate: Double, bodyTemperature: Double) {
-        self.init(snapshot: ["__typename": "TraumaTrackerPatient", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressure": bloodPressure, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature])
+      public init(roomNumber: String, pulseRate: Double, spo2: Double, ecg: String, bloodPressureSystolic: Double, bloodPressureDiastolic: Double, restingPulseRate: Double, bodyTemperature: Double, age: Int? = nil, gender: String? = nil) {
+        self.init(snapshot: ["__typename": "TraumaTracker2", "roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic, "bloodPressureDiastolic": bloodPressureDiastolic, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature, "age": age, "gender": gender])
       }
 
       public var __typename: String {
@@ -1083,45 +994,18 @@ public final class DeleteTraumaTrackerPatientMutation: GraphQLMutation {
         }
       }
 
-      public var id: GraphQLID {
+      public var roomNumber: String {
         get {
-          return snapshot["id"]! as! GraphQLID
+          return snapshot["roomNumber"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "id")
+          snapshot.updateValue(newValue, forKey: "roomNumber")
         }
       }
 
-      public var title: String {
+      public var pulseRate: Double {
         get {
-          return snapshot["title"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "title")
-        }
-      }
-
-      public var firstName: String {
-        get {
-          return snapshot["firstName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "firstName")
-        }
-      }
-
-      public var lastName: String {
-        get {
-          return snapshot["lastName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "lastName")
-        }
-      }
-
-      public var pulseRate: Int {
-        get {
-          return snapshot["pulseRate"]! as! Int
+          return snapshot["pulseRate"]! as! Double
         }
         set {
           snapshot.updateValue(newValue, forKey: "pulseRate")
@@ -1146,12 +1030,21 @@ public final class DeleteTraumaTrackerPatientMutation: GraphQLMutation {
         }
       }
 
-      public var bloodPressure: Double {
+      public var bloodPressureSystolic: Double {
         get {
-          return snapshot["bloodPressure"]! as! Double
+          return snapshot["bloodPressureSystolic"]! as! Double
         }
         set {
-          snapshot.updateValue(newValue, forKey: "bloodPressure")
+          snapshot.updateValue(newValue, forKey: "bloodPressureSystolic")
+        }
+      }
+
+      public var bloodPressureDiastolic: Double {
+        get {
+          return snapshot["bloodPressureDiastolic"]! as! Double
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "bloodPressureDiastolic")
         }
       }
 
@@ -1172,29 +1065,47 @@ public final class DeleteTraumaTrackerPatientMutation: GraphQLMutation {
           snapshot.updateValue(newValue, forKey: "bodyTemperature")
         }
       }
+
+      public var age: Int? {
+        get {
+          return snapshot["age"] as? Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "age")
+        }
+      }
+
+      public var gender: String? {
+        get {
+          return snapshot["gender"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "gender")
+        }
+      }
     }
   }
 }
 
-public final class GetTraumaTrackerPatientQuery: GraphQLQuery {
+public final class GetTraumaTracker2Query: GraphQLQuery {
   public static let operationString =
-    "query GetTraumaTrackerPatient($id: ID!) {\n  getTraumaTrackerPatient(id: $id) {\n    __typename\n    id\n    title\n    firstName\n    lastName\n    pulseRate\n    spo2\n    ecg\n    bloodPressure\n    restingPulseRate\n    bodyTemperature\n  }\n}"
+    "query GetTraumaTracker2($roomNumber: String!) {\n  getTraumaTracker2(roomNumber: $roomNumber) {\n    __typename\n    roomNumber\n    pulseRate\n    spo2\n    ecg\n    bloodPressureSystolic\n    bloodPressureDiastolic\n    restingPulseRate\n    bodyTemperature\n    age\n    gender\n  }\n}"
 
-  public var id: GraphQLID
+  public var roomNumber: String
 
-  public init(id: GraphQLID) {
-    self.id = id
+  public init(roomNumber: String) {
+    self.roomNumber = roomNumber
   }
 
   public var variables: GraphQLMap? {
-    return ["id": id]
+    return ["roomNumber": roomNumber]
   }
 
   public struct Data: GraphQLSelectionSet {
     public static let possibleTypes = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("getTraumaTrackerPatient", arguments: ["id": GraphQLVariable("id")], type: .object(GetTraumaTrackerPatient.selections)),
+      GraphQLField("getTraumaTracker2", arguments: ["roomNumber": GraphQLVariable("roomNumber")], type: .object(GetTraumaTracker2.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -1203,34 +1114,34 @@ public final class GetTraumaTrackerPatientQuery: GraphQLQuery {
       self.snapshot = snapshot
     }
 
-    public init(getTraumaTrackerPatient: GetTraumaTrackerPatient? = nil) {
-      self.init(snapshot: ["__typename": "Query", "getTraumaTrackerPatient": getTraumaTrackerPatient.flatMap { $0.snapshot }])
+    public init(getTraumaTracker2: GetTraumaTracker2? = nil) {
+      self.init(snapshot: ["__typename": "Query", "getTraumaTracker2": getTraumaTracker2.flatMap { $0.snapshot }])
     }
 
-    public var getTraumaTrackerPatient: GetTraumaTrackerPatient? {
+    public var getTraumaTracker2: GetTraumaTracker2? {
       get {
-        return (snapshot["getTraumaTrackerPatient"] as? Snapshot).flatMap { GetTraumaTrackerPatient(snapshot: $0) }
+        return (snapshot["getTraumaTracker2"] as? Snapshot).flatMap { GetTraumaTracker2(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "getTraumaTrackerPatient")
+        snapshot.updateValue(newValue?.snapshot, forKey: "getTraumaTracker2")
       }
     }
 
-    public struct GetTraumaTrackerPatient: GraphQLSelectionSet {
-      public static let possibleTypes = ["TraumaTrackerPatient"]
+    public struct GetTraumaTracker2: GraphQLSelectionSet {
+      public static let possibleTypes = ["TraumaTracker2"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("title", type: .nonNull(.scalar(String.self))),
-        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("pulseRate", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("roomNumber", type: .nonNull(.scalar(String.self))),
+        GraphQLField("pulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("spo2", type: .nonNull(.scalar(Double.self))),
         GraphQLField("ecg", type: .nonNull(.scalar(String.self))),
-        GraphQLField("bloodPressure", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureSystolic", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureDiastolic", type: .nonNull(.scalar(Double.self))),
         GraphQLField("restingPulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("bodyTemperature", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("age", type: .scalar(Int.self)),
+        GraphQLField("gender", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -1239,8 +1150,8 @@ public final class GetTraumaTrackerPatientQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, title: String, firstName: String, lastName: String, pulseRate: Int, spo2: Double, ecg: String, bloodPressure: Double, restingPulseRate: Double, bodyTemperature: Double) {
-        self.init(snapshot: ["__typename": "TraumaTrackerPatient", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressure": bloodPressure, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature])
+      public init(roomNumber: String, pulseRate: Double, spo2: Double, ecg: String, bloodPressureSystolic: Double, bloodPressureDiastolic: Double, restingPulseRate: Double, bodyTemperature: Double, age: Int? = nil, gender: String? = nil) {
+        self.init(snapshot: ["__typename": "TraumaTracker2", "roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic, "bloodPressureDiastolic": bloodPressureDiastolic, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature, "age": age, "gender": gender])
       }
 
       public var __typename: String {
@@ -1252,45 +1163,18 @@ public final class GetTraumaTrackerPatientQuery: GraphQLQuery {
         }
       }
 
-      public var id: GraphQLID {
+      public var roomNumber: String {
         get {
-          return snapshot["id"]! as! GraphQLID
+          return snapshot["roomNumber"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "id")
+          snapshot.updateValue(newValue, forKey: "roomNumber")
         }
       }
 
-      public var title: String {
+      public var pulseRate: Double {
         get {
-          return snapshot["title"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "title")
-        }
-      }
-
-      public var firstName: String {
-        get {
-          return snapshot["firstName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "firstName")
-        }
-      }
-
-      public var lastName: String {
-        get {
-          return snapshot["lastName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "lastName")
-        }
-      }
-
-      public var pulseRate: Int {
-        get {
-          return snapshot["pulseRate"]! as! Int
+          return snapshot["pulseRate"]! as! Double
         }
         set {
           snapshot.updateValue(newValue, forKey: "pulseRate")
@@ -1315,12 +1199,21 @@ public final class GetTraumaTrackerPatientQuery: GraphQLQuery {
         }
       }
 
-      public var bloodPressure: Double {
+      public var bloodPressureSystolic: Double {
         get {
-          return snapshot["bloodPressure"]! as! Double
+          return snapshot["bloodPressureSystolic"]! as! Double
         }
         set {
-          snapshot.updateValue(newValue, forKey: "bloodPressure")
+          snapshot.updateValue(newValue, forKey: "bloodPressureSystolic")
+        }
+      }
+
+      public var bloodPressureDiastolic: Double {
+        get {
+          return snapshot["bloodPressureDiastolic"]! as! Double
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "bloodPressureDiastolic")
         }
       }
 
@@ -1341,19 +1234,37 @@ public final class GetTraumaTrackerPatientQuery: GraphQLQuery {
           snapshot.updateValue(newValue, forKey: "bodyTemperature")
         }
       }
+
+      public var age: Int? {
+        get {
+          return snapshot["age"] as? Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "age")
+        }
+      }
+
+      public var gender: String? {
+        get {
+          return snapshot["gender"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "gender")
+        }
+      }
     }
   }
 }
 
-public final class ListTraumaTrackerPatientsQuery: GraphQLQuery {
+public final class ListTraumaTracker2SQuery: GraphQLQuery {
   public static let operationString =
-    "query ListTraumaTrackerPatients($filter: TableTraumaTrackerPatientFilterInput, $limit: Int, $nextToken: String) {\n  listTraumaTrackerPatients(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      title\n      firstName\n      lastName\n      pulseRate\n      spo2\n      ecg\n      bloodPressure\n      restingPulseRate\n      bodyTemperature\n    }\n    nextToken\n  }\n}"
+    "query ListTraumaTracker2S($filter: TableTraumaTracker2FilterInput, $limit: Int, $nextToken: String) {\n  listTraumaTracker2S(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      roomNumber\n      pulseRate\n      spo2\n      ecg\n      bloodPressureSystolic\n      bloodPressureDiastolic\n      restingPulseRate\n      bodyTemperature\n      age\n      gender\n    }\n    nextToken\n  }\n}"
 
-  public var filter: TableTraumaTrackerPatientFilterInput?
+  public var filter: TableTraumaTracker2FilterInput?
   public var limit: Int?
   public var nextToken: String?
 
-  public init(filter: TableTraumaTrackerPatientFilterInput? = nil, limit: Int? = nil, nextToken: String? = nil) {
+  public init(filter: TableTraumaTracker2FilterInput? = nil, limit: Int? = nil, nextToken: String? = nil) {
     self.filter = filter
     self.limit = limit
     self.nextToken = nextToken
@@ -1367,7 +1278,7 @@ public final class ListTraumaTrackerPatientsQuery: GraphQLQuery {
     public static let possibleTypes = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("listTraumaTrackerPatients", arguments: ["filter": GraphQLVariable("filter"), "limit": GraphQLVariable("limit"), "nextToken": GraphQLVariable("nextToken")], type: .object(ListTraumaTrackerPatient.selections)),
+      GraphQLField("listTraumaTracker2S", arguments: ["filter": GraphQLVariable("filter"), "limit": GraphQLVariable("limit"), "nextToken": GraphQLVariable("nextToken")], type: .object(ListTraumaTracker2.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -1376,21 +1287,21 @@ public final class ListTraumaTrackerPatientsQuery: GraphQLQuery {
       self.snapshot = snapshot
     }
 
-    public init(listTraumaTrackerPatients: ListTraumaTrackerPatient? = nil) {
-      self.init(snapshot: ["__typename": "Query", "listTraumaTrackerPatients": listTraumaTrackerPatients.flatMap { $0.snapshot }])
+    public init(listTraumaTracker2S: ListTraumaTracker2? = nil) {
+      self.init(snapshot: ["__typename": "Query", "listTraumaTracker2S": listTraumaTracker2S.flatMap { $0.snapshot }])
     }
 
-    public var listTraumaTrackerPatients: ListTraumaTrackerPatient? {
+    public var listTraumaTracker2S: ListTraumaTracker2? {
       get {
-        return (snapshot["listTraumaTrackerPatients"] as? Snapshot).flatMap { ListTraumaTrackerPatient(snapshot: $0) }
+        return (snapshot["listTraumaTracker2S"] as? Snapshot).flatMap { ListTraumaTracker2(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "listTraumaTrackerPatients")
+        snapshot.updateValue(newValue?.snapshot, forKey: "listTraumaTracker2S")
       }
     }
 
-    public struct ListTraumaTrackerPatient: GraphQLSelectionSet {
-      public static let possibleTypes = ["TraumaTrackerPatientConnection"]
+    public struct ListTraumaTracker2: GraphQLSelectionSet {
+      public static let possibleTypes = ["TraumaTracker2Connection"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -1405,7 +1316,7 @@ public final class ListTraumaTrackerPatientsQuery: GraphQLQuery {
       }
 
       public init(items: [Item?]? = nil, nextToken: String? = nil) {
-        self.init(snapshot: ["__typename": "TraumaTrackerPatientConnection", "items": items.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, "nextToken": nextToken])
+        self.init(snapshot: ["__typename": "TraumaTracker2Connection", "items": items.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, "nextToken": nextToken])
       }
 
       public var __typename: String {
@@ -1436,20 +1347,20 @@ public final class ListTraumaTrackerPatientsQuery: GraphQLQuery {
       }
 
       public struct Item: GraphQLSelectionSet {
-        public static let possibleTypes = ["TraumaTrackerPatient"]
+        public static let possibleTypes = ["TraumaTracker2"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("title", type: .nonNull(.scalar(String.self))),
-          GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
-          GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
-          GraphQLField("pulseRate", type: .nonNull(.scalar(Int.self))),
+          GraphQLField("roomNumber", type: .nonNull(.scalar(String.self))),
+          GraphQLField("pulseRate", type: .nonNull(.scalar(Double.self))),
           GraphQLField("spo2", type: .nonNull(.scalar(Double.self))),
           GraphQLField("ecg", type: .nonNull(.scalar(String.self))),
-          GraphQLField("bloodPressure", type: .nonNull(.scalar(Double.self))),
+          GraphQLField("bloodPressureSystolic", type: .nonNull(.scalar(Double.self))),
+          GraphQLField("bloodPressureDiastolic", type: .nonNull(.scalar(Double.self))),
           GraphQLField("restingPulseRate", type: .nonNull(.scalar(Double.self))),
           GraphQLField("bodyTemperature", type: .nonNull(.scalar(Double.self))),
+          GraphQLField("age", type: .scalar(Int.self)),
+          GraphQLField("gender", type: .scalar(String.self)),
         ]
 
         public var snapshot: Snapshot
@@ -1458,8 +1369,8 @@ public final class ListTraumaTrackerPatientsQuery: GraphQLQuery {
           self.snapshot = snapshot
         }
 
-        public init(id: GraphQLID, title: String, firstName: String, lastName: String, pulseRate: Int, spo2: Double, ecg: String, bloodPressure: Double, restingPulseRate: Double, bodyTemperature: Double) {
-          self.init(snapshot: ["__typename": "TraumaTrackerPatient", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressure": bloodPressure, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature])
+        public init(roomNumber: String, pulseRate: Double, spo2: Double, ecg: String, bloodPressureSystolic: Double, bloodPressureDiastolic: Double, restingPulseRate: Double, bodyTemperature: Double, age: Int? = nil, gender: String? = nil) {
+          self.init(snapshot: ["__typename": "TraumaTracker2", "roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic, "bloodPressureDiastolic": bloodPressureDiastolic, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature, "age": age, "gender": gender])
         }
 
         public var __typename: String {
@@ -1471,45 +1382,18 @@ public final class ListTraumaTrackerPatientsQuery: GraphQLQuery {
           }
         }
 
-        public var id: GraphQLID {
+        public var roomNumber: String {
           get {
-            return snapshot["id"]! as! GraphQLID
+            return snapshot["roomNumber"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "id")
+            snapshot.updateValue(newValue, forKey: "roomNumber")
           }
         }
 
-        public var title: String {
+        public var pulseRate: Double {
           get {
-            return snapshot["title"]! as! String
-          }
-          set {
-            snapshot.updateValue(newValue, forKey: "title")
-          }
-        }
-
-        public var firstName: String {
-          get {
-            return snapshot["firstName"]! as! String
-          }
-          set {
-            snapshot.updateValue(newValue, forKey: "firstName")
-          }
-        }
-
-        public var lastName: String {
-          get {
-            return snapshot["lastName"]! as! String
-          }
-          set {
-            snapshot.updateValue(newValue, forKey: "lastName")
-          }
-        }
-
-        public var pulseRate: Int {
-          get {
-            return snapshot["pulseRate"]! as! Int
+            return snapshot["pulseRate"]! as! Double
           }
           set {
             snapshot.updateValue(newValue, forKey: "pulseRate")
@@ -1534,12 +1418,21 @@ public final class ListTraumaTrackerPatientsQuery: GraphQLQuery {
           }
         }
 
-        public var bloodPressure: Double {
+        public var bloodPressureSystolic: Double {
           get {
-            return snapshot["bloodPressure"]! as! Double
+            return snapshot["bloodPressureSystolic"]! as! Double
           }
           set {
-            snapshot.updateValue(newValue, forKey: "bloodPressure")
+            snapshot.updateValue(newValue, forKey: "bloodPressureSystolic")
+          }
+        }
+
+        public var bloodPressureDiastolic: Double {
+          get {
+            return snapshot["bloodPressureDiastolic"]! as! Double
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "bloodPressureDiastolic")
           }
         }
 
@@ -1560,38 +1453,56 @@ public final class ListTraumaTrackerPatientsQuery: GraphQLQuery {
             snapshot.updateValue(newValue, forKey: "bodyTemperature")
           }
         }
+
+        public var age: Int? {
+          get {
+            return snapshot["age"] as? Int
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "age")
+          }
+        }
+
+        public var gender: String? {
+          get {
+            return snapshot["gender"] as? String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "gender")
+          }
+        }
       }
     }
   }
 }
 
-public final class OnCreateTraumaTrackerPatientSubscription: GraphQLSubscription {
+public final class OnCreateTraumaTracker2Subscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnCreateTraumaTrackerPatient($id: ID, $title: String, $firstName: String, $lastName: String, $pulseRate: Int) {\n  onCreateTraumaTrackerPatient(id: $id, title: $title, firstName: $firstName, lastName: $lastName, pulseRate: $pulseRate) {\n    __typename\n    id\n    title\n    firstName\n    lastName\n    pulseRate\n    spo2\n    ecg\n    bloodPressure\n    restingPulseRate\n    bodyTemperature\n  }\n}"
+    "subscription OnCreateTraumaTracker2($roomNumber: String, $pulseRate: Float, $spo2: Float, $ecg: AWSJSON, $bloodPressureSystolic: Float) {\n  onCreateTraumaTracker2(roomNumber: $roomNumber, pulseRate: $pulseRate, spo2: $spo2, ecg: $ecg, bloodPressureSystolic: $bloodPressureSystolic) {\n    __typename\n    roomNumber\n    pulseRate\n    spo2\n    ecg\n    bloodPressureSystolic\n    bloodPressureDiastolic\n    restingPulseRate\n    bodyTemperature\n    age\n    gender\n  }\n}"
 
-  public var id: GraphQLID?
-  public var title: String?
-  public var firstName: String?
-  public var lastName: String?
-  public var pulseRate: Int?
+  public var roomNumber: String?
+  public var pulseRate: Double?
+  public var spo2: Double?
+  public var ecg: String?
+  public var bloodPressureSystolic: Double?
 
-  public init(id: GraphQLID? = nil, title: String? = nil, firstName: String? = nil, lastName: String? = nil, pulseRate: Int? = nil) {
-    self.id = id
-    self.title = title
-    self.firstName = firstName
-    self.lastName = lastName
+  public init(roomNumber: String? = nil, pulseRate: Double? = nil, spo2: Double? = nil, ecg: String? = nil, bloodPressureSystolic: Double? = nil) {
+    self.roomNumber = roomNumber
     self.pulseRate = pulseRate
+    self.spo2 = spo2
+    self.ecg = ecg
+    self.bloodPressureSystolic = bloodPressureSystolic
   }
 
   public var variables: GraphQLMap? {
-    return ["id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate]
+    return ["roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic]
   }
 
   public struct Data: GraphQLSelectionSet {
     public static let possibleTypes = ["Subscription"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("onCreateTraumaTrackerPatient", arguments: ["id": GraphQLVariable("id"), "title": GraphQLVariable("title"), "firstName": GraphQLVariable("firstName"), "lastName": GraphQLVariable("lastName"), "pulseRate": GraphQLVariable("pulseRate")], type: .object(OnCreateTraumaTrackerPatient.selections)),
+      GraphQLField("onCreateTraumaTracker2", arguments: ["roomNumber": GraphQLVariable("roomNumber"), "pulseRate": GraphQLVariable("pulseRate"), "spo2": GraphQLVariable("spo2"), "ecg": GraphQLVariable("ecg"), "bloodPressureSystolic": GraphQLVariable("bloodPressureSystolic")], type: .object(OnCreateTraumaTracker2.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -1600,34 +1511,34 @@ public final class OnCreateTraumaTrackerPatientSubscription: GraphQLSubscription
       self.snapshot = snapshot
     }
 
-    public init(onCreateTraumaTrackerPatient: OnCreateTraumaTrackerPatient? = nil) {
-      self.init(snapshot: ["__typename": "Subscription", "onCreateTraumaTrackerPatient": onCreateTraumaTrackerPatient.flatMap { $0.snapshot }])
+    public init(onCreateTraumaTracker2: OnCreateTraumaTracker2? = nil) {
+      self.init(snapshot: ["__typename": "Subscription", "onCreateTraumaTracker2": onCreateTraumaTracker2.flatMap { $0.snapshot }])
     }
 
-    public var onCreateTraumaTrackerPatient: OnCreateTraumaTrackerPatient? {
+    public var onCreateTraumaTracker2: OnCreateTraumaTracker2? {
       get {
-        return (snapshot["onCreateTraumaTrackerPatient"] as? Snapshot).flatMap { OnCreateTraumaTrackerPatient(snapshot: $0) }
+        return (snapshot["onCreateTraumaTracker2"] as? Snapshot).flatMap { OnCreateTraumaTracker2(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "onCreateTraumaTrackerPatient")
+        snapshot.updateValue(newValue?.snapshot, forKey: "onCreateTraumaTracker2")
       }
     }
 
-    public struct OnCreateTraumaTrackerPatient: GraphQLSelectionSet {
-      public static let possibleTypes = ["TraumaTrackerPatient"]
+    public struct OnCreateTraumaTracker2: GraphQLSelectionSet {
+      public static let possibleTypes = ["TraumaTracker2"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("title", type: .nonNull(.scalar(String.self))),
-        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("pulseRate", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("roomNumber", type: .nonNull(.scalar(String.self))),
+        GraphQLField("pulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("spo2", type: .nonNull(.scalar(Double.self))),
         GraphQLField("ecg", type: .nonNull(.scalar(String.self))),
-        GraphQLField("bloodPressure", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureSystolic", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureDiastolic", type: .nonNull(.scalar(Double.self))),
         GraphQLField("restingPulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("bodyTemperature", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("age", type: .scalar(Int.self)),
+        GraphQLField("gender", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -1636,8 +1547,8 @@ public final class OnCreateTraumaTrackerPatientSubscription: GraphQLSubscription
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, title: String, firstName: String, lastName: String, pulseRate: Int, spo2: Double, ecg: String, bloodPressure: Double, restingPulseRate: Double, bodyTemperature: Double) {
-        self.init(snapshot: ["__typename": "TraumaTrackerPatient", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressure": bloodPressure, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature])
+      public init(roomNumber: String, pulseRate: Double, spo2: Double, ecg: String, bloodPressureSystolic: Double, bloodPressureDiastolic: Double, restingPulseRate: Double, bodyTemperature: Double, age: Int? = nil, gender: String? = nil) {
+        self.init(snapshot: ["__typename": "TraumaTracker2", "roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic, "bloodPressureDiastolic": bloodPressureDiastolic, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature, "age": age, "gender": gender])
       }
 
       public var __typename: String {
@@ -1649,45 +1560,18 @@ public final class OnCreateTraumaTrackerPatientSubscription: GraphQLSubscription
         }
       }
 
-      public var id: GraphQLID {
+      public var roomNumber: String {
         get {
-          return snapshot["id"]! as! GraphQLID
+          return snapshot["roomNumber"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "id")
+          snapshot.updateValue(newValue, forKey: "roomNumber")
         }
       }
 
-      public var title: String {
+      public var pulseRate: Double {
         get {
-          return snapshot["title"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "title")
-        }
-      }
-
-      public var firstName: String {
-        get {
-          return snapshot["firstName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "firstName")
-        }
-      }
-
-      public var lastName: String {
-        get {
-          return snapshot["lastName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "lastName")
-        }
-      }
-
-      public var pulseRate: Int {
-        get {
-          return snapshot["pulseRate"]! as! Int
+          return snapshot["pulseRate"]! as! Double
         }
         set {
           snapshot.updateValue(newValue, forKey: "pulseRate")
@@ -1712,12 +1596,21 @@ public final class OnCreateTraumaTrackerPatientSubscription: GraphQLSubscription
         }
       }
 
-      public var bloodPressure: Double {
+      public var bloodPressureSystolic: Double {
         get {
-          return snapshot["bloodPressure"]! as! Double
+          return snapshot["bloodPressureSystolic"]! as! Double
         }
         set {
-          snapshot.updateValue(newValue, forKey: "bloodPressure")
+          snapshot.updateValue(newValue, forKey: "bloodPressureSystolic")
+        }
+      }
+
+      public var bloodPressureDiastolic: Double {
+        get {
+          return snapshot["bloodPressureDiastolic"]! as! Double
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "bloodPressureDiastolic")
         }
       }
 
@@ -1738,37 +1631,55 @@ public final class OnCreateTraumaTrackerPatientSubscription: GraphQLSubscription
           snapshot.updateValue(newValue, forKey: "bodyTemperature")
         }
       }
+
+      public var age: Int? {
+        get {
+          return snapshot["age"] as? Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "age")
+        }
+      }
+
+      public var gender: String? {
+        get {
+          return snapshot["gender"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "gender")
+        }
+      }
     }
   }
 }
 
-public final class OnUpdateTraumaTrackerPatientSubscription: GraphQLSubscription {
+public final class OnUpdateTraumaTracker2Subscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnUpdateTraumaTrackerPatient($id: ID, $title: String, $firstName: String, $lastName: String, $pulseRate: Int) {\n  onUpdateTraumaTrackerPatient(id: $id, title: $title, firstName: $firstName, lastName: $lastName, pulseRate: $pulseRate) {\n    __typename\n    id\n    title\n    firstName\n    lastName\n    pulseRate\n    spo2\n    ecg\n    bloodPressure\n    restingPulseRate\n    bodyTemperature\n  }\n}"
+    "subscription OnUpdateTraumaTracker2($roomNumber: String, $pulseRate: Float, $spo2: Float, $ecg: AWSJSON, $bloodPressureSystolic: Float) {\n  onUpdateTraumaTracker2(roomNumber: $roomNumber, pulseRate: $pulseRate, spo2: $spo2, ecg: $ecg, bloodPressureSystolic: $bloodPressureSystolic) {\n    __typename\n    roomNumber\n    pulseRate\n    spo2\n    ecg\n    bloodPressureSystolic\n    bloodPressureDiastolic\n    restingPulseRate\n    bodyTemperature\n    age\n    gender\n  }\n}"
 
-  public var id: GraphQLID?
-  public var title: String?
-  public var firstName: String?
-  public var lastName: String?
-  public var pulseRate: Int?
+  public var roomNumber: String?
+  public var pulseRate: Double?
+  public var spo2: Double?
+  public var ecg: String?
+  public var bloodPressureSystolic: Double?
 
-  public init(id: GraphQLID? = nil, title: String? = nil, firstName: String? = nil, lastName: String? = nil, pulseRate: Int? = nil) {
-    self.id = id
-    self.title = title
-    self.firstName = firstName
-    self.lastName = lastName
+  public init(roomNumber: String? = nil, pulseRate: Double? = nil, spo2: Double? = nil, ecg: String? = nil, bloodPressureSystolic: Double? = nil) {
+    self.roomNumber = roomNumber
     self.pulseRate = pulseRate
+    self.spo2 = spo2
+    self.ecg = ecg
+    self.bloodPressureSystolic = bloodPressureSystolic
   }
 
   public var variables: GraphQLMap? {
-    return ["id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate]
+    return ["roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic]
   }
 
   public struct Data: GraphQLSelectionSet {
     public static let possibleTypes = ["Subscription"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("onUpdateTraumaTrackerPatient", arguments: ["id": GraphQLVariable("id"), "title": GraphQLVariable("title"), "firstName": GraphQLVariable("firstName"), "lastName": GraphQLVariable("lastName"), "pulseRate": GraphQLVariable("pulseRate")], type: .object(OnUpdateTraumaTrackerPatient.selections)),
+      GraphQLField("onUpdateTraumaTracker2", arguments: ["roomNumber": GraphQLVariable("roomNumber"), "pulseRate": GraphQLVariable("pulseRate"), "spo2": GraphQLVariable("spo2"), "ecg": GraphQLVariable("ecg"), "bloodPressureSystolic": GraphQLVariable("bloodPressureSystolic")], type: .object(OnUpdateTraumaTracker2.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -1777,34 +1688,34 @@ public final class OnUpdateTraumaTrackerPatientSubscription: GraphQLSubscription
       self.snapshot = snapshot
     }
 
-    public init(onUpdateTraumaTrackerPatient: OnUpdateTraumaTrackerPatient? = nil) {
-      self.init(snapshot: ["__typename": "Subscription", "onUpdateTraumaTrackerPatient": onUpdateTraumaTrackerPatient.flatMap { $0.snapshot }])
+    public init(onUpdateTraumaTracker2: OnUpdateTraumaTracker2? = nil) {
+      self.init(snapshot: ["__typename": "Subscription", "onUpdateTraumaTracker2": onUpdateTraumaTracker2.flatMap { $0.snapshot }])
     }
 
-    public var onUpdateTraumaTrackerPatient: OnUpdateTraumaTrackerPatient? {
+    public var onUpdateTraumaTracker2: OnUpdateTraumaTracker2? {
       get {
-        return (snapshot["onUpdateTraumaTrackerPatient"] as? Snapshot).flatMap { OnUpdateTraumaTrackerPatient(snapshot: $0) }
+        return (snapshot["onUpdateTraumaTracker2"] as? Snapshot).flatMap { OnUpdateTraumaTracker2(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "onUpdateTraumaTrackerPatient")
+        snapshot.updateValue(newValue?.snapshot, forKey: "onUpdateTraumaTracker2")
       }
     }
 
-    public struct OnUpdateTraumaTrackerPatient: GraphQLSelectionSet {
-      public static let possibleTypes = ["TraumaTrackerPatient"]
+    public struct OnUpdateTraumaTracker2: GraphQLSelectionSet {
+      public static let possibleTypes = ["TraumaTracker2"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("title", type: .nonNull(.scalar(String.self))),
-        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("pulseRate", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("roomNumber", type: .nonNull(.scalar(String.self))),
+        GraphQLField("pulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("spo2", type: .nonNull(.scalar(Double.self))),
         GraphQLField("ecg", type: .nonNull(.scalar(String.self))),
-        GraphQLField("bloodPressure", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureSystolic", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureDiastolic", type: .nonNull(.scalar(Double.self))),
         GraphQLField("restingPulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("bodyTemperature", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("age", type: .scalar(Int.self)),
+        GraphQLField("gender", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -1813,8 +1724,8 @@ public final class OnUpdateTraumaTrackerPatientSubscription: GraphQLSubscription
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, title: String, firstName: String, lastName: String, pulseRate: Int, spo2: Double, ecg: String, bloodPressure: Double, restingPulseRate: Double, bodyTemperature: Double) {
-        self.init(snapshot: ["__typename": "TraumaTrackerPatient", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressure": bloodPressure, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature])
+      public init(roomNumber: String, pulseRate: Double, spo2: Double, ecg: String, bloodPressureSystolic: Double, bloodPressureDiastolic: Double, restingPulseRate: Double, bodyTemperature: Double, age: Int? = nil, gender: String? = nil) {
+        self.init(snapshot: ["__typename": "TraumaTracker2", "roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic, "bloodPressureDiastolic": bloodPressureDiastolic, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature, "age": age, "gender": gender])
       }
 
       public var __typename: String {
@@ -1826,45 +1737,18 @@ public final class OnUpdateTraumaTrackerPatientSubscription: GraphQLSubscription
         }
       }
 
-      public var id: GraphQLID {
+      public var roomNumber: String {
         get {
-          return snapshot["id"]! as! GraphQLID
+          return snapshot["roomNumber"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "id")
+          snapshot.updateValue(newValue, forKey: "roomNumber")
         }
       }
 
-      public var title: String {
+      public var pulseRate: Double {
         get {
-          return snapshot["title"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "title")
-        }
-      }
-
-      public var firstName: String {
-        get {
-          return snapshot["firstName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "firstName")
-        }
-      }
-
-      public var lastName: String {
-        get {
-          return snapshot["lastName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "lastName")
-        }
-      }
-
-      public var pulseRate: Int {
-        get {
-          return snapshot["pulseRate"]! as! Int
+          return snapshot["pulseRate"]! as! Double
         }
         set {
           snapshot.updateValue(newValue, forKey: "pulseRate")
@@ -1889,12 +1773,21 @@ public final class OnUpdateTraumaTrackerPatientSubscription: GraphQLSubscription
         }
       }
 
-      public var bloodPressure: Double {
+      public var bloodPressureSystolic: Double {
         get {
-          return snapshot["bloodPressure"]! as! Double
+          return snapshot["bloodPressureSystolic"]! as! Double
         }
         set {
-          snapshot.updateValue(newValue, forKey: "bloodPressure")
+          snapshot.updateValue(newValue, forKey: "bloodPressureSystolic")
+        }
+      }
+
+      public var bloodPressureDiastolic: Double {
+        get {
+          return snapshot["bloodPressureDiastolic"]! as! Double
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "bloodPressureDiastolic")
         }
       }
 
@@ -1915,37 +1808,55 @@ public final class OnUpdateTraumaTrackerPatientSubscription: GraphQLSubscription
           snapshot.updateValue(newValue, forKey: "bodyTemperature")
         }
       }
+
+      public var age: Int? {
+        get {
+          return snapshot["age"] as? Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "age")
+        }
+      }
+
+      public var gender: String? {
+        get {
+          return snapshot["gender"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "gender")
+        }
+      }
     }
   }
 }
 
-public final class OnDeleteTraumaTrackerPatientSubscription: GraphQLSubscription {
+public final class OnDeleteTraumaTracker2Subscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnDeleteTraumaTrackerPatient($id: ID, $title: String, $firstName: String, $lastName: String, $pulseRate: Int) {\n  onDeleteTraumaTrackerPatient(id: $id, title: $title, firstName: $firstName, lastName: $lastName, pulseRate: $pulseRate) {\n    __typename\n    id\n    title\n    firstName\n    lastName\n    pulseRate\n    spo2\n    ecg\n    bloodPressure\n    restingPulseRate\n    bodyTemperature\n  }\n}"
+    "subscription OnDeleteTraumaTracker2($roomNumber: String, $pulseRate: Float, $spo2: Float, $ecg: AWSJSON, $bloodPressureSystolic: Float) {\n  onDeleteTraumaTracker2(roomNumber: $roomNumber, pulseRate: $pulseRate, spo2: $spo2, ecg: $ecg, bloodPressureSystolic: $bloodPressureSystolic) {\n    __typename\n    roomNumber\n    pulseRate\n    spo2\n    ecg\n    bloodPressureSystolic\n    bloodPressureDiastolic\n    restingPulseRate\n    bodyTemperature\n    age\n    gender\n  }\n}"
 
-  public var id: GraphQLID?
-  public var title: String?
-  public var firstName: String?
-  public var lastName: String?
-  public var pulseRate: Int?
+  public var roomNumber: String?
+  public var pulseRate: Double?
+  public var spo2: Double?
+  public var ecg: String?
+  public var bloodPressureSystolic: Double?
 
-  public init(id: GraphQLID? = nil, title: String? = nil, firstName: String? = nil, lastName: String? = nil, pulseRate: Int? = nil) {
-    self.id = id
-    self.title = title
-    self.firstName = firstName
-    self.lastName = lastName
+  public init(roomNumber: String? = nil, pulseRate: Double? = nil, spo2: Double? = nil, ecg: String? = nil, bloodPressureSystolic: Double? = nil) {
+    self.roomNumber = roomNumber
     self.pulseRate = pulseRate
+    self.spo2 = spo2
+    self.ecg = ecg
+    self.bloodPressureSystolic = bloodPressureSystolic
   }
 
   public var variables: GraphQLMap? {
-    return ["id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate]
+    return ["roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic]
   }
 
   public struct Data: GraphQLSelectionSet {
     public static let possibleTypes = ["Subscription"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("onDeleteTraumaTrackerPatient", arguments: ["id": GraphQLVariable("id"), "title": GraphQLVariable("title"), "firstName": GraphQLVariable("firstName"), "lastName": GraphQLVariable("lastName"), "pulseRate": GraphQLVariable("pulseRate")], type: .object(OnDeleteTraumaTrackerPatient.selections)),
+      GraphQLField("onDeleteTraumaTracker2", arguments: ["roomNumber": GraphQLVariable("roomNumber"), "pulseRate": GraphQLVariable("pulseRate"), "spo2": GraphQLVariable("spo2"), "ecg": GraphQLVariable("ecg"), "bloodPressureSystolic": GraphQLVariable("bloodPressureSystolic")], type: .object(OnDeleteTraumaTracker2.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -1954,34 +1865,34 @@ public final class OnDeleteTraumaTrackerPatientSubscription: GraphQLSubscription
       self.snapshot = snapshot
     }
 
-    public init(onDeleteTraumaTrackerPatient: OnDeleteTraumaTrackerPatient? = nil) {
-      self.init(snapshot: ["__typename": "Subscription", "onDeleteTraumaTrackerPatient": onDeleteTraumaTrackerPatient.flatMap { $0.snapshot }])
+    public init(onDeleteTraumaTracker2: OnDeleteTraumaTracker2? = nil) {
+      self.init(snapshot: ["__typename": "Subscription", "onDeleteTraumaTracker2": onDeleteTraumaTracker2.flatMap { $0.snapshot }])
     }
 
-    public var onDeleteTraumaTrackerPatient: OnDeleteTraumaTrackerPatient? {
+    public var onDeleteTraumaTracker2: OnDeleteTraumaTracker2? {
       get {
-        return (snapshot["onDeleteTraumaTrackerPatient"] as? Snapshot).flatMap { OnDeleteTraumaTrackerPatient(snapshot: $0) }
+        return (snapshot["onDeleteTraumaTracker2"] as? Snapshot).flatMap { OnDeleteTraumaTracker2(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "onDeleteTraumaTrackerPatient")
+        snapshot.updateValue(newValue?.snapshot, forKey: "onDeleteTraumaTracker2")
       }
     }
 
-    public struct OnDeleteTraumaTrackerPatient: GraphQLSelectionSet {
-      public static let possibleTypes = ["TraumaTrackerPatient"]
+    public struct OnDeleteTraumaTracker2: GraphQLSelectionSet {
+      public static let possibleTypes = ["TraumaTracker2"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("title", type: .nonNull(.scalar(String.self))),
-        GraphQLField("firstName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
-        GraphQLField("pulseRate", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("roomNumber", type: .nonNull(.scalar(String.self))),
+        GraphQLField("pulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("spo2", type: .nonNull(.scalar(Double.self))),
         GraphQLField("ecg", type: .nonNull(.scalar(String.self))),
-        GraphQLField("bloodPressure", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureSystolic", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("bloodPressureDiastolic", type: .nonNull(.scalar(Double.self))),
         GraphQLField("restingPulseRate", type: .nonNull(.scalar(Double.self))),
         GraphQLField("bodyTemperature", type: .nonNull(.scalar(Double.self))),
+        GraphQLField("age", type: .scalar(Int.self)),
+        GraphQLField("gender", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -1990,8 +1901,8 @@ public final class OnDeleteTraumaTrackerPatientSubscription: GraphQLSubscription
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, title: String, firstName: String, lastName: String, pulseRate: Int, spo2: Double, ecg: String, bloodPressure: Double, restingPulseRate: Double, bodyTemperature: Double) {
-        self.init(snapshot: ["__typename": "TraumaTrackerPatient", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressure": bloodPressure, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature])
+      public init(roomNumber: String, pulseRate: Double, spo2: Double, ecg: String, bloodPressureSystolic: Double, bloodPressureDiastolic: Double, restingPulseRate: Double, bodyTemperature: Double, age: Int? = nil, gender: String? = nil) {
+        self.init(snapshot: ["__typename": "TraumaTracker2", "roomNumber": roomNumber, "pulseRate": pulseRate, "spo2": spo2, "ecg": ecg, "bloodPressureSystolic": bloodPressureSystolic, "bloodPressureDiastolic": bloodPressureDiastolic, "restingPulseRate": restingPulseRate, "bodyTemperature": bodyTemperature, "age": age, "gender": gender])
       }
 
       public var __typename: String {
@@ -2003,45 +1914,18 @@ public final class OnDeleteTraumaTrackerPatientSubscription: GraphQLSubscription
         }
       }
 
-      public var id: GraphQLID {
+      public var roomNumber: String {
         get {
-          return snapshot["id"]! as! GraphQLID
+          return snapshot["roomNumber"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "id")
+          snapshot.updateValue(newValue, forKey: "roomNumber")
         }
       }
 
-      public var title: String {
+      public var pulseRate: Double {
         get {
-          return snapshot["title"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "title")
-        }
-      }
-
-      public var firstName: String {
-        get {
-          return snapshot["firstName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "firstName")
-        }
-      }
-
-      public var lastName: String {
-        get {
-          return snapshot["lastName"]! as! String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "lastName")
-        }
-      }
-
-      public var pulseRate: Int {
-        get {
-          return snapshot["pulseRate"]! as! Int
+          return snapshot["pulseRate"]! as! Double
         }
         set {
           snapshot.updateValue(newValue, forKey: "pulseRate")
@@ -2066,12 +1950,21 @@ public final class OnDeleteTraumaTrackerPatientSubscription: GraphQLSubscription
         }
       }
 
-      public var bloodPressure: Double {
+      public var bloodPressureSystolic: Double {
         get {
-          return snapshot["bloodPressure"]! as! Double
+          return snapshot["bloodPressureSystolic"]! as! Double
         }
         set {
-          snapshot.updateValue(newValue, forKey: "bloodPressure")
+          snapshot.updateValue(newValue, forKey: "bloodPressureSystolic")
+        }
+      }
+
+      public var bloodPressureDiastolic: Double {
+        get {
+          return snapshot["bloodPressureDiastolic"]! as! Double
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "bloodPressureDiastolic")
         }
       }
 
@@ -2090,6 +1983,24 @@ public final class OnDeleteTraumaTrackerPatientSubscription: GraphQLSubscription
         }
         set {
           snapshot.updateValue(newValue, forKey: "bodyTemperature")
+        }
+      }
+
+      public var age: Int? {
+        get {
+          return snapshot["age"] as? Int
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "age")
+        }
+      }
+
+      public var gender: String? {
+        get {
+          return snapshot["gender"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "gender")
         }
       }
     }
