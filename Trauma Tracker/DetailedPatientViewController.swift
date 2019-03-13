@@ -18,6 +18,23 @@ class DetailedPatientViewController: UIViewController {
     @IBOutlet weak var ESILabel: UILabel!
     @IBOutlet weak var ecgGraph: Chart!
     
+    @IBOutlet weak var removePatientButton: UIButton!
+    @IBAction func removePatientButton(_ sender: Any) {
+        let removePatientAlert = UIAlertController(title: "Remove Patient?", message: " Are you sure you want to remove \(roomNumber ?? "Room")?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
+            if Patient.removePatient(roomName: self.roomNumber) {
+                self.navigationController?.popViewController(animated: true)
+                print("Removed Patient")
+            }
+           
+        }
+        removePatientAlert.addAction(yesAction)
+        removePatientAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+        self.present(removePatientAlert, animated: true, completion: nil)
+    }
+    
+    
+    @IBOutlet weak var genderAgeLabel: UILabel!
     @IBOutlet weak var bodyTemperature: UILabel!
     @IBOutlet weak var bloodPressure: UILabel!
     @IBOutlet weak var spo2: UILabel!
@@ -47,6 +64,8 @@ class DetailedPatientViewController: UIViewController {
         ecgGraph.showYLabelsAndGrid = false
 //        let series = ChartSeries(data: data)
         ecgGraph.add(data)
+        
+        removePatientButton.layer.cornerRadius = 5
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,7 +76,7 @@ class DetailedPatientViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         if self.roomNumber != "" {
-            self.title = roomNumber
+            self.title = "Room: " + roomNumber
             if UserDefaults.standard.object(forKey: "Patients") != nil {
                 //            print("Retrieving count of patients from UserDefaults.")
                 let decoded  = UserDefaults.standard.object(forKey: "Patients") as! Data
@@ -67,7 +86,8 @@ class DetailedPatientViewController: UIViewController {
                 bodyTemperature.text = String(patient.bodyTemperature)
                 spo2.text = String(patient.spo2)
                 pulseRate.text = String(patient.pulseRate)
-                
+                bloodPressure.text = "\(Int(patient.bloodPressureSystolic))/\(Int(patient.bloodPressureDiastolic))"
+                genderAgeLabel.text = "\(String(patient.gender)) / age \(Int(patient.age))"
             }
         }
     }

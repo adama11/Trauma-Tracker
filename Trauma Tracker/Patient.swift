@@ -25,10 +25,6 @@ class Patient: NSObject, NSCoding {
     var appSyncClient : AWSAppSyncClient!
     var saved : Bool!
     
-//    override init() {
-//        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-//        self.appSyncClient = appDelegate.appSyncClient
-//    }
     override init() {
         let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
         self.appSyncClient = appDelegate.appSyncClient
@@ -101,18 +97,15 @@ class Patient: NSObject, NSCoding {
 
     
     func updatePatient() {
-        // Return: All data in dictionary
         print("Getting cloud data.")
         if let n = self.roomNumber {
             appSyncClient?.fetch(query: GetTraumaTracker2Query(roomNumber: n))  { (result, error) in
                 if error != nil {
                     print(error?.localizedDescription ?? "")
                 }
-                
-                //            result?.data?.listTraumaTracker2S?.items!.forEach { print(($0?.roomNumber)!) }
                 if let patientData = result?.data?.getTraumaTracker2 {
                     self.updateVitalsData(spo2: patientData.spo2, pulseRate: patientData.pulseRate, bloodPressureSystolic: patientData.bloodPressureSystolic, bloodPressureDiastolic: patientData.bloodPressureDiastolic, bodyTemperature: patientData.bodyTemperature, ecgData: patientData.ecg)
-                    self.saved = self.saveUser()
+                    self.saved = Patient.storePatient(patient: self)
                     print("Updated patient vitals and saved.")
                 } else {
                     print("Failed to pull items.")
@@ -122,61 +115,65 @@ class Patient: NSObject, NSCoding {
         }
         
     }
-        
-    private func saveUser() -> Bool {
+    
+    func hasBeenSaved() -> Bool {
+        return saved
+    }
+    
+    class func storePatient(patient: Patient) -> Bool {
         if UserDefaults.standard.object(forKey: "Patients") != nil {
             let decoded  = UserDefaults.standard.object(forKey: "Patients") as! Data
             var decodedData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [String : Patient]
-            decodedData[self.roomNumber] = self
+            decodedData[patient.roomNumber] = patient
             let encodedData = NSKeyedArchiver.archivedData(withRootObject: decodedData)
             UserDefaults.standard.set(encodedData, forKey: "Patients")
             return true
         } else {
-            let encodedData = NSKeyedArchiver.archivedData(withRootObject: [self.roomNumber : self])
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: [patient.roomNumber : patient])
             UserDefaults.standard.set(encodedData, forKey: "Patients")
             return true
         }
     }
     
-    func hasBeenSaved() -> Bool {
-        return saved
+    class func removePatient(roomName: String) -> Bool {
+        if UserDefaults.standard.object(forKey: "Patients") != nil {
+            let decoded  = UserDefaults.standard.object(forKey: "Patients") as! Data
+            var decodedData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [String : Patient]
+            decodedData.removeValue(forKey: roomName)
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: decodedData)
+            UserDefaults.standard.set(encodedData, forKey: "Patients")
+            return true
+        } else {
+            return false
+        }
     }
-//        if let n = self.roomNumber {
-//            var newData : [String : Any] = [:]
-//            appSyncClient?.fetch(query: GetTraumaTracker2Query(roomNumber: n))  { (result, error) in
-//                if error != nil {
-//                    print(error?.localizedDescription ?? "")
-//                }
-//
-//                if let patientData = result?.data?.getTraumaTracker2 {
-////                    print("spo2: \(patientData.spo2)")
-//                    newData["spo2"] = patientData.spo2
-//                    newData["pulseRate"] = patientData.pulseRate
-//                    //                    newData["respiratoryRate"] = patientData.resp;
-//                    newData["bloodPressureSystolic"] = patientData.bloodPressureSystolic
-//                    newData["bloodPressureDiastolic"] = patientData.bloodPressureDiastolic
-//                    newData["bodyTemperature"] = patientData.bodyTemperature
-//                    newData["ecgData"] = patientData.ecg
-//                    print("Success: Found database entry for \"\(n)\"")
-//                    print(1, newData)
-//                } else {
-//                    print("Error: Couldn't get room data for \"\(n)\".")
-//                }
-//                print(2, newData)
-//                return newData
-//            }
-//        }
-//        return [:]
-//    }
-//
-//    func updatePatient() {
-//        let d = self.getCloudData()
-//        if d.count > 0 {
-//            self.updateVitalsData(spo2: d["spo2"] as! Double, pulseRate: d["pulseRate"] as! Double, bloodPressureSystolic: d["bloodPressureSystolic"] as! Double, bloodPressureDiastolic: d["bloodPressureDiastolic"] as! Double, bodyTemperature: d["bodyTemperature"] as! Double, ecgData: d["ecgData"] as! String)
-//            print("Updated vitals data for \"\(self.roomNumber)\".")
-//        }
-//    }
     
+    class func getPatientsDict() -> [String : Patient]? {
+        if UserDefaults.standard.object(forKey: "Patients") != nil {
+            let decoded  = UserDefaults.standard.object(forKey: "Patients") as! Data
+            let decodedData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [String : Patient]
+            return decodedData
+        }
+        return nil
+    }
+    
+    class func getPatientsSorted() -> [Patient]? {
+        if let patientDict = Patient.getPatientsDict() {
+            var patientRankings : [(rank: Int, name: String)]! = []
+            for (key, value) in patientDict {
+                patientRankings.append((rank: value.getSeverityRank(), name: key))
+            }
+            let sorted = patientRankings.sorted(by: { $0.0 == $1.0 ? $0.1 < $1.1 : $0.0 < $1.0 })
+            var output : [Patient]! = []
+            for (_, name) in sorted {
+                output.append(patientDict[name]!)
+            }
+            return output
+        }
+        return nil
+    }
+    
+    //Make sure multiple calls produce same value--do not update patient data while we are getting severity rank of all
     func getSeverityRank() -> Int {
         var rank = 0
         if !self.spo2InRange() { rank += 1 }
@@ -198,15 +195,15 @@ class Patient: NSObject, NSCoding {
     }
     func respiratoryRateInRange() -> Bool {
         //Get normal ranges based on gender and age
-        return true
+        return false
     }
     func bloodPressureInRange() -> Bool {
         //Get normal ranges based on gender and age
-        return true
+        return false
     }
     func bodyTemperatureInRange() -> Bool {
         //Get normal ranges based on gender and age
-        return true
+        return false
     }
     
     

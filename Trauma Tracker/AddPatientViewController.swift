@@ -14,24 +14,41 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     let genderPickerData : [String] = ["Male", "Female"]
     let agePickerData = Array(0...120)
-    var currentGenderPickerData : String = ""
-    var currentAgePickerData : Int = 0
+    var roomPickerData : [String]! = []
+    var currentGenderPickerData : String! = ""
+    var currentAgePickerData : Int! = 0
+    var currentRoomPickerData : String! = ""
 
     @IBOutlet weak var agePicker: UIPickerView!
-    @IBOutlet weak var roomNumberField: UITextField!
     @IBOutlet weak var addPatientButton: UIButton!
     @IBOutlet weak var genderPicker: UIPickerView!
+    @IBOutlet weak var roomPicker: UIPickerView!
     
-    var appSyncClient: AWSAppSyncClient?
+    var appSyncClient: AWSAppSyncClient!
 
     @IBAction func addPatientButton(_ sender: Any) {
-        print("Adding Patient")
+        print("Adding Patient Pressed")
 //        let age = agePicker.value
-        let roomNumber = roomNumberField.text
+//        let roomNumber = roomNumberField.text
+        let currentRoom : String! = self.currentRoomPickerData
         
-        let newPatient = Patient(roomNumber: roomNumber, gender: self.currentGenderPickerData, age: self.currentAgePickerData)
-        
-        self.navigationController?.popViewController(animated: true)
+        if let patientsDict = Patient.getPatientsDict() {
+            if patientsDict.keys.contains(currentRoom) {
+                let roomExistsAlert = UIAlertController(title: "Couldn't Add Patient", message: "\(currentRoom ?? "Room") already exists. Would you like to overwrite it?", preferredStyle: .alert)
+                let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
+                    let _ = Patient(roomNumber: currentRoom, gender: self.currentGenderPickerData, age: self.currentAgePickerData)
+                    self.navigationController?.popViewController(animated: true)
+                    print("Added Patient")
+                }
+                roomExistsAlert.addAction(yesAction)
+                roomExistsAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+                self.present(roomExistsAlert, animated: true, completion: nil)
+            } else {
+                let _ = Patient(roomNumber: currentRoom, gender: self.currentGenderPickerData, age: self.currentAgePickerData)
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+       
         
         
     //        if age == "" || roomNumber == "" {
@@ -75,22 +92,40 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerV
     }
     
 
-    
+    override func viewWillAppear(_ animated: Bool) {
+        BackEndFunctions.getAllAWSRooms(appSyncClient) { (roomData : [String]) in   // Object received from closure
+            self.roomPickerData = roomData.sorted()
+            DispatchQueue.main.async {
+                //  Updating UI on main queue
+                self.roomPicker.reloadAllComponents()
+                self.currentRoomPickerData = self.roomPickerData[0]
+            }
+        }
+//        roomPickerData =  BackEndFunctions.getAllAWSRooms(appSyncClient)
+//        print("done \(roomPickerData)")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
 //        ageField.delegate = self
-        roomNumberField.delegate = self
+//        roomNumberField.delegate = self
         addPatientButton.layer.cornerRadius = 5
+        
         genderPicker.delegate = self
         genderPicker.dataSource = self
         agePicker.delegate = self
         agePicker.dataSource = self
+        roomPicker.dataSource = self
+        roomPicker.delegate = self
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appSyncClient = appDelegate.appSyncClient
         
+//        print("roompickerdata: \(roomPickerData)")
+//        if roomPickerData.count > 0 {
+//            currentRoomPickerData = roomPickerData[0]
+//        }
         currentGenderPickerData = genderPickerData[0]
         currentAgePickerData = Int(agePickerData[0])
         
@@ -102,22 +137,27 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerV
             return agePickerData.count
         } else if pickerView == genderPicker {
             return genderPickerData.count
+        } else if pickerView == roomPicker {
+            return roomPickerData.count
         }
         return 0
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        if pickerView == agePicker {
-            return 1
-        } else if pickerView == genderPicker {
-            return 1
-        }
-        return 0
+//        if pickerView == agePicker {
+//            return 1
+//        } else if pickerView == genderPicker {
+//            return 1
+//        }
+        return 1
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == agePicker {
             return String(agePickerData[row])
+        } else if pickerView == roomPicker {
+            return roomPickerData[row]
+        } else {
+            return genderPickerData[row]
         }
-        return genderPickerData[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -125,15 +165,17 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerV
             currentAgePickerData = Int(agePickerData[row])
         } else if pickerView == genderPicker {
             currentGenderPickerData = genderPickerData[row]
+        } else if pickerView == roomPicker {
+            currentRoomPickerData = roomPickerData[row]
         }
     }
     //End pickers set up
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        if textField == roomNumberField {
-            roomNumberField.resignFirstResponder()
-        }
+//        if textField == roomNumberField {
+//            roomNumberField.resignFirstResponder()
+//        }
 //            ageField.becomeFirstResponder()
 //        } else if textField == ageField {
 //            ageField.resignFirstResponder()

@@ -53,40 +53,11 @@ class PatientCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-//    func updatePatientData(_ data: [Any]) {
-//        if data.count > 0 {
-////            patientId = (data[0] as! Int)
-////            firstNameLabel?.text = "\(data[1])"
-////            firstName = (data[1] as! String)
-////            lastNameLabel?.text = "\(data[2])"
-////            lastName = (data[2] as! String)
-//            roomNumLabel?.text = "\(data[0])"
-//            roomNum = (data[0] as! Int)
-//            ESIratingLabel?.text = "\(data[1])"
-//            ESIrating = (data[1] as! Int)
-//
-//            setBackgroundColor(ESIrating)
-//        }
-//    }
-    
     func updatePatientData(_ data: Patient) {
-//        if data.count > 0 {
-//            //            patientId = (data[0] as! Int)
-//            //            firstNameLabel?.text = "\(data[1])"
-//            //            firstName = (data[1] as! String)
-//            //            lastNameLabel?.text = "\(data[2])"
-//            //            lastName = (data[2] as! String)
-//            roomNumLabel?.text = "\(data[0])"
-//            roomNum = (data[0] as! Int)
-//            ESIratingLabel?.text = "\(data[1])"
-//            ESIrating = (data[1] as! Int)
-//
-//            setBackgroundColor(ESIrating)
-//        }
-        
         roomNumLabel?.text = data.roomNumber
         roomNum = data.roomNumber
         ESIratingLabel?.text = String(data.getSeverityRank())
+//        setBackgroundColor(ESIrating)
 
         drawIcon(square: primaryDetailIcon, color: UIColor.red.cgColor)
         drawIcon(square: secondaryDetailIcon, color: UIColor.red.cgColor)

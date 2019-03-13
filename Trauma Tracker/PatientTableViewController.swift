@@ -57,30 +57,9 @@ class PatientTableViewController: UITableViewController {
 //        }
 //    }
     
-//    func getAllAWSPatients() {
-//        appSyncClient?.fetch(query: ListTraumaTracker2SQuery(filter: nil, limit: nil, nextToken: nil))  { (result, error) in
-//            if error != nil {
-//                print(error?.localizedDescription ?? "")
-//            }
-//            
-////            result?.data?.listTraumaTracker2S?.items!.forEach { print(($0?.roomNumber)!) }
-//            
-//            if let cloudPatients = result?.data?.listTraumaTracker2S?.items! {
-//                self.patients = []
-//                for p in cloudPatients {
-//                    let item = [p?.roomNumber as Any, p?.spo2 as Any, p?.pulseRate as Any, p?.bodyTemperature as Any, p?.bloodPressureSystolic as Any]
-//                    self.patients.append(item)
-//                }
-//            } else {
-//                print("Failed to pull items.")
-//            }
-//            
-//            print(self.patients)
-//            
-//        }
-//    }
-    
-    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
     // MARK: - Table view data source
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
@@ -90,14 +69,10 @@ class PatientTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if UserDefaults.standard.object(forKey: "Patients") != nil {
-//            print("Retrieving count of patients from UserDefaults.")
-            let decoded  = UserDefaults.standard.object(forKey: "Patients") as! Data
-            let decodedData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [String : Patient]
-//            print("count: \(decodedData.count)")
-            return decodedData.count
+        if let patientDict = Patient.getPatientsDict() {
+            return patientDict.count
         }
-        return 1
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -105,19 +80,28 @@ class PatientTableViewController: UITableViewController {
         return 75.0;
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let selectedCell = tableView.cellForRow(at: indexPath) as! PatientCell
+            if let roomNumber = selectedCell.roomNum {
+                //Make sure you're removing the correct row
+                self.tableView.beginUpdates()
+//                self.tableView.removeAtIndex(indexPath!.row)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+                _ = Patient.removePatient(roomName: roomNumber)
+                self.tableView.reloadData()
+                self.tableView.endUpdates()
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if UserDefaults.standard.object(forKey: "Patients") != nil {
-//            print("Retrieving patients from UserDefaults.")
-            let decoded  = UserDefaults.standard.object(forKey: "Patients") as! Data
-            var decodedData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [String : Patient]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath) as! PatientCell
-            cell.updatePatientData(Array(decodedData.values)[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath) as! PatientCell
+        if let sortedPatients = Patient.getPatientsSorted() {
+            cell.updatePatientData(sortedPatients[indexPath.row])
             return cell
         }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath) as! PatientCell
-        cell.updatePatientData(defaultPatient)
-        //Testing how to unpack all this data
         return cell
     }
     
