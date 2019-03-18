@@ -83,11 +83,12 @@ class DetailedPatientViewController: UIViewController {
                 let decodedData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [String : Patient]
                 //            print("count: \(decodedData.count)")
                 let patient = decodedData[self.roomNumber] as! Patient
-                bodyTemperature.text = String(patient.bodyTemperature)
-                spo2.text = String(patient.spo2)
-                pulseRate.text = String(patient.pulseRate)
-                bloodPressure.text = "\(Int(patient.bloodPressureSystolic))/\(Int(patient.bloodPressureDiastolic))"
                 genderAgeLabel.text = "\(String(patient.gender)) / age \(Int(patient.age))"
+                bodyTemperature.text = String(patient.bodyTemperature.rounded(toPlaces: 1))
+                spo2.text = String(patient.spo2.rounded(toPlaces: 1))
+                pulseRate.text = String(patient.pulseRate.rounded(toPlaces: 1))
+                bloodPressure.text = "\(Int(patient.bloodPressureSystolic))/\(Int(patient.bloodPressureDiastolic))"
+                
             }
         }
     }
@@ -117,4 +118,12 @@ class DetailedPatientViewController: UIViewController {
     }
     */
 
+}
+
+extension Double {
+    /// Rounds the double to decimal places value
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
 }

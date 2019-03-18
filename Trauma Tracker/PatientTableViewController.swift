@@ -98,6 +98,8 @@ class PatientTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath) as! PatientCell
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
         if let sortedPatients = Patient.getPatientsSorted() {
             cell.updatePatientData(sortedPatients[indexPath.row])
             return cell
@@ -122,6 +124,29 @@ class PatientTableViewController: UITableViewController {
         }
 
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // this will turn on `masksToBounds` just before showing the cell
+//        cell.contentView.layer.masksToBounds = true
+//        let radius = cell.layer.cornerRadius
+//        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: radius).cgPath
+//        let cell = cell as! PatientCell
+//        cell.drawESICircle()
+    }
+    
+    override func viewDidLayoutSubviews() {
+//        UIView.animate(withDuration: 0, animations: {
+//            self.tableView.layoutIfNeeded()
+//        }) { (complete) in
+//
+//
+//        }
+//        let cells = self.tableView.visibleCells as! [PatientCell]
+//        cells.forEach{ (cell) in
+//            cell.drawESICircle()
+//        }
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
