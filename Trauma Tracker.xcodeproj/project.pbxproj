@@ -7,16 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55077928223F54B80051372D /* AWSCognitoIdentityProviderASF in Resources */ = {isa = PBXBuildFile; fileRef = 5507791E223F54B70051372D /* AWSCognitoIdentityProviderASF */; };
-		55077929223F54B80051372D /* AWSCognitoIdentityProvider in Resources */ = {isa = PBXBuildFile; fileRef = 5507791F223F54B70051372D /* AWSCognitoIdentityProvider */; };
-		5507792A223F54B80051372D /* AWSAuthCore in Resources */ = {isa = PBXBuildFile; fileRef = 55077920223F54B70051372D /* AWSAuthCore */; };
-		5507792B223F54B80051372D /* AWSUserPoolsSignIn in Resources */ = {isa = PBXBuildFile; fileRef = 55077921223F54B70051372D /* AWSUserPoolsSignIn */; };
-		5507792C223F54B80051372D /* AWSAuthUI in Resources */ = {isa = PBXBuildFile; fileRef = 55077922223F54B70051372D /* AWSAuthUI */; };
-		5507792D223F54B80051372D /* AWSMobileClient in Resources */ = {isa = PBXBuildFile; fileRef = 55077923223F54B70051372D /* AWSMobileClient */; };
-		5507792E223F54B80051372D /* AWSCore in Resources */ = {isa = PBXBuildFile; fileRef = 55077924223F54B70051372D /* AWSCore */; };
-		5507792F223F54B80051372D /* ReachabilitySwift in Resources */ = {isa = PBXBuildFile; fileRef = 55077925223F54B70051372D /* ReachabilitySwift */; };
-		55077930223F54B80051372D /* SQLite.swift in Resources */ = {isa = PBXBuildFile; fileRef = 55077926223F54B70051372D /* SQLite.swift */; };
-		55077931223F54B80051372D /* AWSAppSync in Resources */ = {isa = PBXBuildFile; fileRef = 55077927223F54B70051372D /* AWSAppSync */; };
+		2AAE071209E3A83EE91946C1 /* Pods_Trauma_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD18803587287E6557552D2 /* Pods_Trauma_Tracker.framework */; };
 		5550AA5A223F46B000CB529A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5550AA59223F46B000CB529A /* API.swift */; };
 		55778D9A222CAFBA00F25768 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55778D99222CAFBA00F25768 /* Patient.swift */; };
 		55BA1DD4220E439B00092075 /* MainUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA1DD3220E439B00092075 /* MainUIViewController.swift */; };
@@ -44,11 +35,6 @@
 		55D2161A220D7FD300915A20 /* PatientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D21619220D7FD300915A20 /* PatientCell.swift */; };
 		55D2161C220D822B00915A20 /* PatientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2161B220D822B00915A20 /* PatientTableViewController.swift */; };
 		605C18B52223676A0095997D /* BackEndFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C18B42223676A0095997D /* BackEndFunctions.swift */; };
-		6083D605222350FA001D6439 /* AWSAppSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6083D604222350FA001D6439 /* AWSAppSync.framework */; };
-		6083D60722235108001D6439 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6083D60622235108001D6439 /* AWSCore.framework */; };
-		6083D6092223510D001D6439 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6083D6082223510D001D6439 /* Reachability.framework */; };
-		6083D60B22235111001D6439 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6083D60A22235111001D6439 /* SQLite.framework */; };
-		93A1B0A117A942F79C4A99F9 /* Pods_Trauma_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387C04445BA65EE7E2BFEB37 /* Pods_Trauma_Tracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,19 +80,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		04C75598F057C6F4019CFBEF /* Pods-Trauma Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trauma Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Trauma Tracker/Pods-Trauma Tracker.debug.xcconfig"; sourceTree = "<group>"; };
-		3109AD51931D62DCBE562E5B /* Pods-Trauma Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trauma Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trauma Tracker/Pods-Trauma Tracker.release.xcconfig"; sourceTree = "<group>"; };
-		387C04445BA65EE7E2BFEB37 /* Pods_Trauma_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trauma_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5507791E223F54B70051372D /* AWSCognitoIdentityProviderASF */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AWSCognitoIdentityProviderASF; sourceTree = "<group>"; };
-		5507791F223F54B70051372D /* AWSCognitoIdentityProvider */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AWSCognitoIdentityProvider; sourceTree = "<group>"; };
-		55077920223F54B70051372D /* AWSAuthCore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AWSAuthCore; sourceTree = "<group>"; };
-		55077921223F54B70051372D /* AWSUserPoolsSignIn */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AWSUserPoolsSignIn; sourceTree = "<group>"; };
-		55077922223F54B70051372D /* AWSAuthUI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AWSAuthUI; sourceTree = "<group>"; };
-		55077923223F54B70051372D /* AWSMobileClient */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AWSMobileClient; sourceTree = "<group>"; };
-		55077924223F54B70051372D /* AWSCore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AWSCore; sourceTree = "<group>"; };
-		55077925223F54B70051372D /* ReachabilitySwift */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ReachabilitySwift; sourceTree = "<group>"; };
-		55077926223F54B70051372D /* SQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SQLite.swift; sourceTree = "<group>"; };
-		55077927223F54B70051372D /* AWSAppSync */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AWSAppSync; sourceTree = "<group>"; };
 		5550AA59223F46B000CB529A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		55778D99222CAFBA00F25768 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		55BA1DD3220E439B00092075 /* MainUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIViewController.swift; sourceTree = "<group>"; };
@@ -138,13 +111,10 @@
 		55D21617220D7A5F00915A20 /* MainUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUINavigationController.swift; sourceTree = "<group>"; };
 		55D21619220D7FD300915A20 /* PatientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCell.swift; sourceTree = "<group>"; };
 		55D2161B220D822B00915A20 /* PatientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewController.swift; sourceTree = "<group>"; };
-		5A7F9417C50686012A30DE14 /* Pods-Trauma Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trauma Tracker.release.xcconfig"; path = "Target Support Files/Pods-Trauma Tracker/Pods-Trauma Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		605C18B42223676A0095997D /* BackEndFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEndFunctions.swift; sourceTree = "<group>"; };
-		6083D604222350FA001D6439 /* AWSAppSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSAppSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6083D60622235108001D6439 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6083D6082223510D001D6439 /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6083D60A22235111001D6439 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2351D21F97B1D7D08AC0150 /* Pods-Trauma Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trauma Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trauma Tracker/Pods-Trauma Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		693F6E53F84E91BD5C54B955 /* Pods-Trauma Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trauma Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trauma Tracker/Pods-Trauma Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		DC92C1C0E3CB9A660E48D0A8 /* Pods-Trauma Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trauma Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trauma Tracker/Pods-Trauma Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		ECD18803587287E6557552D2 /* Pods_Trauma_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trauma_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,11 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6083D60B22235111001D6439 /* SQLite.framework in Frameworks */,
-				6083D6092223510D001D6439 /* Reachability.framework in Frameworks */,
-				6083D60722235108001D6439 /* AWSCore.framework in Frameworks */,
-				6083D605222350FA001D6439 /* AWSAppSync.framework in Frameworks */,
-				93A1B0A117A942F79C4A99F9 /* Pods_Trauma_Tracker.framework in Frameworks */,
+				2AAE071209E3A83EE91946C1 /* Pods_Trauma_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,33 +143,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		43D554BED4077B1205D52C9E /* Frameworks */ = {
+		263E7B685C697C195121D27D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6083D60A22235111001D6439 /* SQLite.framework */,
-				6083D6082223510D001D6439 /* Reachability.framework */,
-				6083D60622235108001D6439 /* AWSCore.framework */,
-				6083D604222350FA001D6439 /* AWSAppSync.framework */,
-				387C04445BA65EE7E2BFEB37 /* Pods_Trauma_Tracker.framework */,
+				ECD18803587287E6557552D2 /* Pods_Trauma_Tracker.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		55077909223F53700051372D /* AWS */ = {
+		3C574969A0414F95452B0F28 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				55077927223F54B70051372D /* AWSAppSync */,
-				55077920223F54B70051372D /* AWSAuthCore */,
-				55077922223F54B70051372D /* AWSAuthUI */,
-				5507791F223F54B70051372D /* AWSCognitoIdentityProvider */,
-				5507791E223F54B70051372D /* AWSCognitoIdentityProviderASF */,
-				55077924223F54B70051372D /* AWSCore */,
-				55077923223F54B70051372D /* AWSMobileClient */,
-				55077921223F54B70051372D /* AWSUserPoolsSignIn */,
-				55077925223F54B70051372D /* ReachabilitySwift */,
-				55077926223F54B70051372D /* SQLite.swift */,
+				DC92C1C0E3CB9A660E48D0A8 /* Pods-Trauma Tracker.debug.xcconfig */,
+				693F6E53F84E91BD5C54B955 /* Pods-Trauma Tracker.release.xcconfig */,
 			);
-			path = AWS;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		55D215CF220D6B8400915A20 = {
@@ -213,8 +167,8 @@
 				55D215EE220D6B8800915A20 /* Trauma Tracker WatchKit App */,
 				55D215FD220D6B8900915A20 /* Trauma Tracker WatchKit Extension */,
 				55D215D9220D6B8500915A20 /* Products */,
-				43D554BED4077B1205D52C9E /* Frameworks */,
-				6F7934EC83A27DCAF8BDC596 /* Pods */,
+				3C574969A0414F95452B0F28 /* Pods */,
+				263E7B685C697C195121D27D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -231,7 +185,6 @@
 		55D215DA220D6B8500915A20 /* Trauma Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				55077909223F53700051372D /* AWS */,
 				55BA1DE62224589B00092075 /* Chart.swift */,
 				55BA1DE52224589B00092075 /* ChartColors.swift */,
 				55BA1DE72224589C00092075 /* ChartSeries.swift */,
@@ -279,17 +232,6 @@
 			path = "Trauma Tracker WatchKit Extension";
 			sourceTree = "<group>";
 		};
-		6F7934EC83A27DCAF8BDC596 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				04C75598F057C6F4019CFBEF /* Pods-Trauma Tracker.debug.xcconfig */,
-				5A7F9417C50686012A30DE14 /* Pods-Trauma Tracker.release.xcconfig */,
-				C2351D21F97B1D7D08AC0150 /* Pods-Trauma Tracker.debug.xcconfig */,
-				3109AD51931D62DCBE562E5B /* Pods-Trauma Tracker.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,12 +239,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55D21614220D6B8A00915A20 /* Build configuration list for PBXNativeTarget "Trauma Tracker" */;
 			buildPhases = (
-				35025A9E9D04085563D1DFCB /* [CP] Check Pods Manifest.lock */,
+				FB6ED50D74C26BB27EFA0C83 /* [CP] Check Pods Manifest.lock */,
 				55D215D4220D6B8500915A20 /* Sources */,
 				55D215D5220D6B8500915A20 /* Frameworks */,
 				55D215D6220D6B8500915A20 /* Resources */,
 				55D21613220D6B8A00915A20 /* Embed Watch Content */,
-				1D612205A04F255B145D8A9B /* [CP] Embed Pods Frameworks */,
+				40DE016B30CEEC9B9B47DA74 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -395,20 +337,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5507792C223F54B80051372D /* AWSAuthUI in Resources */,
 				55BA1DD622232AB100092075 /* awsconfiguration.json in Resources */,
-				5507792B223F54B80051372D /* AWSUserPoolsSignIn in Resources */,
 				55D215E6220D6B8800915A20 /* LaunchScreen.storyboard in Resources */,
-				55077930223F54B80051372D /* SQLite.swift in Resources */,
-				5507792A223F54B80051372D /* AWSAuthCore in Resources */,
 				55D215E3220D6B8800915A20 /* Assets.xcassets in Resources */,
-				55077928223F54B80051372D /* AWSCognitoIdentityProviderASF in Resources */,
 				55D215E1220D6B8500915A20 /* Main.storyboard in Resources */,
-				55077931223F54B80051372D /* AWSAppSync in Resources */,
-				55077929223F54B80051372D /* AWSCognitoIdentityProvider in Resources */,
-				5507792D223F54B80051372D /* AWSMobileClient in Resources */,
-				5507792E223F54B80051372D /* AWSCore in Resources */,
-				5507792F223F54B80051372D /* ReachabilitySwift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +364,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1D612205A04F255B145D8A9B /* [CP] Embed Pods Frameworks */ = {
+		40DE016B30CEEC9B9B47DA74 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -472,7 +404,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Trauma Tracker/Pods-Trauma Tracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		35025A9E9D04085563D1DFCB /* [CP] Check Pods Manifest.lock */ = {
+		FB6ED50D74C26BB27EFA0C83 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -772,7 +704,7 @@
 		};
 		55D21615220D6B8A00915A20 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2351D21F97B1D7D08AC0150 /* Pods-Trauma Tracker.debug.xcconfig */;
+			baseConfigurationReference = DC92C1C0E3CB9A660E48D0A8 /* Pods-Trauma Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -792,7 +724,7 @@
 		};
 		55D21616220D6B8A00915A20 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3109AD51931D62DCBE562E5B /* Pods-Trauma Tracker.release.xcconfig */;
+			baseConfigurationReference = 693F6E53F84E91BD5C54B955 /* Pods-Trauma Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

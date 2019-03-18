@@ -25,6 +25,7 @@ class Patient: NSObject, NSCoding {
     var appSyncClient : AWSAppSyncClient!
     var saved : Bool!
     
+    
     override init() {
         let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
         self.appSyncClient = appDelegate.appSyncClient
@@ -57,6 +58,7 @@ class Patient: NSObject, NSCoding {
         self.saved = false
     }
     
+    // To comply with NSCoding, for archiving in UserDefaults
     required convenience init(coder decoder: NSCoder) {
         let roomNumber = decoder.decodeObject(forKey: "roomNumber") as? String ?? ""
         let gender = decoder.decodeObject(forKey: "gender") as? String ?? ""
@@ -72,6 +74,7 @@ class Patient: NSObject, NSCoding {
         self.init(roomNumber: roomNumber, gender: gender, age: age , spo2: spo2, pulseRate: pulseRate , bloodPressureSystolic: bloodPressureSystolic, bloodPressureDiastolic: bloodPressureDiastolic, bodyTemperature: bodyTemperature, ecgData: ecgData)
     }
     
+    // To comply with NSCoding, for archiving in UserDefaults
     func encode(with coder: NSCoder) {
         coder.encode(roomNumber, forKey: "roomNumber")
         coder.encode(gender, forKey: "gender")
@@ -84,6 +87,7 @@ class Patient: NSObject, NSCoding {
         coder.encode(ecgData, forKey: "ecgData")
     }
     
+    // Set Patient values to given values
     private func updateVitalsData(spo2: Double, pulseRate: Double, bloodPressureSystolic: Double, bloodPressureDiastolic: Double, bodyTemperature: Double, ecgData: String) {
     
         self.spo2 = spo2
@@ -95,7 +99,7 @@ class Patient: NSObject, NSCoding {
         self.ecgData = ecgData
     }
 
-    
+    // Get values from AWS database
     func updatePatient() {
         print("Getting cloud data.")
         if let n = self.roomNumber {
@@ -116,10 +120,12 @@ class Patient: NSObject, NSCoding {
         
     }
     
+    // Get "saved" variable which says if the Patient has been successfully saved in UserDefaults
     func hasBeenSaved() -> Bool {
         return saved
     }
     
+    // Add patient to UserDefaults
     class func storePatient(patient: Patient) -> Bool {
         if UserDefaults.standard.object(forKey: "Patients") != nil {
             let decoded  = UserDefaults.standard.object(forKey: "Patients") as! Data
@@ -135,6 +141,7 @@ class Patient: NSObject, NSCoding {
         }
     }
     
+    // Remove Patient from UserDefaults
     class func removePatient(roomName: String) -> Bool {
         if UserDefaults.standard.object(forKey: "Patients") != nil {
             let decoded  = UserDefaults.standard.object(forKey: "Patients") as! Data
@@ -148,6 +155,7 @@ class Patient: NSObject, NSCoding {
         }
     }
     
+    // Returns the patients dictionary from UserDefaults
     class func getPatientsDict() -> [String : Patient]? {
         if UserDefaults.standard.object(forKey: "Patients") != nil {
             let decoded  = UserDefaults.standard.object(forKey: "Patients") as! Data
@@ -157,13 +165,15 @@ class Patient: NSObject, NSCoding {
         return nil
     }
     
+    // Returns list of Patients in sorted order
     class func getPatientsSorted() -> [Patient]? {
         if let patientDict = Patient.getPatientsDict() {
             var patientRankings : [(rank: Int, name: String)]! = []
             for (key, value) in patientDict {
                 patientRankings.append((rank: value.getSeverityRank(), name: key))
             }
-            let sorted = patientRankings.sorted(by: { $0.0 == $1.0 ? $0.1 < $1.1 : $0.0 < $1.0 })
+            // Sorted in descending severity rank, then alphabetically by room name
+            let sorted = patientRankings.sorted(by: { $0.0 == $1.0 ? $0.1 > $1.1 : $0.0 > $1.0 })
             var output : [Patient]! = []
             for (_, name) in sorted {
                 output.append(patientDict[name]!)
@@ -174,36 +184,72 @@ class Patient: NSObject, NSCoding {
     }
     
     //Make sure multiple calls produce same value--do not update patient data while we are getting severity rank of all
+    // Calculated severity rank of Patient
     func getSeverityRank() -> Int {
         var rank = 0
-        if !self.spo2InRange() { rank += 1 }
-        if !self.pulseRateInRange() { rank += 1 }
+        rank += self.spo2Rank()
+        rank += self.pulseRateRank()
 //        if !self.respiratoryRateInRange() { rank += 1 }
-        if !self.bloodPressureInRange() { rank += 1 }
-        if !self.bodyTemperatureInRange() { rank += 1 }
+        rank += self.bloodPressureRank()
+        rank += self.bodyTemperatureRank()
         return rank
     }
     
-    func spo2InRange() -> Bool {
+    // Returns top two most severe vitals
+    func topTwo() -> [String] {
+        let spo2RankVal = spo2Rank()
+        let pulseRateRankVal = pulseRateRank()
+        let bloodPressureRankVal = bloodPressureRank()
+        let bodyTemperatureRankVal = bodyTemperatureRank()
+        
+        let all_vals = [spo2RankVal, pulseRateRankVal, bloodPressureRankVal, bodyTemperatureRankVal]
+        let all_names = ["spo2", "pulseRate", "bloodPressure", "bodyTemperature"]
+        var max = -1, maxPos = -1, secMax = -1, secMaxPos = -1
+        for (index, value) in all_vals.enumerated() {
+            if value > max {
+                max = value
+                maxPos = index
+            } else if value > secMax {
+                secMax = value
+                secMaxPos = index
+            }
+        }
+        let topTwo = [all_names[maxPos], all_names[secMaxPos]]
+        return topTwo
+    
+    }
+    func spo2Rank() -> Int {
         //Get normal ranges based on gender and age
-        return false
+        if spo2 < 75 { return 4 }
+        else if spo2 < 85 { return 3 }
+        else if spo2 < 95 { return 2 }
+        else if spo2 < 98 { return 1 }
+        return 0
     }
     
-    func pulseRateInRange() -> Bool {
+    func pulseRateRank() -> Int {
+        //Get normal ranges based on gender and age
+        if pulseRate < 45 { return 2 }
+        else if pulseRate < 35 { return 4 }
+        else if pulseRate > 110 { return 2 }
+        else if pulseRate > 150 { return 4 }
+        return 0
+    }
+    func respiratoryRateRank() -> Bool {
         //Get normal ranges based on gender and age
         return false
     }
-    func respiratoryRateInRange() -> Bool {
+    func bloodPressureRank() -> Int {
         //Get normal ranges based on gender and age
-        return false
+        return 1
     }
-    func bloodPressureInRange() -> Bool {
+    func bodyTemperatureRank() -> Int {
         //Get normal ranges based on gender and age
-        return false
-    }
-    func bodyTemperatureInRange() -> Bool {
-        //Get normal ranges based on gender and age
-        return false
+        if pulseRate < 98 { return 1 }
+        else if pulseRate < 97 { return 4 }
+        else if pulseRate > 100 { return 2 }
+        else if pulseRate > 101 { return 4 }
+        return 0
     }
     
     

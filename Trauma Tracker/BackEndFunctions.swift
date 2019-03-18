@@ -11,22 +11,7 @@ import AWSAppSync
 
 class BackEndFunctions {
     
-//    class func getAllAWSRooms(_ appSyncClient: AWSAppSyncClient, completion: @escaping([String])->()) {
-//
-//
-//        appSyncClient.fetch(query: ListTraumaTracker2SQuery(filter: nil, limit: nil, nextToken: nil))  { (result, error) in
-//            if error != nil {
-//                print(error?.localizedDescription ?? "")
-//            } else {
-//                var allRooms : [String] = []
-//                result?.data?.listTraumaTracker2S?.items!.forEach { allRooms.append($0?.roomNumber ?? "") }
-//                print("return all rooms: \(allRooms)")
-//                completion(allRooms.sorted())
-//            }
-//        }
-//
-//    }
-    
+    // Return all rooms on AWS Database
     class func getAllAWSRooms(_ appSyncClient: AWSAppSyncClient, dataHandler: @escaping([String]) -> Void) {
         var allRooms : [String] = []
         appSyncClient.fetch(query: ListTraumaTracker2SQuery(filter: nil, limit: nil, nextToken: nil))  { (result, error) in

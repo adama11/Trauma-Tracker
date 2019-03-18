@@ -116,6 +116,7 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.2456881404" green="0.2436150312" blue="0.50111836190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TPJ-fh-WtR" firstAttribute="bottom" secondItem="jZL-gh-g02" secondAttribute="bottom" id="f4p-55-EJ5"/>
                             <constraint firstItem="TPJ-fh-WtR" firstAttribute="trailing" secondItem="jZL-gh-g02" secondAttribute="trailing" id="ic5-N6-70V"/>
@@ -126,6 +127,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="ALL PATIENTS" id="Tfx-qf-GKU">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="Tug-TM-Me9">
+                            <color key="tintColor" red="0.24568814039230347" green="0.24361503124237061" blue="0.50111836194992065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="EhF-7m-ihg" kind="show" id="zWr-Eb-pS8"/>
                             </connections>
@@ -148,6 +150,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.2456881404" green="0.2436150312" blue="0.50111836190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="patientCell" rowHeight="75" id="22e-C1-BA0" customClass="PatientCell" customModule="Trauma_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="75"/>
@@ -393,6 +396,7 @@
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.2456881404" green="0.2436150312" blue="0.50111836190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qFR-QG-GQF" firstAttribute="trailing" secondItem="YZy-Bv-IfY" secondAttribute="trailing" constant="16" id="3Nt-pq-WtD"/>
                             <constraint firstItem="qFR-QG-GQF" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Pu3-Vt-aE5" secondAttribute="trailing" constant="243" id="6XL-zj-8p0"/>
@@ -715,6 +719,7 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.2456881404" green="0.2436150312" blue="0.50111836190000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yz1-g9-cNe" firstAttribute="trailing" secondItem="QMv-qU-oMB" secondAttribute="trailing" id="5tb-i0-z6F"/>
                             <constraint firstItem="yz1-g9-cNe" firstAttribute="top" secondItem="QMv-qU-oMB" secondAttribute="top" id="6Om-V8-WVo"/>

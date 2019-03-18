@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AWSMobileClient
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -20,13 +21,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboardWhenTappedAround()
         usernameField.delegate = self
         passwordField.delegate = self
+        
+        // Make buttons rounded
         logInButton.layer.cornerRadius = 5
         signUpButton.layer.cornerRadius = 5
         
     }
     
+    // Cycle through fields on keyboard "enter"
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         if textField == usernameField {
             usernameField.resignFirstResponder()
             passwordField.becomeFirstResponder()
@@ -40,6 +43,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 }
 
+// Extension to hide keyboard when tapping off of keyboard
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

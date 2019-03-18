@@ -28,14 +28,15 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerV
 
     @IBAction func addPatientButton(_ sender: Any) {
         print("Adding Patient Pressed")
-//        let age = agePicker.value
-//        let roomNumber = roomNumberField.text
         let currentRoom : String! = self.currentRoomPickerData
         
+        // Add patient logic
         if let patientsDict = Patient.getPatientsDict() {
             if patientsDict.keys.contains(currentRoom) {
+                // Check if room is already added
                 let roomExistsAlert = UIAlertController(title: "Couldn't Add Patient", message: "\(currentRoom ?? "Room") already exists. Would you like to overwrite it?", preferredStyle: .alert)
                 let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
+                    // if user wants to overwrite, overwrite previous patient/room and pop back to main view
                     let _ = Patient(roomNumber: currentRoom, gender: self.currentGenderPickerData, age: self.currentAgePickerData)
                     self.navigationController?.popViewController(animated: true)
                     print("Added Patient")
@@ -44,55 +45,16 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerV
                 roomExistsAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
                 self.present(roomExistsAlert, animated: true, completion: nil)
             } else {
+                // Add patient/room and pop back to main view
                 let _ = Patient(roomNumber: currentRoom, gender: self.currentGenderPickerData, age: self.currentAgePickerData)
                 self.navigationController?.popViewController(animated: true)
             }
         }
-       
-        
-        
-    //        if age == "" || roomNumber == "" {
-    //            self.present(missingInfoAlert, animated: true, completion: nil)
-    //        } else {
-    //            navigationController?.popViewController(animated: true)
-    //        }
-            
-            //Pop back to main view
-        
-        
-        
-        //Adding patient to db for testing:
-//        if let roomNumber = roomNumberField.text {
-//
-//            // Doesn't support addition when user already exists... FIX
-//
-//
-//            let mutationInput = CreateTraumaTracker2Input(roomNumber: roomNumber, pulseRate: 75.0, spo2: 99.1, ecg: "{}", bloodPressureSystolic: 120.0, bloodPressureDiastolic: 80.0, restingPulseRate: 87.1, bodyTemperature: 98.6)
-//
-//            let connectionError = UIAlertController(title: "Couldn't Add Patient", message: "There was a connection error, please try again.", preferredStyle: .alert)
-//            connectionError.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
-//
-//            appSyncClient?.perform(mutation: CreateTraumaTracker2Mutation(input: mutationInput)) { (result, error) in
-//                if let error = error as? AWSAppSyncClientError {
-//                    print("Error occurred: \(error.localizedDescription )")
-//                    self.present(connectionError, animated: true, completion: nil)
-//                } else if let resultError = result?.errors {
-//                    print("Error saving the item on server: \(resultError)")
-//                    self.present(connectionError, animated: true, completion: nil)
-//                    return
-//                } else {
-//                    self.navigationController?.popViewController(animated: true)
-//                }
-//            }
-//        } else {
-//            let missingInfoAlert = UIAlertController(title: "Couldn't Add Patient", message: "Some or all patient information is missing.", preferredStyle: .alert)
-//            missingInfoAlert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
-//            self.present(missingInfoAlert, animated: true, completion: nil)
-//        }
     }
     
 
     override func viewWillAppear(_ animated: Bool) {
+        //Retrieve list of all rooms on database to give user options to pick from
         BackEndFunctions.getAllAWSRooms(appSyncClient) { (roomData : [String]) in   // Object received from closure
             self.roomPickerData = roomData.sorted()
             DispatchQueue.main.async {
@@ -101,15 +63,11 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerV
                 self.currentRoomPickerData = self.roomPickerData[0]
             }
         }
-//        roomPickerData =  BackEndFunctions.getAllAWSRooms(appSyncClient)
-//        print("done \(roomPickerData)")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-//        ageField.delegate = self
-//        roomNumberField.delegate = self
         addPatientButton.layer.cornerRadius = 5
         
         genderPicker.delegate = self
@@ -122,10 +80,7 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerV
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appSyncClient = appDelegate.appSyncClient
         
-//        print("roompickerdata: \(roomPickerData)")
-//        if roomPickerData.count > 0 {
-//            currentRoomPickerData = roomPickerData[0]
-//        }
+        // init stored picker values
         currentGenderPickerData = genderPickerData[0]
         currentAgePickerData = Int(agePickerData[0])
         
@@ -143,11 +98,7 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerV
         return 0
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        if pickerView == agePicker {
-//            return 1
-//        } else if pickerView == genderPicker {
-//            return 1
-//        }
+        // Always 1 in each picker
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -173,24 +124,7 @@ class AddPatientViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-//        if textField == roomNumberField {
-//            roomNumberField.resignFirstResponder()
-//        }
-//            ageField.becomeFirstResponder()
-//        } else if textField == ageField {
-//            ageField.resignFirstResponder()
-//        }
         return true
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -17,13 +17,9 @@ class PatientCell: UITableViewCell {
     @IBOutlet weak var secondaryDetailIcon: UIView!
     @IBOutlet weak var secondaryDetailText: UILabel!
     @IBOutlet weak var ESIview: UIView!
-    //    var patientData: [Any]?
-//    var patientId: Int!
+
     var ESIrating: Int!
     var roomNum: String!
-    var ESIcircle: CAShapeLayer!
-//    var firstName: String!
-//    var lastName: String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,15 +46,13 @@ class PatientCell: UITableViewCell {
 //        layer.shadowOffset = CGSize(width: 0, height: 0)
 //        layer.shadowColor = UIColor.black.cgColor
         
+        self.layoutIfNeeded()
+        
     }
     
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-//        ESIcircle = drawIcon(square: ESIview, color: UIColor(red: 214/255, green: 230/255, blue: 235/255, alpha: 1.0).cgColor, inset: 4.0)
-    }
-    
+
     override var frame: CGRect {
+        //Rounded and inset row
         get {
             return super.frame
         }
@@ -71,67 +65,100 @@ class PatientCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
+        super.setSelected(selected, animated: animated)
+        
+    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        //Remove colored circles before reuse
+        ESIview.layer.sublayers?.remove(at: 0)
+        secondaryDetailIcon.layer.sublayers?.remove(at: 0)
+        primaryDetailIcon.layer.sublayers?.remove(at: 0)
+    
     }
     
+    
     func updatePatientData(_ data: Patient) {
-        roomNumLabel?.text = data.roomNumber
         roomNum = data.roomNumber
-        ESIratingLabel?.text = String(data.getSeverityRank())
+        roomNumLabel?.text = roomNum
+        
         ESIrating = data.getSeverityRank()
+        ESIratingLabel?.text = String(ESIrating)
         
-        self.backgroundColor = getSeverityColor(ESIrating)
+        backgroundColor = getSeverityColor()
+        self.layoutIfNeeded()
+        drawESICircle()
+       
+        // Get top two most severe vitals for previewed vitals data in each cell
+        let topTwo = data.topTwo()
+        if topTwo[0] == "spo2" {
+            primaryDetailText.text = "\(data.spo2.rounded(toPlaces: 1))% SpO2"
+        } else if topTwo[0] == "pulseRate" {
+            primaryDetailText.text = "\(data.pulseRate.rounded(toPlaces: 1)) BPM"
+        } else if topTwo[0] == "bodyTemperature" {
+            primaryDetailText.text = "\(data.bodyTemperature.rounded(toPlaces: 1)) ℉"
+        } else if topTwo[0] == "bloodPressure" {
+            primaryDetailText.text = "\(Int(data.bloodPressureSystolic))/\(Int(data.bloodPressureDiastolic)) mmHg"
+        }
         
+        if topTwo[1] == "spo2" {
+            secondaryDetailText.text = "\(data.spo2.rounded(toPlaces: 1))% SpO2"
+        } else if topTwo[1] == "pulseRate" {
+            secondaryDetailText.text = "\(data.pulseRate.rounded(toPlaces: 1)) BPM"
+        } else if topTwo[1] == "bodyTemperature" {
+            secondaryDetailText.text = "\(data.bodyTemperature.rounded(toPlaces: 1)) ℉"
+        } else if topTwo[1] == "bloodPressure" {
+            secondaryDetailText.text = "\(Int(data.bloodPressureSystolic))/\(Int(data.bloodPressureDiastolic)) mmHg"
+        }
         
+        // Draw colored icon for previewed vitals data
         drawIcon(square: primaryDetailIcon, color: UIColor.red.cgColor, inset: 2.0)
         drawIcon(square: secondaryDetailIcon, color: UIColor.red.cgColor, inset: 2.0)
     }
     
-    func getSeverityColor(_ ESI: Int) -> UIColor {
-        if (ESI == 1) {
+    // Get color for cell background
+    func getSeverityColor() -> UIColor {
+        if (self.ESIrating > 6) {
             return UIColor(red: 242/255, green: 162/255, blue: 160/255, alpha: 1.0)
-        } else if (ESI == 2) {
+        } else if (self.ESIrating > 4) {
             return UIColor(red: 250/255, green: 219/255, blue: 162/255, alpha: 1.0)
-        } else if (ESI == 3) {
+        } else if (self.ESIrating > 3) {
             return UIColor(red: 250/255, green: 219/255, blue: 162/255, alpha: 1.0)
         } else {
             return UIColor(red: 214/255, green: 230/255, blue: 235/255, alpha: 1.0)
         }
     }
     
+    // Get color and draw circle for ESI
     func drawESICircle() {
         let bgColor : UIColor!
-        if (self.ESIrating == 1) {
+        if (self.ESIrating > 6) {
             bgColor = UIColor(red: 235/255, green: 33/255, blue: 39/255, alpha: 1.0)
-        } else if (self.ESIrating == 2) {
+        } else if (self.ESIrating > 4) {
             bgColor = UIColor(red: 250/255, green: 181/255, blue: 27/255, alpha: 1.0)
-        } else if (self.ESIrating == 3) {
+        } else if (self.ESIrating > 3) {
             bgColor = UIColor(red: 250/255, green: 181/255, blue: 27/255, alpha: 1.0)
         } else {
             bgColor = UIColor(red: 0/255, green: 185/255, blue: 243/255, alpha: 1.0)
         }
         drawIcon(square: ESIview, color: bgColor.cgColor, inset: 3.0)
-//        ESIview.layer.cornerRadius = ESIview.frame.height/2.0
-//        ESIview.backgroundColor = bgColor
-//        ESIratingLabel.textColor = UIColor.white
-
+        print(self.ESIrating)
     }
     
+    // draw arbitrary colored circle
     func drawIcon(square: UIView, color: CGColor, inset: CGFloat) {
         let circlePath = UIBezierPath(ovalIn: square.bounds.insetBy(dx: inset, dy: inset))
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circlePath.cgPath
         shapeLayer.fillColor = color
-        //    shapeLayer.strokeColor = UIColor.redColor().CGColor
-        //    shapeLayer.lineWidth = desiredLineWidth
-//        square.layer.addSublayer(shapeLayer)
         square.layer.insertSublayer(shapeLayer, at: 0)
     }
 
 }
 
+// Add shadow to any view extension
 extension UIView {
     func addShadow(){
         self.layer.shadowColor = UIColor.black.cgColor
