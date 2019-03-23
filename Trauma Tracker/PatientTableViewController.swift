@@ -19,6 +19,7 @@ class PatientTableViewController: UITableViewController {
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appSyncClient = appDelegate.appSyncClient
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,7 +68,6 @@ class PatientTableViewController: UITableViewController {
         cell.layer.rasterizationScale = UIScreen.main.scale
         if let sortedPatients = Patient.getPatientsSorted() {
             cell.updatePatientData(sortedPatients[indexPath.row])
-            print(indexPath.row)
             return cell
         }
         return cell
@@ -78,7 +78,6 @@ class PatientTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath)
         self.performSegue(withIdentifier: "GoToPatientDetailView", sender: selectedCell)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -144,7 +144,6 @@ class PatientCell: UITableViewCell {
             bgColor = UIColor(red: 0/255, green: 185/255, blue: 243/255, alpha: 1.0)
         }
         drawIcon(square: ESIview, color: bgColor.cgColor, inset: 3.0)
-        print(self.ESIrating)
     }
     
     // draw arbitrary colored circle

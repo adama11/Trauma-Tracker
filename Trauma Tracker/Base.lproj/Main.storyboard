@@ -125,17 +125,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TPJ-fh-WtR"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ALL PATIENTS" id="Tfx-qf-GKU">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="Tug-TM-Me9">
-                            <color key="tintColor" red="0.24568814039230347" green="0.24361503124237061" blue="0.50111836194992065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="EhF-7m-ihg" kind="show" id="zWr-Eb-pS8"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="ALL PATIENTS" id="Tfx-qf-GKU"/>
                     <connections>
-                        <outlet property="addButton" destination="Tug-TM-Me9" id="Cex-Xb-FKf"/>
                         <outlet property="navBar" destination="Tfx-qf-GKU" id="haf-yz-VSo"/>
+                        <segue destination="EhF-7m-ihg" kind="show" identifier="showNewPatient" id="74F-uG-Yjd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdU-tB-0u7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -772,4 +765,5 @@
     <resources>
         <image name="1024x1024" width="411.88827514648438" height="411.88827514648438"/>
     </resources>
+    <color key="tintColor" red="0.24568814039230347" green="0.24361503124237061" blue="0.50111836194992065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
